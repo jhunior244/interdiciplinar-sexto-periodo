@@ -7,22 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 @Data
-public class ItemDto implements Serializable {
+public class TransportadoraDto implements Serializable {
 
     private Long id;
 
     private String nome;
-
-    private String descricao;
-
-    private BigDecimal preco;
-
-    private BigDecimal desconto;
-
-    private MarcaDto marca;
-
-    private TipoItemDto tipoItem;
 }

@@ -24,4 +24,10 @@ public class Item {
 
     @Column
     private BigDecimal desconto;
+
+    @ManyToOne
+    private Marca marca;
+
+    @ManyToOne
+    private TipoItem tipoItem;
 }
