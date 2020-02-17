@@ -1,15 +1,22 @@
 .menu-principal {
     background-color: indigo;
 }
-button {
+.menu-principal button {
     color: darkturquoise;
     background-color: dimgray;
     margin:  12px 0 12px 7px;
+    text-shadow: 5px 12px 0 0 brown;
+    box-shadow: 3px 3px 0 0 black;
 }
 
 button:hover {
-    color: mediumblue;
     transform: scale(1.1);
 }
 
-
+.input-pesquisa {
+    height: 26px;
+    width: 360px;
+    background-color: antiquewhite;
+    background: antiquewhite;
+    margin: 20px 0 12px 7px;
+}
