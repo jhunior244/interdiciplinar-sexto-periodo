@@ -1,1 +1,64 @@
-<app-menu-principal></app-menu-principal>
+<div style="background-color: rgb(155, 149, 149); " fxFill>
+    <mat-toolbar class="menu-principal" fxLayout="row">
+        <div>
+            <button mat-icon-button>
+                <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
+            </button>
+        </div>
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
+            <div fxLayoutAlign="center center">
+                <button mat-raised-button>
+                    HOME
+                </button>
+                <button mat-raised-button>
+                    NOTEBOOK
+                </button>
+                <button mat-raised-button>
+                    DESKTOP
+                </button>
+                <button mat-raised-button>
+                    UPGRADE
+                </button>
+                <button mat-raised-button>
+                    HELP
+                </button>
+            </div>
+            <div>
+                <mat-form-field style="margin: 12px 40px 12px 70px; width: 300px;">
+                    <input type="text" matInput placeholder="Pesquisar" id="pesquisar">
+                    <mat-icon>search</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-menu #menu="matMenu" class="mb-1">
+        <button mat-menu-item>
+            <mat-icon>local_grocery_store</mat-icon>
+            <span>Meus Pedidos</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Minhas preferências</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Editar perfil</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Sair</span>
+        </button>
+    </mat-menu>
+    <section fxLayoutAlign="center center">
+        <mat-card class="promocoes" >
+            <mat-card-content fxLayoutAlign="center center">
+                <img src="../assets/imagens/pc-gamer.jpg">
+                <!-- <img src="../assets/imagens/1.png"> -->
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions fxLayoutAlign="center end">
+                <span>Pc Completo Windows XP com Celeron 1. R$ 6.000,00</span>
+            </mat-card-actions>
+        </mat-card>
+    </section>
+</div>

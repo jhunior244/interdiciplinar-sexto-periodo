@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-menu-principal',
@@ -7,9 +6,5 @@ import { MatMenuTrigger } from '@angular/material/menu';
     styleUrls: ['./menu-principal.component.css']
 })
 export class MenuPrincipalComponent {
-    @ViewChild(MatMenuTrigger, {static: true}) trigger: MatMenuTrigger;
 
-    someMethod() {
-      this.trigger.openMenu();
-    }
 }
