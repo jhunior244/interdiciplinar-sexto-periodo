@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { imagem } from './teste-imagem';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-tela-lista-produtos',
@@ -29,5 +28,9 @@ export class TelaListaProdutosComponent implements OnInit {
             console.log(this.arr);
         });
         console.log(this.arr);
+    }
+
+    seila(){
+        console.log('sdfsdf');
     }
 }

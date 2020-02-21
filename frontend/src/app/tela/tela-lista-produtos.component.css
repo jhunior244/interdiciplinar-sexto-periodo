@@ -1,0 +1,33 @@
+.menu-lateral {
+    width: 80px;
+    min-height: 100%;
+}
+
+.card-item mat-card:hover {
+    transform: scale(1.1);
+}
+
+.imagem-item {
+    margin: 15px !important;
+    max-width: 200px;
+}
+
+a {
+    text-emphasis: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: grey;
+    text-decoration: underline;
+}
+
+.preco {
+    font-size: 18px;
+    color: green;
+}
+
+.descricao-item {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+}

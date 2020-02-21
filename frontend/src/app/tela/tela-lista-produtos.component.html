@@ -1,29 +1,28 @@
-<div class="back" fxLayout="row wrap" fxFill fxLayoutAlign="start center">
-  <mat-card *ngFor="let item of arr" style="max-width: 200px; margin: 15px;">
-    <!-- <mat-card-content fxLayoutAlign="start center">
-      <img [src]="item.url" style="max-width: 200px;">
-    </mat-card-content> -->
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <div fxLayoutAlign="center">
-    <img mat-card-image [src]="item.url" alt="Photo of a Shiba Inu"
-     style="max-width: 200px;">
-    </div>
-    <mat-card-content  fxLayoutAlign="start center">
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<div > 
+  <div class="menu-lateral" fxFill fxLayout="column">
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-checkbox>Check me!</mat-checkbox>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div fxLayout="row wrap" fxFill fxLayoutAlign="center center">
+    <mat-card class="card-item" (click)="seila()" *ngFor="let item of arr" style="max-width: 200px; margin: 15px;">
+      <div fxLayoutAlign="center" class="imagem-item">
+        <img mat-card-image src="../../assets/imagens/pc-1.png">
+      </div>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <a href="www.google.com">
+          <p fxLayoutAlign="center start" class="preco">
+            R$ 2.500,00
+          </p>
+          <p class="descricao-item">
+            Monitor 20 polegadas core I5 SSD 240 gb
+          </p>
+        </a>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-<!-- <mat-card class="example-card">
-</mat-card> -->
