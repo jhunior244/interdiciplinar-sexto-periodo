@@ -1,14 +1,18 @@
-<div > 
-  <div class="menu-lateral" fxFill fxLayout="column">
-    <mat-checkbox>Check me!</mat-checkbox>
-    <mat-checkbox>Check me!</mat-checkbox>
-    <mat-checkbox>Check me!</mat-checkbox>
-    <mat-checkbox>Check me!</mat-checkbox>
-    <mat-checkbox>Check me!</mat-checkbox>
+<div class="painel-lista-produtos" fxLayoutAlign="space-around"> 
+  <div class="menu-lateral" fxLayout="column">
+    <span class="titulo-filtro">Processador</span>
+    <mat-checkbox>Core I3</mat-checkbox>
+    <mat-checkbox>Core I5</mat-checkbox>
+    <mat-checkbox>Core I7</mat-checkbox>
+    <mat-checkbox>Core I9</mat-checkbox>
+    <BR>
+    <span class="titulo-filtro">Marca</span>
+    <mat-checkbox>Dell</mat-checkbox>
+    <mat-checkbox>HP</mat-checkbox>
+    <mat-checkbox>Lenovo</mat-checkbox>
   </div>
-  <mat-divider [vertical]="true"></mat-divider>
-  <div fxLayout="row wrap" fxFill fxLayoutAlign="center center">
-    <mat-card class="card-item" (click)="seila()" *ngFor="let item of arr" style="max-width: 200px; margin: 15px;">
+  <div fxLayout="row wrap" fxLayoutAlign="center start">
+    <mat-card class="card-item"  *ngFor="let item of arr" style="max-width: 200px; margin: 15px;">
       <div fxLayoutAlign="center" class="imagem-item">
         <img mat-card-image src="../../assets/imagens/pc-1.png">
       </div>

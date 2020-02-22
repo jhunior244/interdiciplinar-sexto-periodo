@@ -23,14 +23,9 @@ export class TelaListaProdutosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.httpClient.get<any[]>('http://localhost:3000/flavio/photos').subscribe(fotos => {
-            this.arr = fotos;
-            console.log(this.arr);
-        });
-        console.log(this.arr);
-    }
+        for (let i = 0; i < 25; i++) {
+            this.arr.push('dfdf');
+        }
 
-    seila(){
-        console.log('sdfsdf');
     }
 }
