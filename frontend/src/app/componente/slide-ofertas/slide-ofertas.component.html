@@ -1,0 +1,9 @@
+<div (mouseenter)="mouseEnter()" fxLayoutAlign="center end" (mouseleave)="mouseLeave()" [@teste]="ofertas" class="container-imagem">
+    <img class="imagem-promocao" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+      [src]="imagemExibida">
+    <mat-radio-group style="float: inline-end; position: absolute; margin-bottom: 10px;" aria-label="Select an option">
+      <mat-radio-button style="margin-left: 20px;" value="1"></mat-radio-button>
+      <mat-radio-button style="margin-left: 20px;" value="2"></mat-radio-button>
+      <mat-radio-button style="margin-left: 20px;" value="3"></mat-radio-button>
+    </mat-radio-group>
+  </div>

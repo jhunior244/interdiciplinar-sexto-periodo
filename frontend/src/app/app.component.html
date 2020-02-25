@@ -7,8 +7,8 @@
                 </button>
             </div>
             <div fxLayoutAlign="center center">
-                <button mat-raised-button>
-                    HOME
+                <button mat-raised-button [routerLink]="rotasSistema.rotaInicio">
+                    INICIO
                 </button>
                 <button mat-raised-button>
                     NOTEBOOK
@@ -17,10 +17,10 @@
                     DESKTOP
                 </button>
                 <button mat-raised-button>
-                    UPGRADE
+                    ACESSORIOS
                 </button>
                 <button mat-raised-button>
-                    HELP
+                    AJUDA
                 </button>
             </div>
             <div>
@@ -62,9 +62,14 @@
     </section> -->
 </div>
 <div fxLayoutAlign="center start" fxFill>
-    <div class="painel-navegacao" fxLayoutAlign="center center">
+    <div class="painel-navegacao" fxLayout="column">
         <router-outlet>
-            <app-tela-lista-produtos></app-tela-lista-produtos>
+
+            <!-- <app-painel-lista-produtos>
+            </app-painel-lista-produtos> -->
         </router-outlet>
+        <div class="footer">
+            <app-footer></app-footer>
+        </div>
     </div>
 </div>

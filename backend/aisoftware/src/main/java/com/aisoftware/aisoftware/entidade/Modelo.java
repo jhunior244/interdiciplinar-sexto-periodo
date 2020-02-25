@@ -3,29 +3,22 @@ package com.aisoftware.aisoftware.entidade;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
 @Data
-public class Compra {
+public class Modelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private ZonedDateTime data;
+    private String nome;
 
     @ManyToOne
-    private Usuario usuario;
-
-    @ManyToOne
-    private Entrega entrega;
+    private TipoItem tipoItem;
 
     @ManyToMany
-    private List<Item> listaItem;
-
-    @ManyToMany
-    private List<Kit> listaKit;
+    private List<Atributo> listaAtributo;
 }

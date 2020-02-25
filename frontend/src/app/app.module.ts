@@ -12,13 +12,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TelaListaProdutosComponent } from './tela/tela-lista-produtos.component';
-
+import { PainelListaProdutosComponent } from './componente/painel-lista-produtos/painel-lista-produtos.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { SlideOfertasComponent } from './componente/slide-ofertas/slide-ofertas.component';
+import { TelaInicialComponent } from './tela/tela-inicial/tela-inicial.component';
+import { CardProdutoComponent } from './componente/card-produto/card-produto.component';
+import { FiltroProdutoComponent } from './componente/filtro-produto/filtro-produto.component';
+import { ProdutosEmDestaqueComponent } from './componente/produtos-em-destaque/produtos-em-destaque.component';
+import { FooterComponent } from './componente/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TelaListaProdutosComponent
+    PainelListaProdutosComponent,
+    SlideOfertasComponent,
+    CardProdutoComponent,
+    FiltroProdutoComponent,
+    TelaInicialComponent,
+    ProdutosEmDestaqueComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +51,8 @@ import { TelaListaProdutosComponent } from './tela/tela-lista-produtos.component
     MatListModule,
     MatDividerModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

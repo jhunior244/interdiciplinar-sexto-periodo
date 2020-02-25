@@ -1,0 +1,11 @@
+<div fxLayoutAlign="center center">
+  <div class="painel-lista-produtos" fxLayoutAlign="space-around start">
+    <div class="menu-lateral" fxLayout="column">
+      <app-filtro-produto [listaFiltros]="filtros"></app-filtro-produto>
+    </div>
+    <div fxLayout="row wrap">
+      <div fxLayoutAlign="start center" *ngFor="let item of arr">
+        <app-card-produto [item]="item"></app-card-produto>
+      </div>
+    </div>
+  </div>

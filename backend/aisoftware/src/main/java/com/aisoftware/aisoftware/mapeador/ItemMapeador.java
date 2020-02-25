@@ -5,7 +5,7 @@ import com.aisoftware.aisoftware.entidade.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring",uses = {MarcaMapeador.class, TipoItemMapeador.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring",uses = {MarcaMapeador.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ItemMapeador {
 
     ItemDto itemToItemDto(Item item);
