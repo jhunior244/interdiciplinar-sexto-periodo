@@ -1,0 +1,5 @@
+<div *ngFor="let item of listaFiltros" fxLayout="column">
+    <span class="titulo-filtro">{{item.nomeFiltro}}</span>
+    <mat-checkbox *ngFor="let opcao of item.opcoes">{{opcao}}</mat-checkbox>
+    <BR>
+</div>

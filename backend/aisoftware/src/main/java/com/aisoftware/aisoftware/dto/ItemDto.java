@@ -23,6 +23,4 @@ public class ItemDto implements Serializable {
     private BigDecimal desconto;
 
     private MarcaDto marca;
-
-    private TipoItemDto tipoItem;
 }

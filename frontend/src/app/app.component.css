@@ -19,22 +19,8 @@
     display: inherit;
 }
 
-.promocoes {
-    align-items: center;
-    width: 45%;
-    margin: 15px;
-    border-radius: 12px;
-    box-shadow: 2px 2px 8px 4px lightslategray;
-
-}
-
-.promocoes img {
-    width: 415px;
-    height: 280px;
-}
-
 .painel-navegacao {
-    width: 80%;
+    width: 100%;
     min-height: 100%;
-    background-color: rgb(170, 170, 170);
+    background-color: rgba(126, 123, 123, 0.884);
 }

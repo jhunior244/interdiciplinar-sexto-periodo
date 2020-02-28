@@ -29,5 +29,5 @@ public class Item {
     private Marca marca;
 
     @ManyToOne
-    private TipoItem tipoItem;
+    private Modelo modelo;
 }
