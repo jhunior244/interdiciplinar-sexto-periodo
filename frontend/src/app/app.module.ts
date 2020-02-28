@@ -20,6 +20,7 @@ import { CardProdutoComponent } from './componente/card-produto/card-produto.com
 import { FiltroProdutoComponent } from './componente/filtro-produto/filtro-produto.component';
 import { ProdutosEmDestaqueComponent } from './componente/produtos-em-destaque/produtos-em-destaque.component';
 import { FooterComponent } from './componente/footer/footer.component';
+import { TelaListaDesktopComponent } from './tela/tela-lista-desktop/tela-lista-desktop.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './componente/footer/footer.component';
     CardProdutoComponent,
     FiltroProdutoComponent,
     TelaInicialComponent,
+    TelaListaDesktopComponent,
     ProdutosEmDestaqueComponent,
     FooterComponent
   ],

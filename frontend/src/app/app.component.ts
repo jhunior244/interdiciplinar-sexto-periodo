@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { rotas } from './rotas';
+import { configuracao } from './configuracao';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,5 @@ import { rotas } from './rotas';
 })
 export class AppComponent {
 
-  public rotasSistema = rotas;
+  public rotasSistema = configuracao;
 }

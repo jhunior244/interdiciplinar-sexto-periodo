@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { rotas } from 'src/app/rotas';
 
 @Injectable()
 export class ItemService {
