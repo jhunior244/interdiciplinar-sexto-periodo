@@ -3,6 +3,7 @@ package com.aisoftware.aisoftware.entidade;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,12 @@ public class Kit {
 
     @Column
     private String descricao;
+
+    @Column
+    private BigDecimal preco;
+
+    @ManyToOne
+    private TipoKit tipoKit;
 
     @ManyToMany
     private List<Item> listaItem;
