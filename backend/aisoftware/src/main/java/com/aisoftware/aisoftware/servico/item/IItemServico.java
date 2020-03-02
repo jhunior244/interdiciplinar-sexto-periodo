@@ -1,4 +1,4 @@
-package com.aisoftware.aisoftware.servico;
+package com.aisoftware.aisoftware.servico.item;
 
 import com.aisoftware.aisoftware.entidade.Item;
 

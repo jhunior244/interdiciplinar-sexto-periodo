@@ -27,7 +27,4 @@ public class Kit {
 
     @ManyToMany
     private List<Item> listaItem;
-
-    @ManyToMany
-    private List<Compra> listaCompra;
 }

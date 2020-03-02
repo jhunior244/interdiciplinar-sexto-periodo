@@ -23,6 +23,4 @@ public class KitDto implements Serializable {
     private TipoKitDto tipoKit;
 
     private List<ItemDto> listaItem;
-
-    private List<CompraDto> listaCompra;
 }

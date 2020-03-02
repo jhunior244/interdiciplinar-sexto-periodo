@@ -2,7 +2,7 @@ package com.aisoftware.aisoftware.controlador;
 
 import com.aisoftware.aisoftware.dto.ItemDto;
 import com.aisoftware.aisoftware.mapeador.ItemMapeador;
-import com.aisoftware.aisoftware.servico.IItemServico;
+import com.aisoftware.aisoftware.servico.item.IItemServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,4 +26,5 @@ public class ItemControllador {
     public ItemDto obtem(Long id){
         return itemMapeador.itemToItemDto(itemServico.obtem(id));
     }
+
 }

@@ -23,7 +23,8 @@ public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
     public List<Kit> lista(
             List<Long> listaIdTipoKit,
             BigDecimal valorMinimo,
-            BigDecimal valorMaximo) {
+            BigDecimal valorMaximo
+            ) {
 
         QKit kit = QKit.kit;
 
@@ -36,8 +37,17 @@ public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
         }
 
         if(!ObjectUtils.isEmpty(valorMaximo)){
+            predicado = predicado.and(kit.preco.loe(valorMaximo));
         }
 
-        return  null;
+        if(!ObjectUtils.isEmpty(valorMinimo)){
+            predicado = predicado.and(kit.preco.goe(valorMinimo));
+        }
+
+        query.where(predicado);
+
+        List<Kit> lista = query.fetch();
+
+        return  lista;
     }
 }
