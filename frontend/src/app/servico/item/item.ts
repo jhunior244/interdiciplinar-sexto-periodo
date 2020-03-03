@@ -33,7 +33,8 @@ export class Item {
         let item = Object.create(Item.prototype);
 
         item = Object.assign(item, response, {
-
+            marca: (response.marca) ? Marca.doBackend(response.marca) : null,
+            tipoItem: (response.tipoItem) ? TipoItem.doBackend(response.tipoItem) : null,
         });
         return item;
     }

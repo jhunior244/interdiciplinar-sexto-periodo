@@ -1,6 +1,6 @@
 import { animate, keyframes, state, style, transition, trigger, query } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 @Component({
     selector: 'app-painel-lista-produtos',
     templateUrl: 'painel-lista-produtos.component.html',
@@ -8,7 +8,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class PainelListaProdutosComponent implements OnInit {
 
-    public arr: any[] = [];
+    @Input() arr: any[] = [];
 
     public filtros = [
         {
@@ -31,14 +31,14 @@ export class PainelListaProdutosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        for (let i = 0; i < 25; i++) {
-            this.arr.push('../../assets/imagens/pc-1.png');
-            this.arr.push('../../assets/imagens/pc-4.png');
-            this.arr.push('../../assets/imagens/pc-5.jpg');
-            this.arr.push('../../assets/imagens/pc-6.jpg');
-            this.arr.push('../../assets/imagens/pc-7.jpg');
-            this.arr.push('../../assets/imagens/pc-8.jpg');
-        }
+        // for (let i = 0; i < 25; i++) {
+        //     this.arr.push('../../assets/imagens/pc-1.png');
+        //     this.arr.push('../../assets/imagens/pc-4.png');
+        //     this.arr.push('../../assets/imagens/pc-5.jpg');
+        //     this.arr.push('../../assets/imagens/pc-6.jpg');
+        //     this.arr.push('../../assets/imagens/pc-7.jpg');
+        //     this.arr.push('../../assets/imagens/pc-8.jpg');
+        // }
 
     }
 }

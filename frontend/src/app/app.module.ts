@@ -21,6 +21,7 @@ import { FiltroProdutoComponent } from './componente/filtro-produto/filtro-produ
 import { ProdutosEmDestaqueComponent } from './componente/produtos-em-destaque/produtos-em-destaque.component';
 import { FooterComponent } from './componente/footer/footer.component';
 import { TelaListaDesktopComponent } from './tela/tela-lista-desktop/tela-lista-desktop.component';
+import { KitService } from './servico/kit/kit.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { TelaListaDesktopComponent } from './tela/tela-lista-desktop/tela-lista-
     MatCheckboxModule,
     MatRadioModule
   ],
-  providers: [],
+  providers:  [KitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

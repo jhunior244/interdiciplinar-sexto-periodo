@@ -31,7 +31,8 @@ export class Kit {
         let kit = Object.create(Kit.prototype);
 
         kit = Object.assign(kit, response, {
-
+            tipoKit: (response.tipoKit) ? TipoKit.doBackend(response.tipoKit) : null,
+            listaItem: (response.listaItem) ? Item.listaDoBackend(response.listaItem) : null
         });
         return kit;
     }

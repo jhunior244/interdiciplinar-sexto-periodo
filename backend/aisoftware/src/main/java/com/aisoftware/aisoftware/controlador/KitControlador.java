@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -37,7 +38,8 @@ public class KitControlador {
     }
 
     @GetMapping(path = "/lista")
-    public List<Kit> lista(String nome, Long numero, Long numeroPagina, Long tamanhoPagina){
+    public List<KitDto> lista(BigDecimal valorMinimo, BigDecimal valorMaximo,
+                           Long numeroPagina, Long tamanhoPagina){
         if(numeroPagina == null || tamanhoPagina == null){
             numeroPagina = 0L;
             tamanhoPagina = 10L;
@@ -45,7 +47,7 @@ public class KitControlador {
 
         Pageable pagina = PageRequest.of(numeroPagina.intValue(), tamanhoPagina.intValue());
 
-        List<Kit> page = kitServico.lista();
+        List<KitDto> page = kitMapeador.listToListDto(kitServico.lista());
 
         return page;
     }

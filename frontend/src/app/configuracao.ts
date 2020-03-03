@@ -3,6 +3,16 @@ export const configuracao = {
 
     rotaInicio: 'inicio',
     rotaDesktop: 'desktop',
-    rotaNotebook: 'notebok'
+    rotaNotebook: 'notebok',
+
+    parametroListaIdTipoKit: 'listaIdTipoKit',
+    parametroValorMinimo: 'valorMinimo',
+    parametroValorMaximo: 'valorMaximo',
+
+    tipoKit: {
+        COMPUTADOR: 1,
+        NOTEBOOK: 2,
+    },
+
 };
 
