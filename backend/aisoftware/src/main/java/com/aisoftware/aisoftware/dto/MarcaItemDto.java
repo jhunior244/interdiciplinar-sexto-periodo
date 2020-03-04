@@ -13,4 +13,7 @@ import java.util.List;
 @Data
 public class MarcaItemDto implements Serializable {
 
+    private Long id;
+
+    private String nome;
 }

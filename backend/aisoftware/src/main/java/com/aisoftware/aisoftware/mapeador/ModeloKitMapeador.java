@@ -1,19 +1,18 @@
 package com.aisoftware.aisoftware.mapeador;
 
 import com.aisoftware.aisoftware.dto.ItemDto;
+import com.aisoftware.aisoftware.dto.ModeloKitDto;
 import com.aisoftware.aisoftware.entidade.Item;
+import com.aisoftware.aisoftware.entidade.ModeloKit;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring",uses = {
-        ModeloItemMapeador.class,
-        MarcaItemMapeador.class,
-        TipoItemMapeador.class,
-        ImagemMapeador.class,
+        KitMapeador.class
 }, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface ItemMapeador {
+public interface ModeloKitMapeador {
 
-    ItemDto itemToItemDto(Item item);
+    ModeloKitDto modeloKitToModeloKitDto(ModeloKit modeloKit);
 
-    Item itemDtoToItem(ItemDto itemDto);
+    ModeloKit modeloKitDtoToModeloKit(ModeloKitDto modeloKit);
 }

@@ -10,11 +10,11 @@ import java.util.List;
 public class MarcaItem {
 
     public enum Valores {
-        PROCESSADOR(1, "ASUS"),
-        MEMORIA_RAM(2, "AMD"),
-        SSD(3, "INTEL"),
-        HD(4, "HP"),
-        PLACA_MAE(5, "DELL");
+        ASUS(1, "Asus"),
+        AMD(2, "AMD"),
+        INTEL(3, "Intel"),
+        KINGSTON(4, "Kingston"),
+        GIGABYTE(5, "Gigabyte");
 
         private long id;
         private String nome;

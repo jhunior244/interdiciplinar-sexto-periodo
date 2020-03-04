@@ -23,10 +23,13 @@ public class Kit {
     private BigDecimal preco;
 
     @ManyToOne
-    private MarcaItem marcaItem;
+    private MarcaKit marcaKit;
 
     @ManyToOne
     private TipoKit tipoKit;
+
+    @ManyToOne
+    private ModeloKit modeloKit;
 
     @ManyToMany
     private List<Item> listaItem;

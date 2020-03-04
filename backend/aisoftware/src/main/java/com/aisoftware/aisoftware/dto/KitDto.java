@@ -18,7 +18,9 @@ public class KitDto implements Serializable {
 
     private TipoKitDto tipoKit;
 
-    private MarcaItemDto marca;
+    private MarcaKitDto marcaKit;
+
+    private ModeloKitDto modeloKit;
 
     private List<ItemDto> listaItem;
 

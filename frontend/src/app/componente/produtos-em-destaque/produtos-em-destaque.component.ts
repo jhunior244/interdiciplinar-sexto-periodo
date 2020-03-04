@@ -10,5 +10,5 @@ export class ProdutosEmDestaqueComponent {
     img2 = '../../../assets/imagens/pc-4.png';
     img3 = '../../../assets/imagens/pc-5.jpg';
     img4 = '../../../assets/imagens/pc-6.jpg';
-    
 }
+

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Modelo {
+public class ModeloItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,9 @@ public class Modelo {
 
     @ManyToOne
     private TipoItem tipoItem;
+
+    @ManyToOne
+    private TipoKit tipoKit;
 
     @ManyToMany
     private List<Atributo> listaAtributo;

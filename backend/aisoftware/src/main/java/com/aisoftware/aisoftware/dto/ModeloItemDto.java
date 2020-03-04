@@ -11,12 +11,10 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class ModeloDto implements Serializable {
+public class ModeloItemDto implements Serializable {
     private Long id;
 
     private String nome;
-
-    private TipoItemDto tipoItem;
 
     private List<AtributoDto> listaAtributo;
 }

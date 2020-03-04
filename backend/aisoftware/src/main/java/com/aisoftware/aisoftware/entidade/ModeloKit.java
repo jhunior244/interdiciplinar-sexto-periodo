@@ -3,11 +3,10 @@ package com.aisoftware.aisoftware.entidade;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
-public class Atributo {
+public class ModeloKit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +14,4 @@ public class Atributo {
 
     @Column(nullable = false)
     private String nome;
-
-    @ManyToMany
-    private List<ModeloItem> listaModelo;
-
-    @ManyToMany
-    private List<Requisito> listaRequisito;
 }

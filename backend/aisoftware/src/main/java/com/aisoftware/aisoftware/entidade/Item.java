@@ -30,7 +30,10 @@ public class Item {
     private MarcaItem marcaItem;
 
     @ManyToOne
-    private Modelo modelo;
+    private ModeloItem modeloItem;
+
+    @ManyToOne
+    private TipoItem tipoItem;
 
     @ManyToMany
     private List<Imagem> listaImagem;
