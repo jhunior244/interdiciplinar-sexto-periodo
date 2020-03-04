@@ -21,15 +21,16 @@ export class KitService {
 
         let httpParams = new HttpParams();
 
-        // const listaIdTipoKit = new Array<string>();
-        // if (listTipoKit) {
-        //   for (const kit of listTipoKit) {
-        //     listaIdTipoKit.push(kit.id.toString());
-        //   }
-        //   for (const idKit of listaIdTipoKit) {
-        //     httpParams = httpParams.append(configuracao.parametroListaIdTipoKit, idKit);
-        //   }
-        // }
+        const listaIdTipoKit = new Array<string>();
+        if (listTipoKit) {
+            for (const kit of listTipoKit) {
+                listaIdTipoKit.push(kit.id.toString());
+            }
+            for (const idKit of listaIdTipoKit) {
+                httpParams = httpParams.append(configuracao.parametroListaIdTipoKit, idKit);
+            }
+            console.log(listaIdTipoKit);
+        }
 
         if (valorMinimo) {
             httpParams = httpParams.append(configuracao.parametroValorMinimo, valorMinimo.toString());

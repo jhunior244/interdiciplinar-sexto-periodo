@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring",uses = {ItemMapeador.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring",uses = {ItemMapeador.class, MarcaMapeador.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface KitMapeador {
 
     KitDto kitToKitDto(Kit kit);

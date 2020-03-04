@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,8 +27,11 @@ public class Item {
     private BigDecimal desconto;
 
     @ManyToOne
-    private Marca marca;
+    private MarcaItem marcaItem;
 
     @ManyToOne
     private Modelo modelo;
+
+    @ManyToMany
+    private List<Imagem> listaImagem;
 }

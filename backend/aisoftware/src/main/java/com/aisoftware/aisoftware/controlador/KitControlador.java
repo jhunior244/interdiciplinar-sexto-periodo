@@ -38,7 +38,7 @@ public class KitControlador {
     }
 
     @GetMapping(path = "/lista")
-    public List<KitDto> lista(BigDecimal valorMinimo, BigDecimal valorMaximo,
+    public List<KitDto> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo,
                            Long numeroPagina, Long tamanhoPagina){
         if(numeroPagina == null || tamanhoPagina == null){
             numeroPagina = 0L;

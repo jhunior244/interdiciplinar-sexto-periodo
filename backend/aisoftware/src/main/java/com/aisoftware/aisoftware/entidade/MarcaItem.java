@@ -3,16 +3,18 @@ package com.aisoftware.aisoftware.entidade;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Data
 @Entity
-public class TipoItem {
+@Data
+public class MarcaItem {
+
     public enum Valores {
-        PROCESSADOR(1, "PROCESSADOR"),
-        MEMORIA_RAM(2, "MEMORIA_RAM"),
-        SSD(3, "SSD"),
-        HD(4, "HD"),
-        PLACA_MAE(5, "PLACA_MAE");
+        PROCESSADOR(1, "ASUS"),
+        MEMORIA_RAM(2, "AMD"),
+        SSD(3, "INTEL"),
+        HD(4, "HP"),
+        PLACA_MAE(5, "DELL");
 
         private long id;
         private String nome;
@@ -34,5 +36,6 @@ public class TipoItem {
 
     @Column(nullable = false, unique = true)
     private String nome;
-
 }
+
+

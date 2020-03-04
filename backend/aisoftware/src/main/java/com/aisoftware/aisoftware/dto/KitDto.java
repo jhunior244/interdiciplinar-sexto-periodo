@@ -1,11 +1,7 @@
 package com.aisoftware.aisoftware.dto;
 
-import com.aisoftware.aisoftware.entidade.Compra;
-import com.aisoftware.aisoftware.entidade.Item;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,5 +18,9 @@ public class KitDto implements Serializable {
 
     private TipoKitDto tipoKit;
 
+    private MarcaItemDto marca;
+
     private List<ItemDto> listaItem;
+
+    private List<ImagemDto> listaImagem;
 }

@@ -2,12 +2,9 @@ package com.aisoftware.aisoftware.dto;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 public class ItemDto implements Serializable {
@@ -22,5 +19,7 @@ public class ItemDto implements Serializable {
 
     private BigDecimal desconto;
 
-    private MarcaDto marca;
+    private MarcaItemDto marca;
+
+    private List<ImagemDto> listaImagem;
 }

@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Data
 public class TipoKit {
     public enum Valores {
-            PEDIDO(1, "COMPUTADOR"),
-        CONTRATO(2, "NOTEBOOK");
+        COMPUTADOR(1, "COMPUTADOR"),
+        NOTEBOOK(2, "NOTEBOOK");
 
         private long id;
         private String nome;
