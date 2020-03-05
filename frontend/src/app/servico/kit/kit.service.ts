@@ -29,7 +29,6 @@ export class KitService {
             for (const idKit of listaIdTipoKit) {
                 httpParams = httpParams.append(configuracao.parametroListaIdTipoKit, idKit);
             }
-            console.log(listaIdTipoKit);
         }
 
         if (valorMinimo) {
@@ -49,6 +48,7 @@ export class KitService {
     }
 
     private obtemPagina(pagina: IPagina<IKit, Kit>): IPagina<IKit, Kit> {
+        console.log(pagina);
         pagina.conteudo = Kit.listaDoBackend(pagina.content);
         return pagina;
     }

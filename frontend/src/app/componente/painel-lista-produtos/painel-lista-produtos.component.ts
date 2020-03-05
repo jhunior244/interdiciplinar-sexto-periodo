@@ -8,7 +8,7 @@ import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 })
 export class PainelListaProdutosComponent implements OnInit {
 
-    @Input() arr: any[] = [];
+    @Input() lista: any[] = [];
 
     public filtros = [
         {

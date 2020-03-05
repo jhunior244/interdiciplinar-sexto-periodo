@@ -1,10 +1,10 @@
-<div fxLayoutAlign="center center">
-  <div class="painel-lista-produtos" fxLayoutAlign="space-around start">
-    <div class="menu-lateral" fxLayout="column">
+<div  fxLayoutAlign="center center">
+  <div class="painel-lista-produtos" fxLayoutAlign="start start">
+    <div style="width: 15%;" class="menu-lateral" fxLayout="column">
       <app-filtro-produto [listaFiltros]="filtros"></app-filtro-produto>
     </div>
-    <div fxLayout="row wrap">
-      <div fxLayoutAlign="start center" *ngFor="let item of arr">
+    <div style="width: 70%;" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div  *ngFor="let item of lista">
         <app-card-produto [item]="item"></app-card-produto>
       </div>
     </div>

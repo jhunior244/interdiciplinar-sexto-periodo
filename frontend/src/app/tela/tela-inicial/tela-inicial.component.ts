@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class TelaInicialComponent {
 
     constructor(){
-        console.log('passou');
     }
 
 }

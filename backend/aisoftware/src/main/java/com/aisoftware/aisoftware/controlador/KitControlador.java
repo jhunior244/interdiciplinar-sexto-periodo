@@ -38,7 +38,7 @@ public class KitControlador {
     }
 
     @GetMapping(path = "/lista")
-    public List<KitDto> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo,
+    public Page<KitDto> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo,
                            Long numeroPagina, Long tamanhoPagina){
         if(numeroPagina == null || tamanhoPagina == null){
             numeroPagina = 0L;
@@ -47,7 +47,7 @@ public class KitControlador {
 
         Pageable pagina = PageRequest.of(numeroPagina.intValue(), tamanhoPagina.intValue());
 
-        List<KitDto> page = kitMapeador.listToListDto(kitServico.lista());
+        Page<KitDto> page = kitMapeador.kitToKitDto(kitServico.lista(listaIdTipoKit, valorMinimo, valorMaximo, pagina));
 
         return page;
     }

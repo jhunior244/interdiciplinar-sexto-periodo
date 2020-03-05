@@ -10,7 +10,6 @@ export class FiltroProdutoComponent implements OnChanges {
     @Input() listaFiltros: any[] = [];
 
     ngOnChanges(changes: SimpleChanges): void {
-        console.log(this.listaFiltros);
     }
 }
 

@@ -2,11 +2,14 @@ package com.aisoftware.aisoftware.servico.kit;
 
 import com.aisoftware.aisoftware.entidade.Item;
 import com.aisoftware.aisoftware.entidade.Kit;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface IKitServico {
 
-    List<Kit> lista();
+    Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina);
 
 }

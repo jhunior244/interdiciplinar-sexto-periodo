@@ -1,4 +1,4 @@
-import { IMarca, Marca } from '../marca/marca';
+import { IMarcaItem, MarcaItem } from '../marca-item/marca-item';
 import { ITipoItem, TipoItem } from '../tipo-item/tipo-item';
 
 export class IItem {
@@ -7,7 +7,7 @@ export class IItem {
     descricao: string;
     preco: number;
     desconto: number;
-    marca: IMarca;
+    marca: IMarcaItem;
     tipoItem: ITipoItem;
 }
 
@@ -17,7 +17,7 @@ export class Item {
     descricao: string;
     preco: number;
     desconto: number;
-    marca: Marca;
+    marca: MarcaItem;
     tipoItem: TipoItem;
 
     static listaDoBackend(response: IItem[]): Item[] {
@@ -28,12 +28,22 @@ export class Item {
         }
         return listaItem;
     }
+    static listaParaBackend(listaItem: Item[]): IItem[] {
+        const listaIItem: IItem[] = [];
+
+        for (const item of listaItem) {
+            listaIItem.push(item.paraBackend());
+        }
+
+        return listaIItem;
+    }
+
 
     static doBackend(response: IItem): Item {
         let item = Object.create(Item.prototype);
 
         item = Object.assign(item, response, {
-            marca: (response.marca) ? Marca.doBackend(response.marca) : null,
+            marca: (response.marca) ? MarcaItem.doBackend(response.marca) : null,
             tipoItem: (response.tipoItem) ? TipoItem.doBackend(response.tipoItem) : null,
         });
         return item;

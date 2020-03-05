@@ -1,6 +1,0 @@
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Dell');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('HP');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Lenovo');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Apple');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Acer');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('LG');

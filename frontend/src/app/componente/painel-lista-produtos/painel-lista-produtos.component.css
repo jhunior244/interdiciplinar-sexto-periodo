@@ -1,6 +1,7 @@
 .painel-lista-produtos{
     display: flex;
     max-width: 80%;
+    min-width: 80%;
 }
 
 .menu-lateral {
