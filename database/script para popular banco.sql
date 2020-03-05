@@ -1,15 +1,15 @@
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Dell');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('HP');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Lenovo');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Apple');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('Acer');
-INSERT INTO `aisoftware_db`.`marca_kit` (`nome`) VALUES ('LG');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('1', 'Dell');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('2', 'HP');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('3', 'Lenovo');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('4', 'Apple');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('5', 'Acer');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('6', 'LG');
 
-INSERT INTO `aisoftware_db`.`marca_item` (`nome`) VALUES ('Asus');
-INSERT INTO `aisoftware_db`.`marca_item` (`nome`) VALUES ('AMD');
-INSERT INTO `aisoftware_db`.`marca_item` (`nome`) VALUES ('Intel');
-INSERT INTO `aisoftware_db`.`marca_item` (`nome`) VALUES ('Kingston');
-INSERT INTO `aisoftware_db`.`marca_item` (`nome`) VALUES ('Gigabyte');
+INSERT INTO `aisoftware_db`.`marca_item` (`id`, `nome`) VALUES ('1', 'Asus');
+INSERT INTO `aisoftware_db`.`marca_item` (`id`, `nome`) VALUES ('2', 'AMD');
+INSERT INTO `aisoftware_db`.`marca_item` (`id`, `nome`) VALUES ('3', 'Intel');
+INSERT INTO `aisoftware_db`.`marca_item` (`id`, `nome`) VALUES ('4', 'Kingston');
+INSERT INTO `aisoftware_db`.`marca_item` (`id`, `nome`) VALUES ('5', 'Gigabyte');
 
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron INS-5490-A30S');
 

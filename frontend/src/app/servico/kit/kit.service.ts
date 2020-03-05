@@ -48,7 +48,6 @@ export class KitService {
     }
 
     private obtemPagina(pagina: IPagina<IKit, Kit>): IPagina<IKit, Kit> {
-        console.log(pagina);
         pagina.conteudo = Kit.listaDoBackend(pagina.content);
         return pagina;
     }
