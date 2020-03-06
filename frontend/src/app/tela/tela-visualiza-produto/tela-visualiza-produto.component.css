@@ -1,11 +1,37 @@
 .imagem-item {
-    margin: 3px !important;
-    max-width: 40px;
-    max-height: 40px;
+    margin: 5px !important;
+    max-width: 55px;
+    max-height: 55px;
 }
 
 .imagem-item2 {
     margin: 3px !important;
-    max-width: 450px;
-    max-height: 360px;
+    max-width: 600px;
+    max-height: 420px;
+}
+
+mat-divider {
+    margin-top: -16px;
+    margin-bottom: -16px;
+}
+
+mat-divider.mat-divider-vertical {
+    border-top: 71px;
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+.informacoes-produto {
+    margin: 12px;
+}
+
+.informacoes-produto button {
+    color:rgb(0, 0, 0);
+    background-color: green;
+    margin: 12px 0 12px 7px;
+    box-shadow: 0.5px 0px 0.5em black;
+}
+
+.informacoes-produto button:hover {
+    transform: scale(1.1);
 }
