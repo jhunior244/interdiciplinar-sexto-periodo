@@ -28,3 +28,15 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('1', '4');
 INSERT INTO `aisoftware_db`.`tipo_kit` (`id`, `nome`) VALUES ('1', 'Computador');
 INSERT INTO `aisoftware_db`.`tipo_kit` (`id`, `nome`) VALUES ('2', 'Notebook');
 
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('7', 'Positivo');
+INSERT INTO `aisoftware_db`.`marca_kit` (`id`, `nome`) VALUES ('8', 'Samsung');
+
+//Samsung
+//Notebook Samsung Essentials E30 Intel Core i3 4GB - 1TB 15,6” Full HD Windows 10 - 1799,00 
+//Notebook Samsung Expert X30 Intel Core i5 8GB 1TB - 15,6” Windows 10 - 2249,00
+//Notebook Samsung Expert X55 Intel Core i7 16GB - 1TB 128GB SSD 15,6” NVIDIA MX110 Windows 10 Home - 3599,00
+
+//Acer
+//Notebook Acer Aspire 3 A315-53-333H Intel Core i3 - 4GB 1TB 15,6” Windows 10 Home - 1709,00
+//Notebook Acer Aspire 3 A315-41-R4RB AMD Ryzen 5 - 12GB 1TB 15,6” Windows 10 - 2159,00
+//Notebook Acer Aspire 5 A515-78HE Intel Core i7-8565U 8ger RAM 8 GB HD 1 TB MX130 Tela 15.6'' Win 10 - 3399,00

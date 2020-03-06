@@ -17,7 +17,8 @@ import javax.persistence.PersistenceContext;
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.servico")
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.repositorio")
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.mapeador")
-public class AisoftwareApplication {
+public class
+AisoftwareApplication {
 
 	@PersistenceContext
 	private EntityManager em;

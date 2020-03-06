@@ -2,11 +2,9 @@ package com.aisoftware.aisoftware.repositorio.kit;
 
 import com.aisoftware.aisoftware.entidade.Kit;
 import com.aisoftware.aisoftware.entidade.QKit;
-import com.aisoftware.aisoftware.entidade.TipoKit;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.util.ArrayUtils;
 import com.querydsl.jpa.JPQLQuery;
-import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +16,9 @@ import org.springframework.util.ObjectUtils;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ *
+ */
 public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
 
     @Autowired
