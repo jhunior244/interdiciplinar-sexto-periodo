@@ -1,0 +1,11 @@
+.imagem-item {
+    margin: 3px !important;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.imagem-item2 {
+    margin: 3px !important;
+    max-width: 450px;
+    max-height: 360px;
+}

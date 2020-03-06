@@ -4,10 +4,12 @@ export const configuracao = {
     rotaInicio: 'inicio',
     rotaDesktop: 'desktop',
     rotaNotebook: 'notebok',
+    rotaVisualizaProduto: 'detalhesProduto',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
     parametroValorMinimo: 'valorMinimo',
     parametroValorMaximo: 'valorMaximo',
+    parametroId: 'id',
 
     tipoKit: {
         COMPUTADOR: 1,

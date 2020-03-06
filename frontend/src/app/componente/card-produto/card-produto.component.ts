@@ -10,6 +10,5 @@ export class CardProdutoComponent implements OnChanges {
     @Input() item: any;
 
     ngOnChanges(changes: SimpleChanges): void {
-        console.log(this.item);
     }
 }

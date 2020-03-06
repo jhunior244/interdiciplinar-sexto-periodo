@@ -1,11 +1,16 @@
-<div  fxLayoutAlign="center center">
-  <div class="painel-lista-produtos" fxLayoutAlign="start start">
-    <div style="width: 15%;" class="menu-lateral" fxLayout="column">
-      <app-filtro-produto [listaFiltros]="filtros"></app-filtro-produto>
-    </div>
-    <div style="width: 70%;" fxLayout="row wrap" fxLayoutAlign="start center">
-      <div  *ngFor="let item of lista">
+<div fxLayout="row" fxLayoutAlign="start center" style="margin-left: 40px;">
+  <div fxLayout="column" style="width: 15%;" class="menu-lateral" fxLayout="column">
+    <app-filtro-produto [listaFiltros]="filtros"></app-filtro-produto>
+  </div>
+  <div fxLayout="column">
+    <div class="painel-lista-produtos" style="width: 70%;" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div *ngFor="let item of lista">
         <app-card-produto [item]="item"></app-card-produto>
       </div>
     </div>
+    <div fxLayoutAlign="end end">
+      <mat-paginator style="width: 500px;" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+    </div>
   </div>
+</div>

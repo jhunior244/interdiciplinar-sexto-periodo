@@ -1,12 +1,12 @@
 .menu-principal {
-    background-color: indigo;
+    background-color: orange;
 }
 
 .menu-principal button {
     color: darkturquoise;
     background-color: dimgray;
     margin: 12px 0 12px 7px;
-    box-shadow: 1px 0px 1em black;
+    box-shadow: 0.5px 0px 0.5em black;
 }
 
 .menu-principal button:hover {
@@ -22,5 +22,5 @@
 .painel-navegacao {
     width: 100%;
     min-height: 100%;
-    background-color: rgba(126, 123, 123, 0.884);
+    background-color: rgba(207, 207, 207, 0.884);
 }

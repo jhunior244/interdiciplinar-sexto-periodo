@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PainelListaProdutosComponent } from './componente/painel-lista-produtos/painel-lista-produtos.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { SlideOfertasComponent } from './componente/slide-ofertas/slide-ofertas.component';
 import { TelaInicialComponent } from './tela/tela-inicial/tela-inicial.component';
 import { CardProdutoComponent } from './componente/card-produto/card-produto.component';
@@ -22,6 +22,9 @@ import { ProdutosEmDestaqueComponent } from './componente/produtos-em-destaque/p
 import { FooterComponent } from './componente/footer/footer.component';
 import { TelaListaDesktopComponent } from './tela/tela-lista-desktop/tela-lista-desktop.component';
 import { KitService } from './servico/kit/kit.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TelaListaNotebookComponent } from './tela/tela-lista-notebook/tela-lista-notebook.component';
+import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tela-visualiza-produto.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { KitService } from './servico/kit/kit.service';
     CardProdutoComponent,
     FiltroProdutoComponent,
     TelaInicialComponent,
+    TelaListaNotebookComponent,
     TelaListaDesktopComponent,
+    TelaVisualizaProdutoComponent,
     ProdutosEmDestaqueComponent,
     FooterComponent
   ],
@@ -55,9 +60,10 @@ import { KitService } from './servico/kit/kit.service';
     MatDividerModule,
     HttpClientModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatPaginatorModule
   ],
-  providers:  [KitService],
+  providers: [KitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
