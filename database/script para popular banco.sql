@@ -68,6 +68,7 @@ INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('a515', '../../.
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('a515', '../../../assets/imagens/notebook/acer/a515/foto-2.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('a515', '../../../assets/imagens/notebook/acer/a515/foto-3.jpg');
 
+
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('1', '1');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('1', '2');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('1', '3');
@@ -104,3 +105,16 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
 //Notebook Acer Aspire 3 A315-53-333H Intel Core i3 - 4GB 1TB 15,6” Windows 10 Home - 1709,00
 //Notebook Acer Aspire 3 A315-41-R4RB AMD Ryzen 5 - 12GB 1TB 15,6” Windows 10 - 2159,00
 //Notebook Acer Aspire 5 A515-78HE Intel Core i7-8565U 8ger RAM 8 GB HD 1 TB MX130 Tela 15.6'' Win 10 - 3399,00
+
+//Dell
+//Notebook Dell Inspiron i15-3583-A30P Intel Core i7 - 8GB 2TB 15,6” HD Placa de Vídeo 2GB - 2969,10
+//Notebook Dell Inspiron i15-3584-D10P Intel Core i3 - 4GB 1TB 15,6” Ubuntu Linux - 1709,91
+//Notebook Dell Inspiron 7000 i15-7580-A20S Intel - Core i7 8GB 1TB 15,6” Full HD Placa Nvidia 2gb
+
+//HP
+//Notebook HP 14-CB012WM Cel 1.6GHZ/ 4GB/ 32GB/ 14.0” - 1800
+//Notebook HP Probook 450-G5 i5 2.5GHZ/ 8GB/ 256GB/ 15.6” - 2500
+
+
+
+
