@@ -26,9 +26,9 @@ INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Aspire 5 A515-78HE');
 
 
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('4600', 'Computador All in One Dell', '1', '1', '1');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1799', 'Notebook Samsung Essentials', '8', '2', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2249', 'Notebook Samsung Expert', '8', '3', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3599', 'Notebook Samsung Expert', '8', '4', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1799', 'Notebook Samsung Essentials', '7', '2', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2249', 'Notebook Samsung Expert', '7', '3', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3599', 'Notebook Samsung Expert', '7', '4', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3599', 'Notebook Acer Aspire 3', '5', '5', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1709', 'Notebook Acer Aspire 3 A315-41-R4RB', '5', '6', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3399', 'Notebook Acer Aspire 5 A515-78HE', '5', '7', '2');
@@ -114,6 +114,29 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
 //HP
 //Notebook HP 14-CB012WM Cel 1.6GHZ/ 4GB/ 32GB/ 14.0” - 1800
 //Notebook HP Probook 450-G5 i5 2.5GHZ/ 8GB/ 256GB/ 15.6” - 2500
+//Notebook HP 14-hp-bw011 Cel 2.0/ 8GB/ 500GB/ 14.0” - 2000
+
+
+//Apple
+//Apple MacBook Pro i7 2.6Ghz 16GB RAM 256GB SSD 15.4 Pol. Touch Bar - R$12.458,90
+//MacBook Air Apple Core i5 8GB 128GB SSD Tela 13.3” MacOS Sierra MQD32BZ/A - R$4.799,00
+//Macbook Apple Macbook Air Intel Core i5 8GB de RAM SSD 128 GB 13,3" 
+
+//Lenovo
+//Notebook Lenovo Ideapad S145-15IWL Intel Core i5 - 8GB 1TB 15,6” Windows 10 - 2249
+//Notebook Lenovo IdeaPad 330S i7-8550U 8GB 1TB Windows 10 Tela 14 - 3.999,00
+//Notebook Lenovo 2 em 1 ideapad C340 i7-8565U 8GB 256GB SSD Windows 10 14” FHD IPS 81RL0003BR Prata - 4199,00
+
+//LG
+//Notebook LG 14U380 Intel Celeron 4GB HD 500GB W10R$ 1.599,00
+//Notebook lg 14p intel n4100 4gb hd500gb w10 brancoR$ 1.883,63
+
+
+
+
+
+
+
 
 
 
