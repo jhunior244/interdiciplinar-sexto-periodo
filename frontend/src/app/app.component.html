@@ -1,55 +1,56 @@
-<div>
-    <mat-toolbar class="menu-principal" fxLayout="row">
-        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
-            <div>
-                <button mat-icon-button>
-                    <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
-                </button>
-            </div>
-            <div fxLayoutAlign="center center">
-                <button mat-raised-button [routerLink]="rotasSistema.rotaInicio">
-                    INICIO
-                </button>
-                <button mat-raised-button [routerLink]="rotasSistema.rotaNotebook">
-                    NOTEBOOK
-                </button>
-                <button mat-raised-button [routerLink]="rotasSistema.rotaDesktop">
-                    DESKTOP
-                </button>
-                <button mat-raised-button [routerLink]="rotasSistema.rotaVisualizaProduto">
-                    ACESSORIOS
-                </button>
-                <button mat-raised-button>
-                    AJUDA
-                </button>
-            </div>
-            <div>
-                <mat-form-field style="margin: 12px 40px 12px 70px; width: 300px;">
-                    <input type="text" matInput placeholder="Pesquisar" id="pesquisar">
-                    <mat-icon>search</mat-icon>
-                </mat-form-field>
-            </div>
-        </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-menu #menu="matMenu" class="mb-1">
-        <button mat-menu-item>
-            <mat-icon>local_grocery_store</mat-icon>
-            <span>Meus Pedidos</span>
-        </button>
-        <button mat-menu-item>
-            <mat-icon>settings</mat-icon>
-            <span>Minhas preferências</span>
-        </button>
-        <button mat-menu-item>
-            <mat-icon>edit</mat-icon>
-            <span>Editar perfil</span>
-        </button>
-        <button mat-menu-item>
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Sair</span>
-        </button>
-    </mat-menu>
-    <!-- <section fxLayoutAlign="center center">
+<div fxFill style="background-color: rgba(207, 207, 207, 0.884);">
+    <div>
+        <mat-toolbar class="menu-principal" fxLayout="row">
+            <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
+                <div>
+                    <button mat-icon-button>
+                        <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
+                    </button>
+                </div>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button [routerLink]="rotasSistema.rotaInicio">
+                        INICIO
+                    </button>
+                    <button mat-raised-button [routerLink]="rotasSistema.rotaNotebook">
+                        NOTEBOOK
+                    </button>
+                    <button mat-raised-button [routerLink]="rotasSistema.rotaDesktop">
+                        DESKTOP
+                    </button>
+                    <button mat-raised-button [routerLink]="rotasSistema.rotaVisualizaProduto">
+                        ACESSORIOS
+                    </button>
+                    <button mat-raised-button>
+                        AJUDA
+                    </button>
+                </div>
+                <div>
+                    <mat-form-field style="margin: 12px 40px 12px 70px; width: 300px;">
+                        <input type="text" matInput placeholder="Pesquisar" id="pesquisar">
+                        <mat-icon>search</mat-icon>
+                    </mat-form-field>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-menu #menu="matMenu" class="mb-1">
+            <button mat-menu-item>
+                <mat-icon>local_grocery_store</mat-icon>
+                <span>Meus Pedidos</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Minhas preferências</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Editar perfil</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Sair</span>
+            </button>
+        </mat-menu>
+        <!-- <section fxLayoutAlign="center center">
         <mat-card class="promocoes" >
             <mat-card-content fxLayoutAlign="center center">
                 <img src="../assets/imagens/pc-gamer.jpg">
@@ -60,16 +61,14 @@
             </mat-card-actions>
         </mat-card>
     </section> -->
-</div>
-<div fxLayoutAlign="center start" fxFill>
-    <div class="painel-navegacao" fxLayout="column">
-        <router-outlet>
-
-            <!-- <app-painel-lista-produtos>
-            </app-painel-lista-produtos> -->
-        </router-outlet>
     </div>
-</div>
-<div class="footer">
+    <div fxLayoutAlign="center start">
+        <div class="painel-navegacao" fxLayout="column">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </div>
+<!-- </div>
+<div class="footer" style="margin-top: 15px;">
     <app-footer fxLayoutAlign="end end"></app-footer>
-</div>
+</div> -->

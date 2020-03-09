@@ -19,13 +19,14 @@ export class TelaListaNotebookComponent implements OnInit {
     public listaNotebook: Kit[];
 
     constructor(private kitService: KitService) {
-        this.tipoKitDesktop.id = configuracao.tipoKit.COMPUTADOR;
+        this.tipoKitDesktop.id = configuracao.tipoKit.NOTEBOOK;
         this.listaFiltro.push(this.tipoKitDesktop);
     }
 
     ngOnInit() {
         this.kitService.lista(this.listaFiltro, null, null, 0, 10).subscribe(pagina => {
             this.listaNotebook = pagina.conteudo;
+            console.log(this.listaNotebook);
         });
     }
 }

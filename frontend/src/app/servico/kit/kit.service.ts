@@ -17,7 +17,7 @@ export class KitService {
     }
 
     public lista(listTipoKit: TipoKit[], valorMinimo: number, valorMaximo: number,
-                 numeroPagina: number, tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
+        numeroPagina: number, tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
 
         let httpParams = new HttpParams();
 
@@ -47,8 +47,15 @@ export class KitService {
             .pipe(map((pagina => this.obtemPagina(pagina))));
     }
 
+    public listaPromocao(): Observable<Kit[]> {
+
+        return this.httpCliente.get<IKit[]>(this.url + '/listaPromocao')
+            .pipe(map(((lista: Kit[]) => Kit.listaDoBackend(lista))));
+    }
+
     private obtemPagina(pagina: IPagina<IKit, Kit>): IPagina<IKit, Kit> {
         pagina.conteudo = Kit.listaDoBackend(pagina.content);
         return pagina;
     }
 }
+

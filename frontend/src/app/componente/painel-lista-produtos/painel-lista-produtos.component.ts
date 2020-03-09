@@ -31,15 +31,6 @@ export class PainelListaProdutosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // for (let i = 0; i < 25; i++) {
-        //     this.arr.push('../../assets/imagens/pc-1.png');
-        //     this.arr.push('../../assets/imagens/pc-4.png');
-        //     this.arr.push('../../assets/imagens/pc-5.jpg');
-        //     this.arr.push('../../assets/imagens/pc-6.jpg');
-        //     this.arr.push('../../assets/imagens/pc-7.jpg');
-        //     this.arr.push('../../assets/imagens/pc-8.jpg');
-        // }
-
     }
 }
 
