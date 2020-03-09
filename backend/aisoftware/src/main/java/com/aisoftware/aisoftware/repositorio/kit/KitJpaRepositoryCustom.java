@@ -11,4 +11,6 @@ import java.util.List;
 public interface KitJpaRepositoryCustom {
 
     Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina);
+
+    List<Kit> listaPromocao();
 }

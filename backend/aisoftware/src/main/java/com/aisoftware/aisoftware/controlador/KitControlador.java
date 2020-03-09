@@ -52,4 +52,9 @@ public class KitControlador {
         return page;
     }
 
+    @GetMapping(path = "/listaPromocao")
+    public List<KitDto> listaPromocao(){
+        return kitMapeador.listToListDto(kitServico.listaPromocao());
+    }
+
 }

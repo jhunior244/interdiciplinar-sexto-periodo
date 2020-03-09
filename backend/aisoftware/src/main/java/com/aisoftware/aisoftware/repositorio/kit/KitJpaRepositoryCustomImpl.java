@@ -14,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -23,6 +24,27 @@ public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
 
     @Autowired
     private JPAQueryFactory jpaQueryFactory;
+
+    @Override
+    public List<Kit> listaPromocao(){
+
+        QKit kit = QKit.kit;
+
+        JPQLQuery<Kit> query = jpaQueryFactory.selectFrom(kit);
+
+        BooleanExpression predicado = kit.id.isNotNull();
+
+        predicado = predicado.and(kit.estaNaPromocao.eq(true));
+
+        predicado = predicado.and(kit.dataValidadePromocao.after(ZonedDateTime.now()));
+
+        query.where(predicado);
+
+        List<Kit> list = query.fetch();
+
+        return list;
+
+    }
 
     @Override
     public Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {

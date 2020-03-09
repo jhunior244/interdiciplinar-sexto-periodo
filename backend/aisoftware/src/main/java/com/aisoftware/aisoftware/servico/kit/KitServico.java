@@ -23,4 +23,9 @@ public class KitServico implements IKitServico {
     public Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {
         return kitJpaRepository.lista(listaIdTipoKit, valorMinimo, valorMaximo, pagina);
     }
+
+    @Override
+    public List<Kit> listaPromocao(){
+        return kitJpaRepository.listaPromocao();
+    }
 }

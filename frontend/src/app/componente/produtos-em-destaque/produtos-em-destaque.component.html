@@ -1,9 +1,8 @@
-<div fxLayoutAlign="center center" fxLayout="column">
+<div fxLayoutAlign="center">
     <h1>Produtos em destaque</h1>
-    <div fxLayout="row wrap">
-        <app-card-produto [item]="img1"></app-card-produto>
-        <app-card-produto [item]="img2"></app-card-produto>
-        <app-card-produto [item]="img3"></app-card-produto>
-        <app-card-produto [item]="img4"></app-card-produto>
+</div>
+<div fxLayoutAlign="center center" fxLayout="row" style="margin-bottom: 30px;">
+    <div fxLayout="row wrap" *ngFor="let item of listaKit">
+        <app-card-produto [item]="item"></app-card-produto>
     </div>
 </div>

@@ -13,7 +13,9 @@ public class MarcaKit {
         LENOVO(3, "Lenovo"),
         APPLE(4, "Apple"),
         ACER(5, "Acer"),
-        LG(7,"LG");
+        LG(6,"LG"),
+        SAMSUNG(7,"Samsung"),
+        POSITIVO(8, "Positivo");
 
         private long id;
         private String nome;

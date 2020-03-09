@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,12 @@ public class Kit {
 
     @Column
     private BigDecimal preco;
+
+    @Column
+    private Boolean estaNaPromocao;
+
+    @Column
+    private ZonedDateTime dataValidadePromocao;
 
     @ManyToOne
     private MarcaKit marcaKit;
