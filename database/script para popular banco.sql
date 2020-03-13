@@ -130,6 +130,7 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
 //LG
 //Notebook LG 14U380 Intel Celeron 4GB HD 500GB W10R$ 1.599,00
 //Notebook lg 14p intel n4100 4gb hd500gb w10 brancoR$ 1.883,63
+//Notebook LG Intel® Core™ i7 8GB 256GB SSD 15Z980
 
 
 
