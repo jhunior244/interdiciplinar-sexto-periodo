@@ -24,9 +24,21 @@ INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Aspire 3 A315-53-333H
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Aspire 3 A315-41-R4RB');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Aspire 5 A515-78HE');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('LG 15Z980');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Notebook Positivo Q464B');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Notebook Positivo C4500C'); 
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Notebook Positivo Q432A');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo Q464B');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo C4500C'); 
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo Q432A');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron i15-3583-A30P');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron i15-3584-D10P');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron 7000 i15-7580');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP 14-CB012WM');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP Probook 450');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP 14-hp-bw011');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('MacBook Pro i7');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Air Apple i5');
+INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Apple Macbook Air');
+
+
+
 
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('4600', 'Computador All in One Dell', '1', '1', '1');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1799', 'Notebook Samsung Essentials', '7', '2', '2');
@@ -39,6 +51,16 @@ INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_ki
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1044', 'Notebook Positivo Q464B', '8', '9', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1079', 'Notebook Positivo C4500C', '8', '10', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1029', 'Notebook Positivo Q432A', '8', '11', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2969', 'Notebook Dell Inspiron i15-3583-A30P', '1', '12', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1709', 'Notebook Dell Inspiron i15-3584-D10P', '1', '13', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3199', 'Notebook Dell Inspiron 7000 i15-7580', '1', '14', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1800', 'Notebook HP 14-CB012WM', '2', '15', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2500', 'Notebook HP Probook 450', '2', '16', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2000', 'Notebook HP 14-hp-bw011', '2', '17', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('12458', 'MacBook Pro i7', '4', '18', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('4799', 'MacBook Air Apple Core i5', '4', '18', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('6000', 'Macbook Apple Air', '4', '19', '2');
+
 
 
 UPDATE `aisoftware_db`.`kit` SET `data_validade_promocao` = sysdate(), `esta_na_promocao` = 1 WHERE (`id` = '1');
@@ -87,6 +109,25 @@ INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('C4500C', '../..
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-1.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-2.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air dourado', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air dourado', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-3.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air Pro', '../../../assets/imagens/notebook/apple/MacBook Pro i7/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air Pro', '../../../assets/imagens/notebook/apple/MacBook Pro i7/foto-2.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air Pro', '../../../assets/imagens/notebook/apple/MacBook Pro i7/foto-3.jpg');
+
 
 
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('1', '1');
@@ -111,6 +152,15 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('6', '19');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '20');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '21');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('8', '23');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('8', '24');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('8', '25');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '26');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '27');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '28');
+
+
+
 
 
 
@@ -118,9 +168,9 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
 
 
 //Samsung
-//Notebook Samsung Essentials E30 Intel Core i3 4GB - 1TB 15,6” Full HD Windows 10 - 1799,00 
-//Notebook Samsung Expert X30 Intel Core i5 8GB 1TB - 15,6” Windows 10 - 2249,00
-//Notebook Samsung Expert X55 Intel Core i7 16GB - 1TB 128GB SSD 15,6” NVIDIA MX110 Windows 10 Home - 3599,00
+//Notebook Samsung Essentials E30 Intel Core i3 4GB - 1TB 15,6 Full HD Windows 10 - 1799,00 
+//Notebook Samsung Expert X30 Intel Core i5 8GB 1TB - 15,6 Windows 10 - 2249,00
+//Notebook Samsung Expert X55 Intel Core i7 16GB - 1TB 128GB SSD 15,6 NVIDIA MX110 Windows 10 Home - 3599,00
 
 //Acer
 //Notebook Acer Aspire 3 A315-53-333H Intel Core i3 - 4GB 1TB 15,6” Windows 10 Home - 1709,00
@@ -141,7 +191,7 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('7', '22');
 //Apple
 //Apple MacBook Pro i7 2.6Ghz 16GB RAM 256GB SSD 15.4 Pol. Touch Bar - R$12.458,90
 //MacBook Air Apple Core i5 8GB 128GB SSD Tela 13.3” MacOS Sierra MQD32BZ/A - R$4.799,00
-//Macbook Apple Macbook Air Intel Core i5 8GB de RAM SSD 128 GB 13,3" 
+//Macbook Apple Macbook Air Intel Core i5 8GB de RAM SSD 128 GB 13,3 - 6000,00
 
 //Lenovo
 //Notebook Lenovo Ideapad S145-15IWL Intel Core i5 - 8GB 1TB 15,6” Windows 10 - 2249
