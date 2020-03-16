@@ -8,7 +8,6 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring",uses = {
         ModeloItemMapeador.class,
         MarcaItemMapeador.class,
-        TipoItemMapeador.class,
         ImagemMapeador.class,
 }, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ItemMapeador {

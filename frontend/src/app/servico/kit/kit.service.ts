@@ -6,6 +6,7 @@ import { IKit, Kit } from './kit';
 import { TipoKit } from '../tipo-kit/tipo-kit';
 import { configuracao } from 'src/app/configuracao';
 import { map } from 'rxjs/operators';
+import { ModeloItem } from '../modelo-item/modelo-item';
 
 @Injectable()
 export class KitService {
@@ -16,8 +17,7 @@ export class KitService {
         this.httpHeader = this.httpHeader.append('Content-Type', 'application/json');
     }
 
-    public lista(listTipoKit: TipoKit[], valorMinimo: number, valorMaximo: number,
-        numeroPagina: number, tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
+    public lista(listTipoKit: TipoKit[], listaModeloItem: ModeloItem[], valorMinimo: number,    valorMaximo: number, numeroPagina: number, tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
 
         let httpParams = new HttpParams();
 
@@ -28,6 +28,16 @@ export class KitService {
             }
             for (const idKit of listaIdTipoKit) {
                 httpParams = httpParams.append(configuracao.parametroListaIdTipoKit, idKit);
+            }
+        }
+
+        const listaIdModeloItem = new Array<string>();
+        if (listaModeloItem) {
+            for (const modelo of listaModeloItem) {
+                listaIdModeloItem.push(modelo.id.toString());
+            }
+            for (const id of listaIdModeloItem) {
+                httpParams = httpParams.append(configuracao.parametroListaIdModeloItem, id);
             }
         }
 

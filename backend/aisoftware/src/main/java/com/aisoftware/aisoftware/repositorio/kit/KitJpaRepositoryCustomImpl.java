@@ -47,7 +47,7 @@ public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
     }
 
     @Override
-    public Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {
+    public Page<Kit> lista(Long[] listaIdTipoKit, Long[] listaIdModeloItem, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {
 
         QKit kit = QKit.kit;
 
@@ -57,6 +57,10 @@ public class KitJpaRepositoryCustomImpl implements KitJpaRepositoryCustom {
 
         if(!ArrayUtils.isEmpty(listaIdTipoKit)){
             predicado = predicado.and(kit.tipoKit.id.in(listaIdTipoKit));
+        }
+
+        if(!ArrayUtils.isEmpty(listaIdModeloItem)){
+            predicado = predicado.and(kit.listaItem.any().modeloItem.id.in(listaIdModeloItem));
         }
 
         if(!ObjectUtils.isEmpty(valorMaximo)){

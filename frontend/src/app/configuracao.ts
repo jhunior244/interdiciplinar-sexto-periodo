@@ -7,6 +7,7 @@ export const configuracao = {
     rotaVisualizaProduto: 'detalhesProduto',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
+    parametroListaIdModeloItem: 'listaIdModeloItem',
     parametroValorMinimo: 'valorMinimo',
     parametroValorMaximo: 'valorMaximo',
     parametroId: 'id',

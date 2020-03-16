@@ -1,6 +1,5 @@
-import { animate, keyframes, state, style, transition, trigger, query } from '@angular/animations';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { TipoItemService } from 'src/app/servico/tipo-item/tipo-item.service';
 @Component({
     selector: 'app-painel-lista-produtos',
     templateUrl: 'painel-lista-produtos.component.html',
@@ -9,28 +8,21 @@ import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 export class PainelListaProdutosComponent implements OnInit {
 
     @Input() lista: any[] = [];
+    @Input() listaFiltro: any[] = [];
+    @Output() filtros = new EventEmitter<any[]>();
 
-    public filtros = [
-        {
-            nomeFiltro: 'Processador',
-            opcoes: ['I3', 'I5', 'I7', 'I9']
-        },
-        {
-            nomeFiltro: 'Placa mãe',
-            opcoes: ['Asus', 'Gigabyte']
-        },
-        {
-            nomeFiltro: 'SSD',
-            opcoes: ['120gb', '240gb', '360gb']
-        }
-    ];
-
-    public interval;
     constructor(
-        private httpClient: HttpClient) {
-    }
+        private tipoItemService: TipoItemService
+    ) { }
 
     ngOnInit(): void {
+        this.tipoItemService.lista().subscribe(lista => {
+            this.listaFiltro = lista;
+        });
+    }
+
+    atualizaFiltros(filtros: any[]) {
+        this.filtros.emit(filtros);
     }
 }
 

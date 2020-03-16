@@ -16,5 +16,7 @@ public class ModeloItemDto implements Serializable {
 
     private String nome;
 
+    private TipoItemDto tipoItem;
+
     private List<AtributoDto> listaAtributo;
 }

@@ -20,8 +20,8 @@ public class KitServico implements IKitServico {
     private KitJpaRepository kitJpaRepository;
 
     @Override
-    public Page<Kit> lista(Long[] listaIdTipoKit, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {
-        return kitJpaRepository.lista(listaIdTipoKit, valorMinimo, valorMaximo, pagina);
+    public Page<Kit> lista(Long[] listaIdTipoKit, Long[] listaIdModeloItem, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina) {
+        return kitJpaRepository.lista(listaIdTipoKit, listaIdModeloItem, valorMinimo, valorMaximo, pagina);
     }
 
     @Override

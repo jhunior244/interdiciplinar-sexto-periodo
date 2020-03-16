@@ -32,9 +32,6 @@ public class Item {
     @ManyToOne
     private ModeloItem modeloItem;
 
-    @ManyToOne
-    private TipoItem tipoItem;
-
     @ManyToMany
     private List<Imagem> listaImagem;
 }

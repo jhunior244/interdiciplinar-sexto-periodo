@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="start st" style="margin-left: 40px;">
   <div style="width: 20%;" class="menu-lateral" fxLayout="column" fxLayoutAlign="start start">
-    <app-filtro-produto [listaFiltros]="filtros"></app-filtro-produto>
+    <app-filtro-produto (filtros)="atualizaFiltros($event)" [listaFiltros]="listaFiltro"></app-filtro-produto>
   </div>
   <div style="margin-top: 40px;" fxLayout="column">
     <div class="painel-lista-produtos" style="width: 80%;" fxLayout="row wrap" fxLayoutAlign="start center">

@@ -5,8 +5,14 @@ import com.aisoftware.aisoftware.entidade.TipoItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring",uses = {ItemMapeador.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+import java.util.List;
+
+@Mapper(componentModel = "spring",uses = {
+        ModeloItemMapeador.class
+}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TipoItemMapeador {
 
     TipoItemDto tipoItemToTipoItemDto(TipoItem tipoItem);
+
+    List<TipoItemDto> listToListDto(List<TipoItem> lista);
 }

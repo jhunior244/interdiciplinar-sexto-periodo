@@ -1,7 +1,7 @@
 import { TipoKit, ITipoKit } from '../tipo-kit/tipo-kit';
 import { IItem, Item } from '../item/item';
 import { IMarcaKit, MarcaKit } from '../marca-kit/marca-kit';
-import { IModeloKit, ModeloKit } from '../model-kit/modelo-kit';
+import { IModeloKit, ModeloKit } from '../modelo-kit/modelo-kit';
 import { IImagem, Imagem } from '../imagem/imagem';
 
 export class IKit {

@@ -23,7 +23,5 @@ public class ItemDto implements Serializable {
 
     private MarcaItemDto marcaItem;
 
-    private TipoItemDto tipoItem;
-
     private List<ImagemDto> listaImagem;
 }

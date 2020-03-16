@@ -25,6 +25,7 @@ import { KitService } from './servico/kit/kit.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TelaListaNotebookComponent } from './tela/tela-lista-notebook/tela-lista-notebook.component';
 import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tela-visualiza-produto.component';
+import { TipoItemService } from './servico/tipo-item/tipo-item.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tel
     MatRadioModule,
     MatPaginatorModule
   ],
-  providers: [KitService],
+  providers: [KitService, TipoItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
