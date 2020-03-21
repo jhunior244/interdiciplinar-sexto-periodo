@@ -1,5 +1,6 @@
 package com.aisoftware.aisoftware;
 
+import com.aisoftware.aisoftware.config.security.AutenticacaoService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -17,11 +18,14 @@ import javax.persistence.PersistenceContext;
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.servico")
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.repositorio")
 @ComponentScan(basePackages = "com.aisoftware.aisoftware.mapeador")
+@ComponentScan(basePackages = "com.aisoftware.aisoftware.config")
+@ComponentScan(basePackages = "com.aisoftware.aisoftware.config.security")
 public class
 AisoftwareApplication {
 
 	@PersistenceContext
 	private EntityManager em;
+
 	public static void main(String[] args) {
 		SpringApplication.run(AisoftwareApplication.class, args);
 	}

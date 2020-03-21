@@ -1,6 +1,7 @@
 package com.aisoftware.aisoftware.controlador;
 
 import com.aisoftware.aisoftware.dto.ItemDto;
+import com.aisoftware.aisoftware.entidade.Item;
 import com.aisoftware.aisoftware.mapeador.ItemMapeador;
 import com.aisoftware.aisoftware.servico.item.IItemServico;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,8 @@ public class ItemControllador {
 
     @PostMapping(path = "/cria")
     public ItemDto cria(@RequestBody ItemDto itemDto) {
-        return itemMapeador.itemToItemDto(itemServico.cria(itemMapeador.itemDtoToItem(itemDto)));
+        Item item = itemServico.cria(itemMapeador.itemDtoToItem(itemDto));
+        return itemMapeador.itemToItemDto(item);
     }
 
     @GetMapping(path = "/obtem")

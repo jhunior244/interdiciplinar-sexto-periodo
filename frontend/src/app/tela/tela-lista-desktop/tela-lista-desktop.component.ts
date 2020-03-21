@@ -23,7 +23,7 @@ export class TelaListaDesktopComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.kitService.lista(this.listaFiltro, null, null, 0, 10).subscribe(pagina => {
+        this.kitService.lista(this.listaFiltro, null, null, null, 0, 10).subscribe(pagina => {
             this.listaComputadores = pagina.conteudo;
         });
     }

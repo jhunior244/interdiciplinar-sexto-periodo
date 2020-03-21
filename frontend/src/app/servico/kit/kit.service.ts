@@ -17,7 +17,8 @@ export class KitService {
         this.httpHeader = this.httpHeader.append('Content-Type', 'application/json');
     }
 
-    public lista(listTipoKit: TipoKit[], listaModeloItem: ModeloItem[], valorMinimo: number,    valorMaximo: number, numeroPagina: number, tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
+    public lista(listTipoKit: TipoKit[], listaModeloItem: ModeloItem[], valorMinimo: number, valorMaximo: number, numeroPagina: number,
+        tamanhoPagina: number): Observable<IPagina<IKit, Kit>> {
 
         let httpParams = new HttpParams();
 
