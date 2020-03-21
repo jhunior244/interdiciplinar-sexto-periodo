@@ -26,6 +26,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TelaListaNotebookComponent } from './tela/tela-lista-notebook/tela-lista-notebook.component';
 import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tela-visualiza-produto.component';
 import { TipoItemService } from './servico/tipo-item/tipo-item.service';
+import { TelaLoginComponent } from './tela/home/tela-login.component';
+import { AuthService } from './core/auth/auth.service';
+import { UsuarioService } from './core/usuario/usuario.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { TipoItemService } from './servico/tipo-item/tipo-item.service';
     TelaListaNotebookComponent,
     TelaListaDesktopComponent,
     TelaVisualizaProdutoComponent,
+    TelaLoginComponent,
     ProdutosEmDestaqueComponent,
     FooterComponent
   ],
@@ -64,7 +68,7 @@ import { TipoItemService } from './servico/tipo-item/tipo-item.service';
     MatRadioModule,
     MatPaginatorModule
   ],
-  providers: [KitService, TipoItemService],
+  providers: [KitService, TipoItemService, AuthService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

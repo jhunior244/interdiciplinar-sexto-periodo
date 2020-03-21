@@ -3,6 +3,7 @@ import { KitService } from 'src/app/servico/kit/kit.service';
 import { TipoKit } from 'src/app/servico/tipo-kit/tipo-kit';
 import { configuracao } from 'src/app/configuracao';
 import { Kit } from 'src/app/servico/kit/kit';
+import { ModeloItem } from 'src/app/servico/modelo-item/modelo-item';
 
 @Component({
     selector: 'app-lista-desktop',
@@ -13,17 +14,25 @@ export class TelaListaDesktopComponent implements OnInit {
 
     private tipoKitDesktop = new TipoKit();
 
-    private listaFiltro: TipoKit[] = [];
+    private listaTipoKit: TipoKit[] = [];
+    private listaModeloItem: ModeloItem[] = [];
 
     public listaComputadores: Kit[];
 
     constructor(private kitService: KitService) {
         this.tipoKitDesktop.id = configuracao.tipoKit.COMPUTADOR;
-        this.listaFiltro.push(this.tipoKitDesktop);
+        this.listaTipoKit.push(this.tipoKitDesktop);
     }
 
     ngOnInit() {
-        this.kitService.lista(this.listaFiltro, null, null, null, 0, 10).subscribe(pagina => {
+        this.kitService.lista(this.listaTipoKit,  this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
+            this.listaComputadores = pagina.conteudo;
+        });
+    }
+
+    filtraProdutos(filtros: any[]){
+        this.listaModeloItem = filtros;
+        this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
             this.listaComputadores = pagina.conteudo;
         });
     }

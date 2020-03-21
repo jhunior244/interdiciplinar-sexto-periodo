@@ -5,6 +5,7 @@ export const configuracao = {
     rotaDesktop: 'desktop',
     rotaNotebook: 'notebok',
     rotaVisualizaProduto: 'detalhesProduto',
+    rotaLogin: 'login',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
     parametroListaIdModeloItem: 'listaIdModeloItem',
