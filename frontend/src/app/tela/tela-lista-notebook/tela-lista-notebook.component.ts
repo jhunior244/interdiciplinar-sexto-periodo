@@ -24,7 +24,7 @@ export class TelaListaNotebookComponent implements OnInit {
     constructor(
         private kitService: KitService,
         private router: Router
-        ) {
+    ) {
         this.tipoKitDesktop.id = configuracao.tipoKit.NOTEBOOK;
         this.listaTipoKit.push(this.tipoKitDesktop);
     }
@@ -35,7 +35,7 @@ export class TelaListaNotebookComponent implements OnInit {
         });
     }
 
-    filtraProdutos(filtros: any[]){
+    filtraProdutos(filtros: any[]) {
         this.listaModeloItem = filtros;
         this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
             this.listaNotebook = pagina.conteudo;

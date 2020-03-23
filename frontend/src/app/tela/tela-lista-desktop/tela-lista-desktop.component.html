@@ -1,7 +1,4 @@
 <div fxFill>
-    <app-painel-lista-produtos [lista]="listaComputadores">
+    <app-painel-lista-produtos (filtros)="filtraProdutos($event)"  [lista]="listaComputadores">
     </app-painel-lista-produtos>
-    <!-- <div class="footer" style="margin-top: 69px;">
-        <app-footer fxLayoutAlign="end end"></app-footer>
-    </div> -->
 </div>
