@@ -17,4 +17,28 @@
 
   .imagem-promocao:hover {
     opacity: 1;
+    cursor: pointer;
+  }
+
+  /* li { cursor: pointer; } */
+  
+  a {
+    text-emphasis: none;
+    text-decoration: none;
+}
+  a:hover {
+    text-decoration: grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+  .preco {
+      font-size: 18px;
+      color: green;
+  }
+
+  .descricao-item {
+      font-size: 14px;
+      color: black;
+      font-weight: bold;
   }

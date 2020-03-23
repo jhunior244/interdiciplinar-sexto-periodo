@@ -28,4 +28,9 @@ public class KitServico implements IKitServico {
     public List<Kit> listaPromocao(){
         return kitJpaRepository.listaPromocao();
     }
+
+    @Override
+    public Kit obtem(Long id) {
+        return kitJpaRepository.findById(id).get();
+    }
 }

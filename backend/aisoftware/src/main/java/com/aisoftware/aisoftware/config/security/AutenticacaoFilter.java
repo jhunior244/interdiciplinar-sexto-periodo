@@ -26,6 +26,14 @@ public class AutenticacaoFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 
+//        final String origin = "http://localhost:4200";
+//
+//        httpServletResponse.addHeader("Access-Control-Allow-Origin", origin);
+//        httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+//        httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+//        httpServletResponse.setHeader("Access-Control-Allow-Headers",
+//                "content-type, x-gwt-module-base, x-gwt-permutation, clientid, longpush");
+
         String token = recuperarToken(httpServletRequest);
         boolean valido = tokenService.isTokenValido(token);
         if(valido){
@@ -47,6 +55,6 @@ public class AutenticacaoFilter extends OncePerRequestFilter {
             return null;
         }
 
-        return token.substring(7, token.length());
+        return token.substring(7);
     }
 }

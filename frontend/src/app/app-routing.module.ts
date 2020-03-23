@@ -17,7 +17,8 @@ const routes: Routes = [
 
   { path: configuracao.rotaVisualizaProduto, component: TelaVisualizaProdutoComponent },
 
-  { path: '**', component: TelaInicialComponent }
+  { path: '**', component: TelaInicialComponent },
+  { path: '', component: TelaInicialComponent },
 ];
 
 @NgModule({

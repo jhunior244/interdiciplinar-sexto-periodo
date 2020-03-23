@@ -1,9 +1,36 @@
-<div (mouseenter)="mouseEnter()" fxLayoutAlign="center end" (mouseleave)="mouseLeave()" [@teste]="ofertas" class="container-imagem">
-    <img class="imagem-promocao" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
-      [src]="imagemExibida">
-    <mat-radio-group style="float: inline-end; position: absolute; margin-bottom: 10px;" aria-label="Select an option">
-      <mat-radio-button style="margin-left: 20px;" value="1"></mat-radio-button>
-      <mat-radio-button style="margin-left: 20px;" value="2"></mat-radio-button>
-      <mat-radio-button style="margin-left: 20px;" value="3"></mat-radio-button>
-    </mat-radio-group>
-  </div>
+<div (mouseenter)="mouseEnter()" fxLayoutAlign="center end" (mouseleave)="mouseLeave()" [@teste]="ofertas">
+ 
+  <mat-card class="card-item" style="width: 700px; height: 390px;  margin-bottom: 15px;">
+    <a (click)="irParaInformacoes(item)">
+      <div style="margin-top: 10px;" fxLayoutAlign="center" class="imagem-item">
+        <img class="imagem-promocao" style="width: 520px; height: 300px;" mat-card-image [src]="imagemExibida">
+      </div>
+    </a>
+    <div style="margin: 10px"   fxLayoutAlign="center center">
+      <mat-radio-group (change)="selecionaImagem($event)" color="primary" *ngIf="listaKit" fxLayout="row" style="float: inline-end; position: absolute; margin-bottom: 10px;">
+        <mat-radio-button *ngIf="listaKit[0]" style="margin-left: 20px;" 
+        [checked]="listaKit[0].listaImagem[0].caminho === imagemExibida ? true : false" 
+        [value]="listaKit[0]"></mat-radio-button>
+        <mat-radio-button *ngIf="listaKit[1]" style="margin-left: 20px;" 
+        [checked]="listaKit[1].listaImagem[0].caminho === imagemExibida ? true : false" 
+        [value]="listaKit[1]"></mat-radio-button>
+        <mat-radio-button *ngIf="listaKit[2]" style="margin-left: 20px;" 
+        [checked]="listaKit[2].listaImagem[0].caminho === imagemExibida ? true : false" 
+        [value]="listaKit[2]"></mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <a (click)="irParaInformacoes(item)">
+        <p fxLayoutAlign="center start" class="preco">
+          R$ {{item?.preco}}
+        </p>
+        <p fxLayoutAlign="center start" class="descricao-item">
+          {{item?.titulo}}
+        </p>
+      </a>
+    </mat-card-content>
+  </mat-card>
+  <!-- <img class="imagem-promocao" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+      [src]="imagemExibida"> -->
+</div>

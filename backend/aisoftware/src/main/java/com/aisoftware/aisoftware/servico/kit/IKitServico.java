@@ -13,4 +13,6 @@ public interface IKitServico {
     Page<Kit> lista(Long[] listaIdTipoKit, Long[] listaIdModeloItem, BigDecimal valorMinimo, BigDecimal valorMaximo, Pageable pagina);
 
     List<Kit> listaPromocao();
+
+    Kit obtem(Long id);
 }

@@ -1,11 +1,20 @@
-<div fxFill style="background-color: rgba(207, 207, 207, 0.884);">
+<div fxLayout="column" fxLayoutAlign="start" fxFill style="background-color: rgba(207, 207, 207, 0.884);">
     <div>
         <mat-toolbar class="menu-principal" fxLayout="row">
             <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
-                <div>
+                <div fxLayout="row" fxLayoutAlign="center center">
                     <button mat-icon-button>
                         <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
                     </button>
+                    <div>
+                        <span *ngIf="(usuarioLogado$ | async) as usuario; else login"
+                            style="margin: 10px; color: rgb(68, 66, 66);">{{usuario.nome}}</span>
+                    </div>
+                    <ng-template #login>
+                        <span style="margin: 10px;">
+                            <a [routerLink]="['login']">Fazer login</a>
+                        </span>
+                    </ng-template>
                 </div>
                 <div fxLayoutAlign="center center">
                     <button mat-raised-button [routerLink]="rotasSistema.rotaInicio">
@@ -20,7 +29,7 @@
                     <button mat-raised-button [routerLink]="rotasSistema.rotaVisualizaProduto">
                         ACESSORIOS
                     </button>
-                    <button mat-raised-button [routerLink]="rotasSistema.rotaLogin">
+                    <button mat-raised-button>
                         AJUDA
                     </button>
                 </div>
@@ -45,22 +54,11 @@
                 <mat-icon>edit</mat-icon>
                 <span>Editar perfil</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="deslogar()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Sair</span>
             </button>
         </mat-menu>
-        <!-- <section fxLayoutAlign="center center">
-        <mat-card class="promocoes" >
-            <mat-card-content fxLayoutAlign="center center">
-                <img src="../assets/imagens/pc-gamer.jpg">
-            </mat-card-content>
-            <mat-divider></mat-divider>
-            <mat-card-actions fxLayoutAlign="center end">
-                <span>Pc Completo Windows XP com Celeron 1. R$ 6.000,00</span>
-            </mat-card-actions>
-        </mat-card>
-    </section> -->
     </div>
     <div fxLayoutAlign="center start">
         <div class="painel-navegacao" fxLayout="column">
@@ -68,7 +66,7 @@
             </router-outlet>
         </div>
     </div>
-<!-- </div>
-<div class="footer" style="margin-top: 15px;">
+</div>
+<div style="margin-top: 50px;">
     <app-footer fxLayoutAlign="end end"></app-footer>
-</div> -->
+</div>

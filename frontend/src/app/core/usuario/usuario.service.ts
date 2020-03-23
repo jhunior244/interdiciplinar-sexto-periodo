@@ -4,6 +4,8 @@ import { Usuario } from './usuario';
 import { TokenService } from '../token/token.service';
 import * as jtw_decode from 'jwt-decode';
 
+const usuarioLogadoSistema = 'usuarioLogadoSistema';
+
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
 
@@ -13,24 +15,41 @@ export class UsuarioService {
     constructor(
         private tokenService: TokenService
     ) {
-        this.tokenService.hasToken() &&
-            this.decodeAndNotify();
+        this.tokenService.hasToken() && this.decodeAndNotify();
     }
 
     setToken(token: string) {
         this.tokenService.setToken(token);
     }
 
+    setUsuarioLogadoSistema(nome: string) {
+        window.localStorage.setItem(usuarioLogadoSistema, nome);
+        this.decodeAndNotify();
+    }
+
+    private getNomeUsuarioLogado() {
+        return window.localStorage.getItem(usuarioLogadoSistema);
+    }
+
     getUsuario() {
+        this.decodeAndNotify();
         return this.usuarioSubject.asObservable();
     }
 
+    removeNomeUsuarioLogado() {
+        window.localStorage.removeItem(usuarioLogadoSistema);
+        this.decodeAndNotify();
+    }
+
     private decodeAndNotify() {
-        const token = this.tokenService.getToken();
-
-        const usuario = jtw_decode(token) as Usuario;
-
-        this.usuarioSubject.next(usuario);
+        const usuario = new Usuario();
+        if (this.getNomeUsuarioLogado()) {
+            usuario.nome = this.getNomeUsuarioLogado();
+            this.usuarioSubject.next(usuario);
+        } else {
+            this.usuarioSubject.next(null);
+        }
     }
 
 }
+

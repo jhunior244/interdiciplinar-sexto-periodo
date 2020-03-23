@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,9 @@ import { TipoItemService } from './servico/tipo-item/tipo-item.service';
 import { TelaLoginComponent } from './tela/home/tela-login.component';
 import { AuthService } from './core/auth/auth.service';
 import { UsuarioService } from './core/usuario/usuario.service';
+import { ItemService } from './servico/item/item.service';
+import { RequestInterceptor } from './core/auth/request.interceptor';
+import { SessaoService } from './core/sessao/sessao.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,19 @@ import { UsuarioService } from './core/usuario/usuario.service';
     MatRadioModule,
     MatPaginatorModule
   ],
-  providers: [KitService, TipoItemService, AuthService, UsuarioService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    },
+    KitService,
+    TipoItemService,
+    AuthService,
+    UsuarioService,
+    ItemService,
+    SessaoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

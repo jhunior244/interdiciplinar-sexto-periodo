@@ -27,12 +27,6 @@ INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('LG 15Z980');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo Q464B');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo C4500C'); 
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Positivo Q432A');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron i15-3583-A30P');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron i15-3584-D10P');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Inspiron 7000 i15-7580');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP 14-CB012WM');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP Probook 450');
-INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('HP 14-hp-bw011');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('MacBook Pro i7');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Air Apple i5');
 INSERT INTO `aisoftware_db`.`modelo_kit` (`nome`) VALUES ('Apple Macbook Air');
@@ -51,15 +45,9 @@ INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_ki
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1044', 'Notebook Positivo Q464B', '8', '9', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1079', 'Notebook Positivo C4500C', '8', '10', '2');
 INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1029', 'Notebook Positivo Q432A', '8', '11', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2969', 'Notebook Dell Inspiron i15-3583-A30P', '1', '12', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1709', 'Notebook Dell Inspiron i15-3584-D10P', '1', '13', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('3199', 'Notebook Dell Inspiron 7000 i15-7580', '1', '14', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('1800', 'Notebook HP 14-CB012WM', '2', '15', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2500', 'Notebook HP Probook 450', '2', '16', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('2000', 'Notebook HP 14-hp-bw011', '2', '17', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('12458', 'MacBook Pro i7', '4', '18', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('4799', 'MacBook Air Apple Core i5', '4', '18', '2');
-INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('6000', 'Macbook Apple Air', '4', '19', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('12458', 'MacBook Pro i7', '4', '12', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('4799', 'MacBook Air Apple Core i5', '4', '13', '2');
+INSERT INTO `aisoftware_db`.`kit` (`preco`, `titulo`, `marca_kit_id`, `modelo_kit_id`, `tipo_kit_id`) VALUES ('6000', 'Macbook Apple Air', '4', '14', '2');
 
 
 
@@ -109,19 +97,10 @@ INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('C4500C', '../..
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-1.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-2.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('Q432A', '../../../assets/imagens/notebook/positivo/Q432A/foto-3.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-1.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-2.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad 330S', '../../../assets/imagens/notebook/lenovo/IdeaPad 330S/foto-3.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-1.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-2.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad c340', '../../../assets/imagens/notebook/lenovo/Ideapad c340/foto-3.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-1.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-2.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('IdeaPad S145', '../../../assets/imagens/notebook/lenovo/Ideapad S145/foto-3.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-1.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-2.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/MacBok Air i5/foto-3.jpg');
-INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air i5', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-1.jpg');
+INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air dourado', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-1.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air dourado', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-2.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air dourado', '../../../assets/imagens/notebook/apple/Macbook Air - dourado/foto-3.jpg');
 INSERT INTO `aisoftware_db`.`imagem` (`alt`, `caminho`) VALUES ('MacBook Air Pro', '../../../assets/imagens/notebook/apple/MacBook Pro i7/foto-1.jpg');
@@ -158,6 +137,21 @@ INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('8', '25');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '26');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '27');
 INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('9', '28');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('10', '29');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('10', '20');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('10', '31');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('11', '32');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('11', '33');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('11', '34');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('12', '35');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('12', '36');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('12', '37');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('13', '38');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('13', '39');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('13', '40');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('14', '41');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('14', '42');
+INSERT INTO kit_lista_imagem(`kit_id`, `lista_imagem_id`) VALUES ('14', '43');
 
 
 

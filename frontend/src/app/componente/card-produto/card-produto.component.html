@@ -1,11 +1,11 @@
-<div *ngIf="item && item.listaImagem && item.listaImagem[0] && item.listaImagem[0].caminho">
-    <mat-card class="card-item" style="width: 200px; max-width: 200px; margin-right: 15px; margin-bottom: 15px;">
+<div (click)="irParaInformacoes(item)" *ngIf="item && item.listaImagem && item.listaImagem[0] && item.listaImagem[0].caminho">
+    <mat-card class="card-item" style="width: 200px; height: 320px; max-width: 200px; margin-right: 15px; margin-bottom: 15px;">
         <div fxLayoutAlign="center" class="imagem-item">
-            <img mat-card-image [src]="item?.listaImagem[0].caminho">
+            <img style="width: 180px; height: 180px;" mat-card-image [src]="item?.listaImagem[0].caminho">
         </div>
         <mat-divider></mat-divider>
         <mat-card-content>
-            <a href="www.google.com">
+            <a>
                 <p fxLayoutAlign="center start" class="preco">
                     R$ {{item?.preco}}
                 </p>
