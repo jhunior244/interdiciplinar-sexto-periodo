@@ -1,13 +1,17 @@
-.imagem-item {
-    margin: 5px !important;
-    max-width: 55px;
-    max-height: 55px;
+img:hover {
+    cursor: pointer;
 }
 
-.imagem-item2 {
-    margin: 3px !important;
-    max-width: 600px;
-    max-height: 420px;
+.imagem-item-mini {
+    margin: 8px !important;
+    width: 55px;
+    height: 55px;
+}
+
+.imagem-item {
+    margin: 5px !important;
+    width: 600px;
+    height: 420px;
 }
 
 mat-divider {

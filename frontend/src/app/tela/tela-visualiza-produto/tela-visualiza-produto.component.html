@@ -1,28 +1,39 @@
-<div>
+<div style="width: 100%;" fxFlex fxLayoutAlign="center">
     <mat-card style="margin: 50px;">
         <mat-card-content>
             <div fxLayout="row">
                 <div fxLayout="column">
-                    <div fxLayoutAlign="start" class="imagem-item">
-                        <img style="border: 1px solid #000000;" mat-card-image src="../../../assets/imagens/pc-1.png">
+                    <div *ngIf="kit?.listaImagem[0]?.caminho" (click)="alteraImagem(kit.listaImagem[0].caminho)" 
+                    fxLayoutAlign="start">
+                        <img class="imagem-item-mini" style="border: 1px solid #000000;" mat-card-image [src]="kit?.listaImagem[0]?.caminho">
                     </div>
-                    <div fxLayoutAlign="start" class="imagem-item">
-                        <img style="border: 1px solid #000000;" mat-card-image src="../../../assets/imagens/pc-2.jpg">
+                    <div *ngIf="kit?.listaImagem[1]?.caminho" (click)="alteraImagem(kit.listaImagem[1].caminho)" 
+                    fxLayoutAlign="start">
+                        <img class="imagem-item-mini" style="border: 1px solid #000000;" mat-card-image [src]="kit?.listaImagem[1]?.caminho">
                     </div>
-                    <div fxLayoutAlign="start" class="imagem-item">
-                        <img style="border: 1px solid #000000;" mat-card-image src="../../../assets/imagens/pc-3.jpg">
+                    <div *ngIf="kit?.listaImagem[2]?.caminho" (click)="alteraImagem(kit.listaImagem[2].caminho)" 
+                    fxLayoutAlign="start">
+                        <img class="imagem-item-mini" style="border: 1px solid #000000;" mat-card-image [src]="kit?.listaImagem[2]?.caminho">
                     </div>
-                    <div fxLayoutAlign="start" class="imagem-item">
-                        <img style="border: 1px solid #000000;" mat-card-image src="../../../assets/imagens/pc-4.png">
+                    <div *ngIf="kit?.listaImagem[3]?.caminho" (click)="alteraImagem(kit.listaImagem[3].caminho)" 
+                    fxLayoutAlign="start">
+                        <img class="imagem-item-mini" style="border: 1px solid #000000;" mat-card-image [src]="kit?.listaImagem[3]?.caminho">
                     </div>
                 </div>
-                <div fxLayoutAlign="start" class="imagem-item2">
-                    <img style="margin-left: 25px;" mat-card-image src="../../../assets/imagens/pc-4.png">
+                <div *ngIf="caminhoImagemFull" fxLayoutAlign="start">
+                    <img  class="imagem-item" style="margin-left: 25px;" mat-card-image [src]="caminhoImagemFull">
+                </div>
+                <div fxFlex="10">
+
                 </div>
                 <mat-divider [vertical]="true"></mat-divider>
+                
+                <div fxFlex="10">
+
+                </div>
                 <div fxLayout="column" class="informacoes-produto">
-                    <h1 style="font-size: 26px;">Computador gamer | Core I7 7700 | 16gb DDR4 | SSD 360gb</h1>
-                    <span fxLayoutAlign="center" style="font-size: 18px; margin-top: 30px; color: green;">R$ 6.000,00</span>
+                    <h1 style="font-size: 26px;">{{kit?.titulo}}</h1>
+                    <span fxLayoutAlign="center" style="font-size: 18px; margin-top: 30px; color: green;">R$ {{kit?.preco}}</span>
                     <span fxLayoutAlign="center" style="font-size: 21px; margin-top: 30px;">Produto disponivel</span>
                     <div style="margin-top: 30px;" fxLayoutAlign="center">
                         <button mat-raised-button>
@@ -32,6 +43,9 @@
                             COLOCAR NO CARRINHO
                         </button>
                     </div>
+                </div>
+                <div fxFlex="10">
+
                 </div>
             </div>
         </mat-card-content>

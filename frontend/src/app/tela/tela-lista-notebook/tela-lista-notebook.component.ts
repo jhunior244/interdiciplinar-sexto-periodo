@@ -6,6 +6,7 @@ import { KitService } from '../../servico/kit/kit.service';
 import { TipoKit } from '../../servico/tipo-kit/tipo-kit';
 import { Kit } from '../../servico/kit/kit';
 import { ModeloItem } from 'src/app/servico/modelo-item/modelo-item';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tela-lista-notebook',
@@ -20,7 +21,10 @@ export class TelaListaNotebookComponent implements OnInit {
 
     public listaNotebook: Kit[];
 
-    constructor(private kitService: KitService) {
+    constructor(
+        private kitService: KitService,
+        private router: Router
+        ) {
         this.tipoKitDesktop.id = configuracao.tipoKit.NOTEBOOK;
         this.listaTipoKit.push(this.tipoKitDesktop);
     }
@@ -36,6 +40,10 @@ export class TelaListaNotebookComponent implements OnInit {
         this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
             this.listaNotebook = pagina.conteudo;
         });
+    }
+
+    irParaInformacoes(item) {
+        this.router.navigate([configuracao.rotaVisualizaProduto + '/' + item.id]);
     }
 }
 

@@ -58,6 +58,18 @@ export class KitService {
             .pipe(map((pagina => this.obtemPagina(pagina))));
     }
 
+    public obtem(id: number): Observable<Kit> {
+
+        let httpParams = new HttpParams();
+
+        if (id) {
+            httpParams = httpParams.append(configuracao.parametroId, id.toString());
+        }
+
+        return this.httpCliente.get<Kit>(this.url + '/obtem', { params: httpParams })
+            .pipe(map((kit => Kit.doBackend(kit))));
+    }
+
     public listaPromocao(): Observable<Kit[]> {
 
         return this.httpCliente.get<IKit[]>(this.url + '/listaPromocao')
