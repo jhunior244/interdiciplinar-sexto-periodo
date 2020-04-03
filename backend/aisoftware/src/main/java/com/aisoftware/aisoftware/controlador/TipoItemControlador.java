@@ -24,7 +24,7 @@ public class TipoItemControlador {
     private TipoItemMapeador tipoItemMapeador;
 
     @GetMapping(path = "/lista")
-    public List<TipoItemDto> listaPromocao(){
-        return tipoItemMapeador.listToListDto(tipoItemServico.lista());
+    public List<TipoItemDto> listaPromocao(Long idTipoKit){
+        return tipoItemMapeador.listToListDto(tipoItemServico.listaPorTipoKit(idTipoKit));
     }
 }

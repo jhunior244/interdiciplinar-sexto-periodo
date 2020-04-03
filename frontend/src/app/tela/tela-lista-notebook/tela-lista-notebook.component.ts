@@ -14,10 +14,12 @@ import { Router } from '@angular/router';
 })
 export class TelaListaNotebookComponent implements OnInit {
 
-    private tipoKitDesktop = new TipoKit();
+    private tipoNotebook = new TipoKit();
 
     private listaTipoKit: TipoKit[] = [];
     private listaModeloItem: ModeloItem[] = [];
+    
+    public idTipoKitNotebook: number;
 
     public listaNotebook: Kit[];
 
@@ -25,19 +27,20 @@ export class TelaListaNotebookComponent implements OnInit {
         private kitService: KitService,
         private router: Router
     ) {
-        this.tipoKitDesktop.id = configuracao.tipoKit.NOTEBOOK;
-        this.listaTipoKit.push(this.tipoKitDesktop);
+        this.idTipoKitNotebook = configuracao.tipoKit.NOTEBOOK;
+        this.tipoNotebook.id = configuracao.tipoKit.NOTEBOOK;
+        this.listaTipoKit.push(this.tipoNotebook);
     }
 
     ngOnInit() {
-        this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
+        this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 8).subscribe(pagina => {
             this.listaNotebook = pagina.conteudo;
         });
     }
 
     filtraProdutos(filtros: any[]) {
         this.listaModeloItem = filtros;
-        this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 10).subscribe(pagina => {
+        this.kitService.lista(this.listaTipoKit, this.listaModeloItem, null, null, 0, 8).subscribe(pagina => {
             this.listaNotebook = pagina.conteudo;
         });
     }

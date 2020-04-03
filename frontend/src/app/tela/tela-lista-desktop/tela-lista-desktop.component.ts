@@ -19,7 +19,10 @@ export class TelaListaDesktopComponent implements OnInit {
 
     public listaComputadores: Kit[];
 
+    public idTipoKitDesktop: number;
+
     constructor(private kitService: KitService) {
+        this.idTipoKitDesktop = configuracao.tipoKit.COMPUTADOR;
         this.tipoKitDesktop.id = configuracao.tipoKit.COMPUTADOR;
         this.listaTipoKit.push(this.tipoKitDesktop);
     }

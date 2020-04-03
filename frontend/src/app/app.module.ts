@@ -32,6 +32,8 @@ import { UsuarioService } from './core/usuario/usuario.service';
 import { ItemService } from './servico/item/item.service';
 import { RequestInterceptor } from './core/auth/request.interceptor';
 import { SessaoService } from './core/sessao/sessao.service';
+import {MatExpansionModule} from '@angular/material/expansion'; 
+import { ExpansionPanelAcessoriosComponent } from './componente/expansion-panel-acessorios/expansion-panel-acessorios.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { SessaoService } from './core/sessao/sessao.service';
     TelaVisualizaProdutoComponent,
     TelaLoginComponent,
     ProdutosEmDestaqueComponent,
-    FooterComponent
+    FooterComponent,
+    ExpansionPanelAcessoriosComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { SessaoService } from './core/sessao/sessao.service';
     HttpClientModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatExpansionModule
   ],
   providers: [
     {

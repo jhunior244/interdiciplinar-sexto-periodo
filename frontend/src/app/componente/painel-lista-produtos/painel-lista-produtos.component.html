@@ -1,16 +1,14 @@
-<div fxLayout="row" fxLayoutAlign="start st" style="margin-left: 40px;">
-  <div style="width: 20%;" class="menu-lateral" fxLayout="column" fxLayoutAlign="start start">
+<div fxLayout="row" fxLayoutAlign="center start">
+  <div class="menu-lateral" fxLayout="column" fxLayoutAlign="start start">
     <app-filtro-produto (filtros)="atualizaFiltros($event)" [listaFiltros]="listaFiltro"></app-filtro-produto>
   </div>
-  <div style="margin-top: 40px;" fxLayout="column">
-    <div class="painel-lista-produtos" style="width: 80%;" fxLayout="row wrap" fxLayoutAlign="start center">
+  <div style="margin-top: 15px; width: 1245px;" fxLayout="row wrap">
+    <div class="painel-lista-produtos" fxLayout="row wrap" fxLayoutAlign="start start">
       <div *ngFor="let item of lista">
         <app-card-produto [item]="item"></app-card-produto>
       </div>
-    </div>
-    <div fxLayoutAlign="start end">
-      <mat-paginator style="width: 500px;" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-      </mat-paginator>
+        <mat-paginator *ngIf="lista?.length >= 8"  style="width: 80%;" [length]="32" [pageSize]="8" [pageSizeOptions]="[8 , 16, 24]">
+        </mat-paginator>
     </div>
   </div>
 </div>

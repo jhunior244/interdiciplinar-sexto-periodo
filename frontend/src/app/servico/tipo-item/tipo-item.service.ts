@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ITipoItem, TipoItem } from './tipo-item';
+import { configuracao } from 'src/app/configuracao';
 
 @Injectable()
 export class TipoItemService {
@@ -13,9 +14,15 @@ export class TipoItemService {
         this.httpHeader = this.httpHeader.append('Content-Type', 'application/json');
     }
 
-    public lista(): Observable<TipoItem[]> {
+    public lista(idTipoKit: number): Observable<TipoItem[]> {
 
-        return this.httpCliente.get<ITipoItem[]>(this.url + '/lista')
+        let httpParams = new HttpParams();
+
+        if (idTipoKit != null) {
+            httpParams = httpParams.append(configuracao.parametroIdTipoKit, idTipoKit.toString());
+        }
+
+        return this.httpCliente.get<ITipoItem[]>(this.url + '/lista', {params: httpParams})
             .pipe(map(((lista: TipoItem[]) => TipoItem.listaDoBackend(lista))));
     }
 }

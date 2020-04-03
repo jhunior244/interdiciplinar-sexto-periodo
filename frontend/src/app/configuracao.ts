@@ -12,6 +12,7 @@ export const configuracao = {
     parametroValorMinimo: 'valorMinimo',
     parametroValorMaximo: 'valorMaximo',
     parametroId: 'id',
+    parametroIdTipoKit: 'idTipoKit',
 
     tipoKit: {
         COMPUTADOR: 1,
