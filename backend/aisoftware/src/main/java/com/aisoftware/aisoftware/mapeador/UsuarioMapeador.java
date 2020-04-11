@@ -1,6 +1,7 @@
 package com.aisoftware.aisoftware.mapeador;
 
 import com.aisoftware.aisoftware.dto.UsuarioDto;
+import com.aisoftware.aisoftware.dto.UsuarioSaidaDto;
 import com.aisoftware.aisoftware.entidade.Usuario;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -11,4 +12,8 @@ import org.mapstruct.ReportingPolicy;
 public interface UsuarioMapeador {
 
     UsuarioDto usuarioToUsuarioDto(Usuario usuario);
+
+    Usuario usuarioDtoToUsuario(UsuarioDto usuario);
+
+    UsuarioSaidaDto usuarioToUsuarioSaidaDto(Usuario usuario);
 }

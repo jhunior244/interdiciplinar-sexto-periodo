@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("usuario")
+@RequestMapping("auth")
 public class AutenticacaoControlador {
 
     @Autowired
@@ -38,7 +38,6 @@ public class AutenticacaoControlador {
             Authentication authentication = authenticationManager.authenticate(dadosLogin);
             String token = tokenService.gerarToken(authentication);
             Usuario usuarioLogado = usuarioJpaRepository.findByEmail(usuario.getEmail());
-//            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
             UsuarioDto usuarioDto = new UsuarioDto();
             usuarioDto.setNome(usuarioLogado.getNome());
             usuario.setEmail(usuarioLogado.getEmail());

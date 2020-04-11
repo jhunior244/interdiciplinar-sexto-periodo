@@ -22,10 +22,10 @@ public class Usuario implements UserDetails {
     private String nome;
 
     @Column(nullable = false, unique = true)
-    private String cpf;
-
-    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column
+    private String token;
 
     @Column(nullable = false)
     @JsonIgnore

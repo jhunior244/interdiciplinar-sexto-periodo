@@ -17,6 +17,7 @@ import { configuracao } from 'src/app/configuracao';
 export class TelaLoginComponent implements OnInit {
 
   public formGroup: FormGroup;
+  public rotasSistema = configuracao;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,6 +47,10 @@ export class TelaLoginComponent implements OnInit {
     }, (erro: HttpErrorResponse) => {
       console.log(erro);
     });
+  }
+
+  redirecionaTelaCadastro(){
+    this.router.navigate([configuracao.rotaCadastra]);
   }
 }
 

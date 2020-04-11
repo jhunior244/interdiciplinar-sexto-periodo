@@ -22,7 +22,10 @@
             Campo obrigatório
           </mat-error>
         </mat-form-field>
-        <button [disabled]="!formGroup.valid" class="mt-2" style="width: 300px;" mat-raised-button>ENTRAR</button>
+        <button [disabled]="!formGroup.valid" 
+        class="mt-2" 
+        mat-raised-button>ENTRAR</button>
+        <a (click)="redirecionaTelaCadastro()" style="cursor: pointer; text-decoration: underline; color: rgb(54, 54, 54);">Cadastrar-se</a>
       </form>
       <div>
         <img style="width: 400px;" src="../../../assets/imagens/aisoftware.png">

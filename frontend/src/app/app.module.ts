@@ -26,7 +26,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TelaListaNotebookComponent } from './tela/tela-lista-notebook/tela-lista-notebook.component';
 import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tela-visualiza-produto.component';
 import { TipoItemService } from './servico/tipo-item/tipo-item.service';
-import { TelaLoginComponent } from './tela/home/tela-login.component';
 import { AuthService } from './core/auth/auth.service';
 import { UsuarioService } from './core/usuario/usuario.service';
 import { ItemService } from './servico/item/item.service';
@@ -34,6 +33,8 @@ import { RequestInterceptor } from './core/auth/request.interceptor';
 import { SessaoService } from './core/sessao/sessao.service';
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import { ExpansionPanelAcessoriosComponent } from './componente/expansion-panel-acessorios/expansion-panel-acessorios.component';
+import { TelaLoginComponent } from './tela/home/login/tela-login.component';
+import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ExpansionPanelAcessoriosComponent } from './componente/expansion-panel-
     TelaListaDesktopComponent,
     TelaVisualizaProdutoComponent,
     TelaLoginComponent,
+    TelaCadastroComponent,
     ProdutosEmDestaqueComponent,
     FooterComponent,
     ExpansionPanelAcessoriosComponent

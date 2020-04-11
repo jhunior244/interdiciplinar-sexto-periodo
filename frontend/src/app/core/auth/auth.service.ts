@@ -12,7 +12,7 @@ import { SessaoService } from '../sessao/sessao.service';
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:8080' + '/usuario' ;
+  url = 'http://localhost:8080' + '/auth' ;
   httpHeader = new HttpHeaders();
   constructor(
     private http: HttpClient,

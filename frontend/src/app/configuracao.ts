@@ -6,12 +6,14 @@ export const configuracao = {
     rotaNotebook: 'notebok',
     rotaVisualizaProduto: 'detalhesProduto',
     rotaLogin: 'login',
+    rotaCadastra: 'cadastra',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
     parametroListaIdModeloItem: 'listaIdModeloItem',
     parametroValorMinimo: 'valorMinimo',
     parametroValorMaximo: 'valorMaximo',
     parametroId: 'id',
+    parametroEmail: 'email',
     parametroIdTipoKit: 'idTipoKit',
 
     tipoKit: {
