@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="start" style="height: 90%;">
+<div fxLayout="column" style="height: 100%;">
     <div>
         <mat-toolbar class="menu-principal" fxLayout="row">
             <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
@@ -45,19 +45,21 @@
             This is my DIV element.
         </div> -->
     </div>
-    <div fxLayout="column">
-        <div fxLayoutAlign="center start">
-            <div class="painel-navegacao" fxLayout="column">
-                <router-outlet>
-                </router-outlet>
+    <div fxFill fxFlex="grow" fxLayout="column" fxLayoutAlign="space-between" style="min-height: 80% !important;">
+
+        <div fxLayout="column">
+            <div fxLayoutAlign="center start">
+                <div class="painel-navegacao" fxLayout="column">
+                    <router-outlet>
+                    </router-outlet>
+                </div>
             </div>
+        </div>
+        <div style="margin-top: 10px; height: 10%; width: 100%;" >
+            <app-footer fxLayoutAlign="end end" style="height: 100%;"></app-footer>
         </div>
     </div>
 </div>
-<div style="margin-top: 10px; height: 10%;">
-    <app-footer fxLayoutAlign="end end"></app-footer>
-</div>
-
 
 <mat-menu #menu="matMenu" class="mb-1">
     <button mat-menu-item>
