@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { Usuario } from 'src/app/core/usuario/usuario';
 import { Md5 } from 'ts-md5/dist/md5';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './tela-login.component.html',
@@ -29,6 +29,8 @@ export class TelaLoginComponent implements OnInit {
       email: [null, Validators.compose([Validators.required, Validators.email])],
       senha: [null, Validators.required]
     });
+
+    
   }
 
   get email(): AbstractControl { return this.formGroup.controls.email; }
@@ -44,11 +46,13 @@ export class TelaLoginComponent implements OnInit {
     usuario.senha = Md5.hashStr(this.senha.value).toString();
     this.authService.autenticar(usuario).subscribe(resposta => {
       this.router.navigate([configuracao.rotaInicio]);
-      this.snackBar.open('message', 'fechars', {
-        duration: 2000,
-      });
+
     }, (erro: HttpErrorResponse) => {
       console.log(erro);
+      const config = new MatSnackBarConfig();
+      config.panelClass = 'mensagem-erro';
+      config.duration = 3000;
+      this.snackBar.open('Email ou senha estão incorretos', 'Fechar', config);
     });
   }
 

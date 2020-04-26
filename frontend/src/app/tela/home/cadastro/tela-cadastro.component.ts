@@ -12,6 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Router } from '@angular/router';
 import { configuracao } from 'src/app/configuracao';
+import { MatSnackBarConfig, MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-tela-cadastro',
@@ -31,7 +32,8 @@ export class TelaCadastroComponent implements OnInit {
         private sessaoService: SessaoService,
         private usuarioService: UsuarioService,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private snackBar: MatSnackBar
     ) {
         this.formGroup = this.formBuilder.group({
             nome: [null, Validators.required],
@@ -67,6 +69,10 @@ export class TelaCadastroComponent implements OnInit {
         this.formularioParaEntidade();
         this.usuarioService.cria(this.usuario).subscribe(() => {
             this.authService.autenticar(this.usuario).subscribe(retorno => {
+                const config = new MatSnackBarConfig();
+                config.panelClass = 'mensagem-sucesso';
+                config.duration = 3000;
+                this.snackBar.open('Cadastro efetuado com sucesso.', 'Fechar', config);
                 this.router.navigate([configuracao.rotaInicio]);
             }, (erro: HttpErrorResponse) => {
                 console.log(erro);

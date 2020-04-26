@@ -2,3 +2,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mensagem-erro{
+    background-color: rgb(109, 0, 0) !important;
+    color: rgb(173, 173, 173);
+    font-size: 15px;
+}
+
+.mensagem-sucesso{
+    background-color: rgb(46, 132, 22) !important;
+    color: rgb(173, 173, 173);
+    font-size: 15px;
+}
+
+.mat-simple-snackbar-action {
+    color: #2e46be;
+    font-size: 17px;
+}

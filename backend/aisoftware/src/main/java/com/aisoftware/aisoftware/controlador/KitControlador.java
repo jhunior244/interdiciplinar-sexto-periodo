@@ -2,25 +2,14 @@ package com.aisoftware.aisoftware.controlador;
 
 import com.aisoftware.aisoftware.dto.ItemDto;
 import com.aisoftware.aisoftware.dto.KitDto;
-import com.aisoftware.aisoftware.dto.TokenDto;
-import com.aisoftware.aisoftware.dto.UsuarioDto;
-import com.aisoftware.aisoftware.entidade.Kit;
-import com.aisoftware.aisoftware.entidade.Usuario;
-import com.aisoftware.aisoftware.mapeador.ItemMapeador;
 import com.aisoftware.aisoftware.mapeador.KitMapeador;
-import com.aisoftware.aisoftware.servico.item.IItemServico;
 import com.aisoftware.aisoftware.servico.kit.IKitServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 
