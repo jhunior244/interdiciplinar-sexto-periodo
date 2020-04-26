@@ -35,6 +35,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ExpansionPanelAcessoriosComponent } from './componente/expansion-panel-acessorios/expansion-panel-acessorios.component';
 import { TelaLoginComponent } from './tela/home/login/tela-login.component';
 import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.compon
     MatCheckboxModule,
     MatRadioModule,
     MatPaginatorModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSnackBarModule
   ],
   providers: [
     {

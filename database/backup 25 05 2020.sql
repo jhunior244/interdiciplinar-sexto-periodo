@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: aisoftware_db
+-- Host: localhost    Database: aisoftware
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -102,8 +102,9 @@ CREATE TABLE `cidade` (
   `nome` varchar(255) NOT NULL,
   `estado_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKkworrwk40xj58kevvh3evi500` (`estado_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKkworrwk40xj58kevvh3evi500` (`estado_id`),
+  CONSTRAINT `FKkworrwk40xj58kevvh3evi500` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,13 +125,15 @@ DROP TABLE IF EXISTS `compra`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compra` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `data` datetime NOT NULL,
+  `data` datetime(6) NOT NULL,
   `entrega_id` bigint DEFAULT NULL,
   `usuario_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK866oc56o279g4ornroxoopr3q` (`entrega_id`),
-  KEY `FKk39qkguq7uka81tdyvhrkvppf` (`usuario_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKk39qkguq7uka81tdyvhrkvppf` (`usuario_id`),
+  CONSTRAINT `FK866oc56o279g4ornroxoopr3q` FOREIGN KEY (`entrega_id`) REFERENCES `entrega` (`id`),
+  CONSTRAINT `FKk39qkguq7uka81tdyvhrkvppf` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,8 +156,10 @@ CREATE TABLE `compra_lista_item` (
   `compra_id` bigint NOT NULL,
   `lista_item_id` bigint NOT NULL,
   KEY `FKmayqaba7rxmuhcpqu4yu6b3q2` (`lista_item_id`),
-  KEY `FK4bhrjsoa6v2t8yqun6rbgkj6v` (`compra_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK4bhrjsoa6v2t8yqun6rbgkj6v` (`compra_id`),
+  CONSTRAINT `FK4bhrjsoa6v2t8yqun6rbgkj6v` FOREIGN KEY (`compra_id`) REFERENCES `compra` (`id`),
+  CONSTRAINT `FKmayqaba7rxmuhcpqu4yu6b3q2` FOREIGN KEY (`lista_item_id`) REFERENCES `item` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,8 +182,10 @@ CREATE TABLE `compra_lista_kit` (
   `compra_id` bigint NOT NULL,
   `lista_kit_id` bigint NOT NULL,
   KEY `FKdxxjbsdriu7rf5m9q2yqesw6p` (`lista_kit_id`),
-  KEY `FKlwm5gv4oahifxg627tgsptpjh` (`compra_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKlwm5gv4oahifxg627tgsptpjh` (`compra_id`),
+  CONSTRAINT `FKdxxjbsdriu7rf5m9q2yqesw6p` FOREIGN KEY (`lista_kit_id`) REFERENCES `kit` (`id`),
+  CONSTRAINT `FKlwm5gv4oahifxg627tgsptpjh` FOREIGN KEY (`compra_id`) REFERENCES `compra` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +207,7 @@ DROP TABLE IF EXISTS `entrega`;
 CREATE TABLE `entrega` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `cep` varchar(255) NOT NULL,
-  `data_entrega` datetime DEFAULT NULL,
+  `data_entrega` datetime(6) DEFAULT NULL,
   `numero` int NOT NULL,
   `rua` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -251,7 +258,7 @@ CREATE TABLE `imagem` (
   `alt` varchar(255) DEFAULT NULL,
   `caminho` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +291,7 @@ CREATE TABLE `item` (
   KEY `FK168avadkod3cdkc53l1uh9ls9` (`modelo_item_id`),
   CONSTRAINT `FK168avadkod3cdkc53l1uh9ls9` FOREIGN KEY (`modelo_item_id`) REFERENCES `modelo_item` (`id`),
   CONSTRAINT `FKks4u8pgfp41155v1m7pb7yjlv` FOREIGN KEY (`marca_item_id`) REFERENCES `marca_item` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -293,7 +300,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,0.00,'Processador I3 3ª geração','Processador I3 3ª geração',300.00,3,1),(2,NULL,'item de teste','teste',120.00,NULL,NULL),(3,NULL,'item de teste','teste',120.00,NULL,NULL),(4,NULL,'item de teste','teste',120.00,NULL,NULL),(5,NULL,'item de teste','teste',120.00,NULL,NULL),(6,NULL,'item teste autenticacao','item teste autenticacao',120.00,NULL,NULL),(7,NULL,'sdfsfd','sdfsfd',180.00,NULL,NULL);
+INSERT INTO `item` VALUES (1,0.00,'Processador I3 3ª geração','Processador I3 3ª geração',300.00,3,1),(8,0.00,'Processador I5 6ª geração','Processador I5 6ª geração',500.00,3,7),(9,0.00,'Memoria RAM 8 GB DDR3','Memoria RAM 8 GB DDR3',100.00,4,14),(10,0.00,'Processador I3 3ª geração','Processador I3 3ª geração',280.00,3,6),(11,0.00,'Processador I5 7ª geração','Processador I5 7ª geração',490.00,3,7);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,8 +315,10 @@ CREATE TABLE `item_lista_imagem` (
   `item_id` bigint NOT NULL,
   `lista_imagem_id` bigint NOT NULL,
   KEY `FKfr0hka00l30j8yklfiqv7npf2` (`lista_imagem_id`),
-  KEY `FK8x0vim7t0u4ev3h3cbu5kn1ie` (`item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK8x0vim7t0u4ev3h3cbu5kn1ie` (`item_id`),
+  CONSTRAINT `FK8x0vim7t0u4ev3h3cbu5kn1ie` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
+  CONSTRAINT `FKfr0hka00l30j8yklfiqv7npf2` FOREIGN KEY (`lista_imagem_id`) REFERENCES `imagem` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +339,7 @@ DROP TABLE IF EXISTS `kit`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `kit` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `data_validade_promocao` datetime DEFAULT NULL,
+  `data_validade_promocao` datetime(6) DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `esta_na_promocao` bit(1) DEFAULT NULL,
   `preco` decimal(19,2) DEFAULT NULL,
@@ -341,8 +350,11 @@ CREATE TABLE `kit` (
   PRIMARY KEY (`id`),
   KEY `FKp37ejo6vooes5jffju46vdofq` (`marca_kit_id`),
   KEY `FKjbh54e4qgsav193lbknpgvse0` (`modelo_kit_id`),
-  KEY `FKt6qforim8pnr9vwak0u8c57v6` (`tipo_kit_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKt6qforim8pnr9vwak0u8c57v6` (`tipo_kit_id`),
+  CONSTRAINT `FKjbh54e4qgsav193lbknpgvse0` FOREIGN KEY (`modelo_kit_id`) REFERENCES `modelo_kit` (`id`),
+  CONSTRAINT `FKp37ejo6vooes5jffju46vdofq` FOREIGN KEY (`marca_kit_id`) REFERENCES `marca_kit` (`id`),
+  CONSTRAINT `FKt6qforim8pnr9vwak0u8c57v6` FOREIGN KEY (`tipo_kit_id`) REFERENCES `tipo_kit` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -351,7 +363,7 @@ CREATE TABLE `kit` (
 
 LOCK TABLES `kit` WRITE;
 /*!40000 ALTER TABLE `kit` DISABLE KEYS */;
-INSERT INTO `kit` VALUES (1,'2020-03-30 21:47:09',NULL,_binary '',4600.00,'Computador All in One Dell',1,1,1),(2,'2020-03-30 21:47:09',NULL,_binary '',1799.00,'Notebook Samsung Essentials',7,2,2),(3,'2020-03-30 21:47:09',NULL,_binary '',2249.00,'Notebook Samsung Expert',7,3,2),(4,'2020-03-30 21:47:09',NULL,_binary '',3599.00,'Notebook Samsung Expert',7,4,2),(5,NULL,NULL,NULL,3599.00,'Notebook Acer Aspire 3',5,5,2),(6,NULL,NULL,NULL,1709.00,'Notebook Acer Aspire 3 A315-41-R4RB',5,6,2),(7,NULL,NULL,NULL,3399.00,'Notebook Acer Aspire 5 A15-78HE',6,7,2),(8,NULL,NULL,NULL,5499.00,'Notebook LG 15Z980',6,8,2),(9,NULL,NULL,NULL,1044.00,'Notebook Positivo Q464B',8,9,2),(10,NULL,NULL,NULL,1079.00,'Notebook Positivo C4500C',8,10,2),(11,NULL,NULL,NULL,1029.00,'Notebook Positivo Q432A',8,11,2),(12,NULL,NULL,NULL,12458.00,'MacBook Pro i7',4,12,2),(13,NULL,NULL,NULL,4799.00,'MacBook Air Apple Core i5',4,13,2),(14,NULL,NULL,NULL,6000.00,'Macbook Apple Air',4,14,2);
+INSERT INTO `kit` VALUES (1,'2020-06-30 21:47:09.000000',NULL,_binary '',4600.00,'Computador All in One Dell',1,1,1),(2,'2020-06-30 21:47:09.000000',NULL,_binary '',1799.00,'Notebook Samsung Essentials I3 3ª Geração 8GB RAM',7,2,2),(3,'2020-06-30 21:47:09.000000',NULL,_binary '',2249.00,'Notebook Samsung Expert',7,3,2),(4,'2020-06-30 21:47:09.000000',NULL,_binary '',3599.00,'Notebook Samsung Expert',7,4,2),(5,NULL,NULL,NULL,3599.00,'Notebook Acer Aspire 3',5,5,2),(6,NULL,NULL,NULL,1709.00,'Notebook Acer Aspire 3 A315-41-R4RB',5,6,2),(7,NULL,NULL,NULL,3399.00,'Notebook Acer Aspire 5 A15-78HE',6,7,2),(8,NULL,NULL,NULL,5499.00,'Notebook LG 15Z980 I5 7ª Geração 16 GB RAM',6,8,2),(9,NULL,NULL,NULL,1044.00,'Notebook Positivo Q464B',8,9,2),(10,NULL,NULL,NULL,1079.00,'Notebook Positivo C4500C',8,10,2),(11,NULL,NULL,NULL,1029.00,'Notebook Positivo Q432A',8,11,2),(12,NULL,NULL,NULL,12458.00,'MacBook Pro i7',4,12,2),(13,NULL,NULL,NULL,4799.00,'MacBook Air Apple Core i5 16 GB RAM SSD 240 GB',4,13,2),(14,NULL,NULL,NULL,6000.00,'Macbook Apple Air',4,14,2);
 /*!40000 ALTER TABLE `kit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,8 +378,10 @@ CREATE TABLE `kit_lista_imagem` (
   `kit_id` bigint NOT NULL,
   `lista_imagem_id` bigint NOT NULL,
   KEY `FKa12hcq5hqvhclnw9sfesehkoj` (`lista_imagem_id`),
-  KEY `FKk90wjwmgng8lhy8w83tcqc2pd` (`kit_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKk90wjwmgng8lhy8w83tcqc2pd` (`kit_id`),
+  CONSTRAINT `FKa12hcq5hqvhclnw9sfesehkoj` FOREIGN KEY (`lista_imagem_id`) REFERENCES `imagem` (`id`),
+  CONSTRAINT `FKk90wjwmgng8lhy8w83tcqc2pd` FOREIGN KEY (`kit_id`) REFERENCES `kit` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,8 +405,10 @@ CREATE TABLE `kit_lista_item` (
   `kit_id` bigint NOT NULL,
   `lista_item_id` bigint NOT NULL,
   KEY `FK5e540bc2iglrieypq5sltassy` (`lista_item_id`),
-  KEY `FK2yd1jt7y0ycylhyv1am5ep9a8` (`kit_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK2yd1jt7y0ycylhyv1am5ep9a8` (`kit_id`),
+  CONSTRAINT `FK2yd1jt7y0ycylhyv1am5ep9a8` FOREIGN KEY (`kit_id`) REFERENCES `kit` (`id`),
+  CONSTRAINT `FK5e540bc2iglrieypq5sltassy` FOREIGN KEY (`lista_item_id`) REFERENCES `item` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -401,6 +417,7 @@ CREATE TABLE `kit_lista_item` (
 
 LOCK TABLES `kit_lista_item` WRITE;
 /*!40000 ALTER TABLE `kit_lista_item` DISABLE KEYS */;
+INSERT INTO `kit_lista_item` VALUES (1,1),(13,8),(2,10),(2,9),(8,11);
 /*!40000 ALTER TABLE `kit_lista_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -414,7 +431,8 @@ DROP TABLE IF EXISTS `marca_item`;
 CREATE TABLE `marca_item` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_4o3smy4lsbx5m51bjho1l8okh` (`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -424,7 +442,7 @@ CREATE TABLE `marca_item` (
 
 LOCK TABLES `marca_item` WRITE;
 /*!40000 ALTER TABLE `marca_item` DISABLE KEYS */;
-INSERT INTO `marca_item` VALUES (1,'Asus'),(2,'AMD'),(3,'Intel'),(4,'Kingston'),(5,'Gigabyte');
+INSERT INTO `marca_item` VALUES (2,'AMD'),(1,'Asus'),(5,'Gigabyte'),(3,'Intel'),(4,'Kingston');
 /*!40000 ALTER TABLE `marca_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,7 +456,8 @@ DROP TABLE IF EXISTS `marca_kit`;
 CREATE TABLE `marca_kit` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_fkdcpaj3a6hbbojccuday2kxb` (`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -448,7 +467,7 @@ CREATE TABLE `marca_kit` (
 
 LOCK TABLES `marca_kit` WRITE;
 /*!40000 ALTER TABLE `marca_kit` DISABLE KEYS */;
-INSERT INTO `marca_kit` VALUES (1,'Dell'),(2,'HP'),(3,'Lenovo'),(4,'Apple'),(5,'Acer'),(6,'LG'),(7,'Samsung'),(8,'Positivo');
+INSERT INTO `marca_kit` VALUES (5,'Acer'),(4,'Apple'),(1,'Dell'),(2,'HP'),(3,'Lenovo'),(6,'LG'),(8,'Positivo'),(7,'Samsung');
 /*!40000 ALTER TABLE `marca_kit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,7 +488,7 @@ CREATE TABLE `modelo_item` (
   KEY `FKenx86o3sh2diesviqsbbywwl7` (`tipo_kit_id`),
   CONSTRAINT `FKenx86o3sh2diesviqsbbywwl7` FOREIGN KEY (`tipo_kit_id`) REFERENCES `tipo_kit` (`id`),
   CONSTRAINT `FKmrlrgpdnmilmk1qny3lvl2ho1` FOREIGN KEY (`tipo_item_id`) REFERENCES `tipo_item` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -478,7 +497,7 @@ CREATE TABLE `modelo_item` (
 
 LOCK TABLES `modelo_item` WRITE;
 /*!40000 ALTER TABLE `modelo_item` DISABLE KEYS */;
-INSERT INTO `modelo_item` VALUES (1,'I3',1,1),(2,'I5',1,1),(3,'I7',1,1),(4,'I9',1,1),(5,'DDR3 4GB',2,1);
+INSERT INTO `modelo_item` VALUES (1,'I3',1,1),(2,'I5',1,1),(3,'I7',1,1),(4,'I9',1,1),(5,'4GB',2,1),(6,'I3',1,2),(7,'I5',1,2),(8,'I7',1,2),(9,'I9',1,2),(10,'8GB',2,1),(11,'16GB',2,1),(12,'32GB',2,1),(13,'4GB',2,2),(14,'8GB',2,2),(15,'16GB',2,2),(16,'32GB',2,2),(18,'128GB',3,1),(19,'256GB',3,1),(20,'512GB',3,1),(21,'1TB',3,1),(22,'128GB',3,2),(23,'256GB',3,2),(24,'512GB',3,2),(25,'1TB',3,2),(26,'256GB',4,2),(27,'512GB',4,2),(28,'1TB',4,2),(29,'2TB',4,2),(30,'256GB',4,1),(31,'512GB',4,1),(32,'1TB',4,1),(33,'2TB',4,1),(34,'400W',6,1),(35,'450W',6,1),(36,'500W',6,1),(37,'600W',6,1);
 /*!40000 ALTER TABLE `modelo_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,8 +512,10 @@ CREATE TABLE `modelo_item_lista_atributo` (
   `modelo_item_id` bigint NOT NULL,
   `lista_atributo_id` bigint NOT NULL,
   KEY `FKrm3ldxybfykkpb2i69g1evt2v` (`lista_atributo_id`),
-  KEY `FKppyloli3h38c6ioswanlyhv9c` (`modelo_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FKppyloli3h38c6ioswanlyhv9c` (`modelo_item_id`),
+  CONSTRAINT `FKppyloli3h38c6ioswanlyhv9c` FOREIGN KEY (`modelo_item_id`) REFERENCES `modelo_item` (`id`),
+  CONSTRAINT `FKrm3ldxybfykkpb2i69g1evt2v` FOREIGN KEY (`lista_atributo_id`) REFERENCES `atributo` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -517,7 +538,7 @@ CREATE TABLE `modelo_kit` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -541,7 +562,7 @@ CREATE TABLE `perfil` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -589,8 +610,10 @@ CREATE TABLE `requisito_lista_atributo` (
   `requisito_id` bigint NOT NULL,
   `lista_atributo_id` bigint NOT NULL,
   KEY `FK1j2a1u8lhiepi83k8ueflwfc9` (`lista_atributo_id`),
-  KEY `FK3n6vqfwlmjur0hdnfnycn3u3s` (`requisito_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK3n6vqfwlmjur0hdnfnycn3u3s` (`requisito_id`),
+  CONSTRAINT `FK1j2a1u8lhiepi83k8ueflwfc9` FOREIGN KEY (`lista_atributo_id`) REFERENCES `atributo` (`id`),
+  CONSTRAINT `FK3n6vqfwlmjur0hdnfnycn3u3s` FOREIGN KEY (`requisito_id`) REFERENCES `requisito` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -612,7 +635,8 @@ DROP TABLE IF EXISTS `status_entrega`;
 CREATE TABLE `status_entrega` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_jbhqv2gk5kunp4nlekxytpprl` (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -635,7 +659,8 @@ DROP TABLE IF EXISTS `tipo_item`;
 CREATE TABLE `tipo_item` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_95qtcc1nalsrpo5xt3tjkmk1w` (`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -645,33 +670,8 @@ CREATE TABLE `tipo_item` (
 
 LOCK TABLES `tipo_item` WRITE;
 /*!40000 ALTER TABLE `tipo_item` DISABLE KEYS */;
-INSERT INTO `tipo_item` VALUES (1,'Processador'),(2,'Memória RAM'),(3,'SSD'),(4,'HD'),(5,'Placa Mãe'),(6,'Fonte');
+INSERT INTO `tipo_item` VALUES (6,'Fonte'),(4,'HD'),(2,'Memória RAM'),(5,'Placa Mãe'),(1,'Processador'),(3,'SSD');
 /*!40000 ALTER TABLE `tipo_item` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tipo_item_lista_modelo_item`
---
-
-DROP TABLE IF EXISTS `tipo_item_lista_modelo_item`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipo_item_lista_modelo_item` (
-  `tipo_item_id` bigint NOT NULL,
-  `lista_modelo_item_id` bigint NOT NULL,
-  UNIQUE KEY `UK_1wgim7rukei5w15epns77hm0j` (`lista_modelo_item_id`),
-  KEY `FK8280mgicdnmkbk61j4tg1xegq` (`tipo_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tipo_item_lista_modelo_item`
---
-
-LOCK TABLES `tipo_item_lista_modelo_item` WRITE;
-/*!40000 ALTER TABLE `tipo_item_lista_modelo_item` DISABLE KEYS */;
-INSERT INTO `tipo_item_lista_modelo_item` VALUES (1,1),(1,2),(1,3),(1,4);
-/*!40000 ALTER TABLE `tipo_item_lista_modelo_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -684,7 +684,8 @@ DROP TABLE IF EXISTS `tipo_kit`;
 CREATE TABLE `tipo_kit` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_tflqyiwtd39oc6otbxx6j74of` (`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -709,7 +710,7 @@ CREATE TABLE `transportadora` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -730,12 +731,13 @@ DROP TABLE IF EXISTS `usuario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `cpf` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `token` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_5171l57faosmj8myawaucatdw` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -744,7 +746,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'123','jhuniormoreira@gmail.com','Junior','$2a$10$f2mALzND8PyQUHZZYM5wy.eYAh5XnnYFue81aVZVgSwpMiYOmN10u');
+INSERT INTO `usuario` VALUES (3,'teste@teste.com','teste','$2a$10$oiFH2F3XhykE26XBqbw.QOgHtxyDee4BH36W1Hd.WEjJVX5N18jpW',NULL),(4,'teste1@teste.com','teste','$2a$10$rPmJDzq2.KQKAmxGBFIhzukYIxbsk6U4aDgjXTAGjrEA.G6tFOBtG',NULL),(6,'jhuniormoreira@gmail.com','Junior Moreira','$2a$10$d7TDrj3904Z29uFWYMpSveP7zp.mQOy8nqPB0qjUrdLBRuKx83nIK',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -759,8 +761,10 @@ CREATE TABLE `usuario_lista_perfil` (
   `usuario_id` bigint NOT NULL,
   `lista_perfil_id` bigint NOT NULL,
   KEY `FKc1k1nuitskmtd6m7jbdrkitwv` (`lista_perfil_id`),
-  KEY `FK23m0p1u590iqj3f7a4pdgqmbm` (`usuario_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK23m0p1u590iqj3f7a4pdgqmbm` (`usuario_id`),
+  CONSTRAINT `FK23m0p1u590iqj3f7a4pdgqmbm` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
+  CONSTRAINT `FKc1k1nuitskmtd6m7jbdrkitwv` FOREIGN KEY (`lista_perfil_id`) REFERENCES `perfil` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -771,6 +775,14 @@ LOCK TABLES `usuario_lista_perfil` WRITE;
 /*!40000 ALTER TABLE `usuario_lista_perfil` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuario_lista_perfil` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'aisoftware'
+--
+
+--
+-- Dumping routines for database 'aisoftware'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -781,4 +793,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-22 23:24:25
+-- Dump completed on 2020-04-25 12:49:31

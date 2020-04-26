@@ -1,14 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/auth/auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Usuario } from 'src/app/core/usuario/usuario';
-import { ItemService } from 'src/app/servico/item/item.service';
-import { Item } from 'src/app/servico/item/item';
-import { UsuarioService } from 'src/app/core/usuario/usuario.service';
-import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { Router } from '@angular/router';
 import { configuracao } from 'src/app/configuracao';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { SessaoService } from 'src/app/core/sessao/sessao.service';
+import { Usuario } from 'src/app/core/usuario/usuario';
+import { Md5 } from 'ts-md5/dist/md5';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './tela-login.component.html',
@@ -23,7 +22,8 @@ export class TelaLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private sessaoService: SessaoService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.formGroup = this.formBuilder.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
@@ -41,9 +41,12 @@ export class TelaLoginComponent implements OnInit {
   logar() {
     const usuario = new Usuario();
     usuario.email = this.email.value;
-    usuario.senha = this.senha.value;
+    usuario.senha = Md5.hashStr(this.senha.value).toString();
     this.authService.autenticar(usuario).subscribe(resposta => {
       this.router.navigate([configuracao.rotaInicio]);
+      this.snackBar.open('message', 'fechars', {
+        duration: 2000,
+      });
     }, (erro: HttpErrorResponse) => {
       console.log(erro);
     });
