@@ -19,6 +19,9 @@ export class AppComponent {
     private sessaoService: SessaoService
   ) {
     this.usuarioLogado$ = this.sessaoService.getUsuarioLogado();
+    this.usuarioLogado$.subscribe(elemento => {
+      
+    })
   }
 
   deslogar() {

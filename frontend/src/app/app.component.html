@@ -2,36 +2,9 @@
     <div>
         <mat-toolbar class="menu-principal" fxLayout="row">
             <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-around center">
-                <div fxLayout="row" fxLayoutAlign="center center">
-                    <button mat-icon-button>
-                        <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
-                    </button>
-                    <div>
-                        <span *ngIf="(usuarioLogado$ | async) as usuario; else login"
-                            style="margin: 10px; color: rgb(68, 66, 66);">{{usuario.nome}}</span>
-                    </div>
-                    <ng-template #login>
-                        <span style="margin: 10px;">
-                            <a [routerLink]="['login']">Fazer login</a>
-                        </span>
-                    </ng-template>
-                </div>
+                <app-menu-usuario></app-menu-usuario>
                 <div fxLayoutAlign="center center">
-                    <button mat-raised-button [routerLink]="rotasSistema.rotaInicio">
-                        INICIO
-                    </button>
-                    <button mat-raised-button [routerLink]="rotasSistema.rotaNotebook">
-                        NOTEBOOK
-                    </button>
-                    <button mat-raised-button [routerLink]="rotasSistema.rotaDesktop">
-                        DESKTOP
-                    </button>
-                    <button (click)="alteraExibeExpansion()" mat-raised-button>
-                        ACESSORIOS
-                    </button>
-                    <button mat-raised-button>
-                        AJUDA
-                    </button>
+                    <app-menu-principal></app-menu-principal>
                 </div>
                 <div>
                     <mat-form-field style="margin: 12px 40px 12px 70px; width: 300px;">

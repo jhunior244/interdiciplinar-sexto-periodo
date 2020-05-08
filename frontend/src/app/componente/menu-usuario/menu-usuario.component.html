@@ -1,0 +1,33 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <button mat-icon-button>
+        <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    </button>
+    <div>
+        <span *ngIf="(usuarioLogado$ | async) as usuario; else login"
+            style="margin: 10px; color: rgb(68, 66, 66);">{{usuario.nome}}</span>
+    </div>
+    <ng-template #login>
+        <span style="margin: 10px;">
+            <a [routerLink]="['login']">Fazer login</a>
+        </span>
+    </ng-template>
+</div>
+
+<mat-menu #menu="matMenu" class="mb-1">
+    <button mat-menu-item>
+        <mat-icon>local_grocery_store</mat-icon>
+        <span>Meus Pedidos</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Minhas preferências</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Editar perfil</span>
+    </button>
+    <button mat-menu-item (click)="deslogar()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sair</span>
+    </button>
+</mat-menu>
