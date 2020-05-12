@@ -7,7 +7,7 @@ import {
 } from './tela-cadastro.validators';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
 import { Usuario } from 'src/app/core/usuario/usuario';
-import {Md5} from 'ts-md5/dist/md5';
+import { Md5 } from 'ts-md5/dist/md5';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Router } from '@angular/router';
@@ -25,7 +25,7 @@ export class TelaCadastroComponent implements OnInit {
     public exibeErroSenhasNaoCoincidem = new SenhasIguaisCrosFieldValidator();
     public exibeErroEmailValidator = new EmailCrossFieldErrorMatcher();
     public usuario = new Usuario();
-    
+
 
     constructor(
         private formBuilder: FormBuilder,
@@ -59,7 +59,7 @@ export class TelaCadastroComponent implements OnInit {
         this.sessaoService.deslogar();
     }
 
-    formularioParaEntidade(){
+    formularioParaEntidade() {
         this.usuario.nome = this.nome.value;
         this.usuario.email = this.email.value;
         this.usuario.senha = Md5.hashStr(this.senha.value).toString();

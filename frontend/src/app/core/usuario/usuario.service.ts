@@ -39,6 +39,10 @@ export class UsuarioService {
         return window.localStorage.getItem(usuarioLogadoSistema);
     }
 
+    estaLogado(): boolean {
+        return this.getNomeUsuarioLogado() != null ? true : false;
+    }
+
     getUsuario() {
         this.decodeAndNotify();
         return this.usuarioSubject.asObservable();

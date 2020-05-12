@@ -7,6 +7,7 @@ export const configuracao = {
     rotaVisualizaProduto: 'detalhesProduto',
     rotaLogin: 'login',
     rotaCadastra: 'cadastra',
+    rotaComprar: 'efetuarCompra',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
     parametroListaIdModeloItem: 'listaIdModeloItem',

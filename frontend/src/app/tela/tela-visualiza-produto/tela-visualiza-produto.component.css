@@ -14,15 +14,19 @@ img:hover {
     height: 420px;
 }
 
-mat-divider {
-    margin-top: -16px;
-    margin-bottom: -16px;
+mat-divider.mat-divider-horizontal {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mat-card .mat-divider-horizontal {
+    position: relative;
+    left: 0;
+    width: 100%;
 }
 
 mat-divider.mat-divider-vertical {
-    border-top: 71px;
-    border-right-width: 2px;
-    border-right-style: solid;
+    height: 431px;
 }
 
 .informacoes-produto {
@@ -38,4 +42,8 @@ mat-divider.mat-divider-vertical {
 
 .informacoes-produto button:hover {
     transform: scale(1.1);
+}
+
+h4 {
+    margin-left: 25px;
 }

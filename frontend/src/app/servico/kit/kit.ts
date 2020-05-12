@@ -9,6 +9,7 @@ export class IKit {
     titulo: string;
     descricao: string;
     preco: number;
+    quantidadeEstoque: number;
     marcaKit: IMarcaKit;
     tipoKit: ITipoKit;
     modeloKit: IModeloKit;
@@ -21,6 +22,7 @@ export class Kit {
     titulo: string;
     descricao: string;
     preco: number;
+    quantidadeEstoque: number;
     marcaKit: MarcaKit;
     tipoKit: TipoKit;
     modeloKit: ModeloKit;

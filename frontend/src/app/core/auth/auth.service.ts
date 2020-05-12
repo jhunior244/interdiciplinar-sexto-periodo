@@ -12,7 +12,7 @@ import { SessaoService } from '../sessao/sessao.service';
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:8080' + '/auth' ;
+  url = 'http://localhost:8080' + '/auth';
   httpHeader = new HttpHeaders();
   constructor(
     private http: HttpClient,
@@ -20,15 +20,17 @@ export class AuthService {
     private sessaoService: SessaoService
   ) {
     this.httpHeader = this.httpHeader.append('Content-Type', 'application/json');
-   }
+  }
 
   autenticar(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.url + '/login',
-      usuario.paraBackend(), {headers: this.httpHeader})
+      usuario.paraBackend(), { headers: this.httpHeader })
       .pipe(tap(usuarioRetornado => {
         this.sessaoService.setToken(usuarioRetornado.token);
         this.sessaoService.setUsuarioLogadoSistema(usuarioRetornado.nome);
-        this.sessaoService.setRotaRedirecionarAposLogin('http://localhost:4200/inicio');
+        if (this.sessaoService.getRotaRedirecionarAposLogin() == null) {
+          this.sessaoService.setRotaRedirecionarAposLogin('http://localhost:4200/inicio');
+        }
       }));
   }
 }

@@ -1,9 +1,6 @@
 package com.aisoftware.aisoftware.controlador;
 
-import com.aisoftware.aisoftware.dto.ItemDto;
 import com.aisoftware.aisoftware.dto.UsuarioDto;
-import com.aisoftware.aisoftware.dto.UsuarioSaidaDto;
-import com.aisoftware.aisoftware.entidade.Item;
 import com.aisoftware.aisoftware.mapeador.UsuarioMapeador;
 import com.aisoftware.aisoftware.servico.usuario.UsuarioServico;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -21,6 +21,9 @@ public class Kit {
     private String descricao;
 
     @Column
+    private Long quantidadeEstoque;
+
+    @Column
     private BigDecimal preco;
 
     @Column

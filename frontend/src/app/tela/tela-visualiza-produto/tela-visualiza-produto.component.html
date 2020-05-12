@@ -34,9 +34,11 @@
                 <div fxLayout="column" class="informacoes-produto">
                     <h1 style="font-size: 26px;">{{kit?.titulo}}</h1>
                     <span fxLayoutAlign="center" style="font-size: 18px; margin-top: 30px; color: green;">R$ {{kit?.preco}}</span>
-                    <span fxLayoutAlign="center" style="font-size: 21px; margin-top: 30px;">Produto disponivel</span>
+                    <span *ngIf="kit?.quantidadeEstoque != null && kit?.quantidadeEstoque > 0" fxLayoutAlign="center" style="font-size: 21px; margin-top: 30px;">
+                        {{kit.quantidadeEstoque}} Disponiveis em estoque
+                    </span>
                     <div style="margin-top: 30px;" fxLayoutAlign="center">
-                        <button mat-raised-button>
+                        <button (click)="comprar()" mat-raised-button>
                             COMPRAR
                         </button>
                         <button mat-raised-button>
@@ -47,6 +49,13 @@
                 <div fxFlex="10">
 
                 </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div *ngIf="kit != null && kit.listaItem != null">
+                <h4>Configurações</h4>
+                <ul *ngFor="let item of kit.listaItem">
+                    <li>{{ item.nome }}</li>
+                </ul>
             </div>
         </mat-card-content>
     </mat-card>

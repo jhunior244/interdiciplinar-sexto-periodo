@@ -29,8 +29,6 @@ export class TelaLoginComponent implements OnInit {
       email: [null, Validators.compose([Validators.required, Validators.email])],
       senha: [null, Validators.required]
     });
-
-    
   }
 
   get email(): AbstractControl { return this.formGroup.controls.email; }
@@ -45,7 +43,7 @@ export class TelaLoginComponent implements OnInit {
     usuario.email = this.email.value;
     usuario.senha = Md5.hashStr(this.senha.value).toString();
     this.authService.autenticar(usuario).subscribe(resposta => {
-      this.router.navigate([configuracao.rotaInicio]);
+      this.router.navigate([this.sessaoService.getRotaRedirecionarAposLogin()]);
 
     }, (erro: HttpErrorResponse) => {
       console.log(erro);

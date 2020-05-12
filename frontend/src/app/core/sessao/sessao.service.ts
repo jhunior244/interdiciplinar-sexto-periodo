@@ -54,6 +54,7 @@ export class SessaoService {
     deslogar() {
         this.tokenService.removeToken();
         this.usuarioService.removeNomeUsuarioLogado();
+        window.localStorage.removeItem(rotaRedirecionarAposLogin);
     }
 
 }

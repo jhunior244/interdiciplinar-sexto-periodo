@@ -18,6 +18,8 @@ public class KitDto implements Serializable {
 
     private BigDecimal preco;
 
+    private Long quantidadeEstoque;
+
     private Boolean estaNaPromocao;
 
     private ZonedDateTime dataValidadePromocao;

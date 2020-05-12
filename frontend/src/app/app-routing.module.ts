@@ -7,6 +7,7 @@ import { TelaListaNotebookComponent } from './tela/tela-lista-notebook/tela-list
 import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tela-visualiza-produto.component';
 import { TelaLoginComponent } from './tela/home/login/tela-login.component';
 import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.component';
+import { TelaCompraComponent } from './tela/tela-compra-produto/tela-compra-produto.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: configuracao.rotaLogin, component: TelaLoginComponent },
   { path: configuracao.rotaCadastra, component: TelaCadastroComponent },
   { path: configuracao.rotaVisualizaProduto + '/:' + configuracao.parametroId, component: TelaVisualizaProdutoComponent },
-
+  { path: configuracao.rotaComprar + '/:' + configuracao.parametroId, component: TelaCompraComponent },
   { path: configuracao.rotaVisualizaProduto, component: TelaVisualizaProdutoComponent },
 
   { path: '**', component: TelaInicialComponent },
