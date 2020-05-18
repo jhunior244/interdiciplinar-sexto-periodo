@@ -1,0 +1,23 @@
+.button-concluir-pedico {
+    width: 200px;
+    background: orange;
+}
+.botao-diminuir-quantidade {
+    font-size: 32px;
+    color: red;
+    border: none;
+    background: white;
+    cursor: pointer;
+}
+
+.botao-aumentar-quantidade {
+    font-size: 25px;
+    color: green;
+    border: none;
+    background: white;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+  }

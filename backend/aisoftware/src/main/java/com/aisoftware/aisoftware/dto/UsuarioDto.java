@@ -16,6 +16,8 @@ public class UsuarioDto implements Serializable {
 
     private String token;
 
+    private CarrinhoDto carrinhoDto;
+
     public UsernamePasswordAuthenticationToken converter() {
         return new UsernamePasswordAuthenticationToken(email, senha);
     }

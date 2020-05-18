@@ -7,6 +7,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Kit } from 'src/app/servico/kit/kit';
 import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
+import { Observable } from 'rxjs';
+import { Carrinho } from 'src/app/servico/carrinho/carrinho';
+import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
 
 @Component({
     selector: 'app-tela-visualiza-produto',
@@ -14,7 +17,7 @@ import { UsuarioService } from 'src/app/core/usuario/usuario.service';
     styleUrls: ['./tela-visualiza-produto.component.css']
 })
 export class TelaVisualizaProdutoComponent {
-
+    public carrinho: Carrinho;
     id: number;
     public kit: Kit;
     public caminhoImagemFull = '';
@@ -24,7 +27,8 @@ export class TelaVisualizaProdutoComponent {
         private itemService: ItemService,
         private sessaoService: SessaoService,
         private usuarioService: UsuarioService,
-        private router: Router
+        private router: Router,
+        private carrinhoService: CarrinhoService
     ) {
         this.activatedRoute.params.subscribe(params => {
             this.id = params[configuracao.parametroId];
@@ -39,6 +43,9 @@ export class TelaVisualizaProdutoComponent {
                 });
             }
         });
+        this.sessaoService.getCarrinho().subscribe(carrinho => {
+            this.carrinho = carrinho;
+        });
     }
     alteraImagem(caminho: string) {
         this.caminhoImagemFull = caminho;
@@ -46,13 +53,19 @@ export class TelaVisualizaProdutoComponent {
 
 
     comprar() {
-        console.log();
         if (this.usuarioService.estaLogado()) {
             this.router.navigate([configuracao.rotaComprar + '/' + this.id]);
         } else {
             this.sessaoService.setRotaRedirecionarAposLogin(configuracao.rotaVisualizaProduto + '/' + this.id);
             this.router.navigate([configuracao.rotaLogin]);
         }
+    }
+
+    colocarNoCarrinho() {
+        this.carrinhoService.adicionaKitCarrinho(this.kit.id, this.carrinho.id).subscribe(carrinho => {
+            this.usuarioService.setCarrinho(carrinho);
+        });
+        this.router.navigate([configuracao.rotaCarrinhoCompra]);
     }
 
 }

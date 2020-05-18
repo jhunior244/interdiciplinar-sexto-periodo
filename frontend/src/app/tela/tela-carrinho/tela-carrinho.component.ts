@@ -1,34 +1,29 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { configuracao } from 'src/app/configuracao';
-import { AuthService } from 'src/app/core/auth/auth.service';
-import { SessaoService } from 'src/app/core/sessao/sessao.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { HttpErrorResponse } from '@angular/common/http';
-import { KitService } from 'src/app/servico/kit/kit.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { configuracao } from 'src/app/configuracao';
+import { SessaoService } from 'src/app/core/sessao/sessao.service';
+import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 import { Kit } from 'src/app/servico/kit/kit';
+import { KitService } from 'src/app/servico/kit/kit.service';
 
 @Component({
-    selector: 'app-tela-compra-produto',
-    templateUrl: './tela-compra-produto.component.html',
-    styleUrls: ['./tela-compra-produto.component.css']
+    selector: 'app-tela-carrinho',
+    templateUrl: './tela-carrinho.component.html',
+    styleUrls: ['./tela-carrinho.component.css']
 })
-export class TelaCompraComponent implements OnInit {
-
+export class TelaCarrinhoComponent implements OnInit {
+    displayedColumns: string[] = ['kit', 'titulo'];
     public formGroup: FormGroup;
     public rotasSistema = configuracao;
     id: number;
     public kit: Kit;
     public caminhoImagemFull = '';
-
+    public carrinho: Carrinho;
     constructor(
-        private activatedRoute: ActivatedRoute,
-        private kitService: KitService,
         private formBuilder: FormBuilder,
         private sessaoService: SessaoService,
-        private router: Router,
-        private snackBar: MatSnackBar
     ) {
         this.formGroup = this.formBuilder.group({
             logradouro: [null, Validators.compose([Validators.required])],
@@ -39,18 +34,9 @@ export class TelaCompraComponent implements OnInit {
             codigoSeguranca: [null, Validators.required],
         });
 
-        this.activatedRoute.params.subscribe(params => {
-            this.id = params[configuracao.parametroId];
-            if (this.id != null) {
-                this.kitService.obtem(this.id).subscribe(kit => {
-                    this.kit = kit;
-                    if (this.kit && this.kit.listaImagem && this.kit.listaImagem[0]) {
-                        this.caminhoImagemFull = this.kit.listaImagem[0].caminho;
-                    }
-                }, (erro: HttpErrorResponse) => {
-                    console.log(erro);
-                });
-            }
+        this.sessaoService.getCarrinho().subscribe(carrinho => {
+            this.carrinho = carrinho;
+            console.log(carrinho);
         });
     }
 

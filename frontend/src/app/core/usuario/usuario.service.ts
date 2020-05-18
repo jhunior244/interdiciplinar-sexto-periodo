@@ -7,13 +7,16 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { configuracao } from 'src/app/configuracao';
 import { map } from 'rxjs/operators';
 import { Kit } from 'src/app/servico/kit/kit';
+import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 
 const usuarioLogadoSistema = 'usuarioLogadoSistema';
+const idCarrinhoUsuarioLogado = 'idCarrinhoUsuarioLogado';
 
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
 
     private usuarioSubject = new BehaviorSubject<Usuario>(null);
+    private carrinhoSubject = new BehaviorSubject<Carrinho>(null);
     url = 'http://localhost:8080' + '/usuario';
     httpHeader = new HttpHeaders();
 
@@ -30,8 +33,21 @@ export class UsuarioService {
         this.tokenService.setToken(token);
     }
 
+    setCarrinho(carrinho: Carrinho) {
+        this.carrinhoSubject.next(carrinho);
+    }
+
+    getCarrinho() {
+        return this.carrinhoSubject.asObservable();
+    }
+
     setUsuarioLogadoSistema(nome: string) {
         window.localStorage.setItem(usuarioLogadoSistema, nome);
+        this.decodeAndNotify();
+    }
+
+    setIdCarrinhoUsuarioLogadoSistema(id: number) {
+        window.localStorage.setItem(idCarrinhoUsuarioLogado, id.toString());
         this.decodeAndNotify();
     }
 
@@ -55,6 +71,7 @@ export class UsuarioService {
 
     private decodeAndNotify() {
         const usuario = new Usuario();
+        const carrinho = new Carrinho();
         if (this.getNomeUsuarioLogado()) {
             usuario.nome = this.getNomeUsuarioLogado();
             this.usuarioSubject.next(usuario);

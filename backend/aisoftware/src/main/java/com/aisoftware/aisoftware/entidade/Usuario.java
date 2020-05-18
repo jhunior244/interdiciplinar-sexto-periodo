@@ -31,6 +31,9 @@ public class Usuario implements UserDetails {
     @JsonIgnore
     private String senha;
 
+    @OneToOne
+    private Carrinho carrinho;
+
     @OneToMany(mappedBy = "usuario")
     private List<Compra> listaCompra;
 

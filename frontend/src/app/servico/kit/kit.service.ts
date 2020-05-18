@@ -58,6 +58,7 @@ export class KitService {
             .pipe(map((pagina => this.obtemPagina(pagina))));
     }
 
+
     public obtem(id: number): Observable<Kit> {
 
         let httpParams = new HttpParams();

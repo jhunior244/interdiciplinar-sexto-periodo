@@ -28,6 +28,7 @@ export class AuthService {
       .pipe(tap(usuarioRetornado => {
         this.sessaoService.setToken(usuarioRetornado.token);
         this.sessaoService.setUsuarioLogadoSistema(usuarioRetornado.nome);
+        this.sessaoService.setCarrinho();
         if (this.sessaoService.getRotaRedirecionarAposLogin() == null) {
           this.sessaoService.setRotaRedirecionarAposLogin('http://localhost:4200/inicio');
         }

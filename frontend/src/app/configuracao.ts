@@ -7,6 +7,7 @@ export const configuracao = {
     rotaVisualizaProduto: 'detalhesProduto',
     rotaLogin: 'login',
     rotaCadastra: 'cadastra',
+    rotaCarrinhoCompra: 'carrinho',
     rotaComprar: 'efetuarCompra',
 
     parametroListaIdTipoKit: 'listaIdTipoKit',
@@ -14,6 +15,7 @@ export const configuracao = {
     parametroValorMinimo: 'valorMinimo',
     parametroValorMaximo: 'valorMaximo',
     parametroId: 'id',
+    parametroToken: 'token',
     parametroEmail: 'email',
     parametroIdTipoKit: 'idTipoKit',
 

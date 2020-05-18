@@ -42,6 +42,8 @@ public class AutenticacaoControlador {
             usuarioDto.setNome(usuarioLogado.getNome());
             usuario.setEmail(usuarioLogado.getEmail());
             usuarioDto.setToken("Bearer " + token);
+            usuarioLogado.setToken("Bearer " + token);
+            usuarioJpaRepository.save(usuarioLogado);
             return ResponseEntity.ok(usuarioDto);
         } catch (AuthenticationException e){
             throw new UsernameNotFoundException("Dados inválidos");

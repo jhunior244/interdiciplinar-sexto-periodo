@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { configuracao } from 'src/app/configuracao';
+import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
 import { TokenService } from '../token/token.service';
 import { UsuarioService } from '../usuario/usuario.service';
 
@@ -10,9 +12,24 @@ export class SessaoService {
 
     constructor(
         private usuarioService: UsuarioService,
-        private tokenService: TokenService
+        private tokenService: TokenService,
+        private carrinhoService: CarrinhoService
     ) {
+    }
 
+    setCarrinho() {
+        if (this.usuarioService.estaLogado()) {
+            this.carrinhoService.obtem(this.tokenService.getToken()).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+                console.log(carrinho);
+            }, (erro: HttpErrorResponse) => {
+                console.log(erro);
+            });
+        }
+    }
+
+    getCarrinho() {
+        return this.usuarioService.getCarrinho();
     }
 
     setToken(token: string) {

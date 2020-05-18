@@ -1,0 +1,14 @@
+.badge {
+    position: absolute;
+    top: -6px;
+    left: 60%;
+    font-size: 14px;
+    line-height: 17px;
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+    background-color: dimgray;
+    border: 1px solid darkturquoise;
+    color: darkturquoise;
+    text-align: center;
+}

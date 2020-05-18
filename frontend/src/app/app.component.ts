@@ -13,15 +13,11 @@ import { Usuario } from './core/usuario/usuario';
 export class AppComponent {
 
   public rotasSistema = configuracao;
-  public usuarioLogado$: Observable<Usuario>;
   public exibeExpansion = false;
   constructor(
     private sessaoService: SessaoService
   ) {
-    this.usuarioLogado$ = this.sessaoService.getUsuarioLogado();
-    this.usuarioLogado$.subscribe(elemento => {
-      
-    })
+    this.sessaoService.setCarrinho();
   }
 
   deslogar() {

@@ -38,8 +38,10 @@ import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.compon
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import { MenuPrincipalComponent } from './componente/menu-principal/menu-principal.component';
 import { MenuUsuarioComponent } from './componente/menu-usuario/menu-usuario.component';
-import { TelaCompraComponent } from './tela/tela-compra-produto/tela-compra-produto.component';
-
+import { TelaCarrinhoComponent } from './tela/tela-carrinho/tela-carrinho.component';
+import {MatTableModule} from '@angular/material/table';
+import { CarrinhoService } from './servico/carrinho/carrinho.service';
+import { MenuCarrinhoComponent } from './componente/menu-carrinho/menu-carrinho.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,8 @@ import { TelaCompraComponent } from './tela/tela-compra-produto/tela-compra-prod
     ExpansionPanelAcessoriosComponent,
     MenuPrincipalComponent,
     MenuUsuarioComponent,
-    TelaCompraComponent
+    TelaCarrinhoComponent,
+    MenuCarrinhoComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { TelaCompraComponent } from './tela/tela-compra-produto/tela-compra-prod
     MatRadioModule,
     MatPaginatorModule,
     MatExpansionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [
     {
@@ -96,7 +100,8 @@ import { TelaCompraComponent } from './tela/tela-compra-produto/tela-compra-prod
     AuthService,
     UsuarioService,
     ItemService,
-    SessaoService
+    SessaoService,
+    CarrinhoService
   ],
   bootstrap: [AppComponent]
 })

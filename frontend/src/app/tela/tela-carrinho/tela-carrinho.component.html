@@ -1,0 +1,41 @@
+<div fxLayoutAlign="center center">
+  <div
+    style="padding: 30px; background-color: white;  width: 1200px; margin-top: 70px;  border: 2px solid darkgrey; padding: 15px; border-radius: 1%;"
+    fxLayout="column" fxLayoutAlign="start center">
+
+    <div fxLayout="column" style="padding: 30px;">
+      <div *ngFor="let item of carrinho?.listaItemCarrinho">
+        <div fxLayout="row" style="margin: 20px;" fxLayoutAlign="center center">
+          <div fxLayoutAlign="center center">
+            <img style="width: 128px; height: 130px;" [src]="item?.kit?.listaImagem[0].caminho">
+          </div>
+          <div style="width: 251px; height: 131px; padding: 10px;" fxLayoutAlign="center center">
+            <span>{{item?.kit?.titulo}}</span>
+          </div>
+          <div  fxLayoutAlign="center center" 
+          style="width: 100px; 
+          border-radius: 10%;
+          box-shadow: rgb(136, 136, 136) 1px 2px;
+          height: 45px; border: 2px solid darkgrey;" fxLayoutAlign="center center">
+            <button class="botao-diminuir-quantidade">
+                -
+            </button>
+            <span style="font-size: 18px;">{{item?.quantidade}}</span>
+            <button class="botao-aumentar-quantidade">
+              +
+          </button>
+          </div>
+          <div style="width: 130px; height: 131px;" fxLayoutAlign="center center">
+            <span style="color: green;">R$ {{item?.kit?.preco}},00</span>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+    <div style="width: 80%; margin: 15px;" fxLayoutAlign="end center">
+      <button class="button-concluir-pedico" mat-raised-button>
+        Concluir Pedido
+      </button>
+    </div>
+  </div>
+</div>
