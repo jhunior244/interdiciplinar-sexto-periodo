@@ -20,11 +20,13 @@ export class MenuCarrinhoComponent {
             if (carrinho && carrinho.listaItemCarrinho) {
                 this.quantidadeItensCarrinho = carrinho.listaItemCarrinho.length;
                 console.log(carrinho);
+            } else {
+                this.quantidadeItensCarrinho = 0;
             }
         });
     }
 
-    irParaCarrinho(){
+    irParaCarrinho() {
         this.router.navigate([configuracao.rotaCarrinhoCompra]);
     }
 }

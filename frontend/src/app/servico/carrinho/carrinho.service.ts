@@ -42,4 +42,40 @@ export class CarrinhoService {
         return this.httpCliente.get<Carrinho>(this.url + '/adicionaKitCarrinho', { params: httpParams })
             .pipe(map((carrinho => Carrinho.doBackend(carrinho))));
     }
+
+    public decrementaQuantidadeItem(idItemCarrinho: string): Observable<Carrinho>{
+
+        let httpParams = new HttpParams();
+
+        if (idItemCarrinho) {
+            httpParams = httpParams.append('idItemCarrinho', idItemCarrinho);
+        }
+
+        return this.httpCliente.get<Carrinho>(this.url + '/decrementaQuantidadeItem', { params: httpParams })
+            .pipe(map((carrinho => Carrinho.doBackend(carrinho))));
+    }
+
+    public incrementaQuantidadeItem(idItemCarrinho: string): Observable<Carrinho>{
+
+        let httpParams = new HttpParams();
+
+        if (idItemCarrinho) {
+            httpParams = httpParams.append('idItemCarrinho', idItemCarrinho);
+        }
+
+        return this.httpCliente.get<Carrinho>(this.url + '/incrementaQuantidadeItem', { params: httpParams })
+            .pipe(map((carrinho => Carrinho.doBackend(carrinho))));
+    }
+
+    public retiraItemCarrinho(idItemCarrinho: string): Observable<Carrinho>{
+
+        let httpParams = new HttpParams();
+
+        if (idItemCarrinho) {
+            httpParams = httpParams.append('idItemCarrinho', idItemCarrinho);
+        }
+
+        return this.httpCliente.get<Carrinho>(this.url + '/retiraItemCarrinho', { params: httpParams })
+            .pipe(map((carrinho => Carrinho.doBackend(carrinho))));
+    }
 }

@@ -1,0 +1,89 @@
+<div fxLayoutAlign="center center">
+    <div style="padding: 30px; background-color: white;  
+      width: 1050px; margin-top: 70px;  border: 2px solid darkgrey; 
+      padding: 15px; border-radius: 1%;" fxLayout="column" fxLayoutAlign="start center">
+        <form [formGroup]="formGroup" style="margin: 25px;" fxLayoutAlign="space-between center" fxLayout="column"
+            (submit)="comprar()">
+            <div fxLayout="column">
+                <div fxLayout="row wrap">
+                    <mat-form-field style="width: 500px;">
+                        <mat-label>Logradouro</mat-label>
+                        <input matInput [formControl]="logradouro">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="logradouro.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100px; margin-left: 10px;">
+                        <mat-label>Número</mat-label>
+                        <input type="text" matInput [formControl]="numero">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="numero.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap">
+                    <mat-form-field style="width: 500px;">
+                        <mat-label>Bairro</mat-label>
+                        <input matInput [formControl]="bairro">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="bairro.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100px; margin-left: 10px;">
+                        <mat-label>Cep</mat-label>
+                        <input type="text" matInput [formControl]="cep">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="cep.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap">
+                    <mat-form-field style="width: 500px;">
+                        <mat-label>Cidade</mat-label>
+                        <input matInput [formControl]="cidade">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="cidade.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap">
+                    <mat-form-field style="width: 500px;">
+                        <mat-label>Numero Cartão</mat-label>
+                        <input matInput [formControl]="numeroCartao">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="numeroCartao.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100px; margin-left: 10px;">
+                        <mat-label>Código Segurança</mat-label>
+                        <input type="text" matInput [formControl]="codigoSeguranca">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="codigoSeguranca.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="end end" style="width: 100%; margin-top: 25px;">
+                <div fxLayout="column"  fxLayoutAlign="end end">
+                    <span style="font-size: 18px; color: black;">Total {{carrinho?.listaItemCarrinho?.length}}
+                        produtos</span>
+                    <span style="font-size: 22px; ">Total compra <span style="color: green;">R$ {{totalCompra}},00</span>
+                    </span>
+                </div>
+                <div fxLayoutAlign="end center" style="margin-top: 25px;">
+                    <button [disabled]="carrinho?.listaItemCarrinho?.length == 0" class="button-concluir-pedico"
+                        mat-raised-button>
+                        Efetuar Compra
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

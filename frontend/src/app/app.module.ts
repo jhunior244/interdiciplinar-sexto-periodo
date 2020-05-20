@@ -42,6 +42,7 @@ import { TelaCarrinhoComponent } from './tela/tela-carrinho/tela-carrinho.compon
 import {MatTableModule} from '@angular/material/table';
 import { CarrinhoService } from './servico/carrinho/carrinho.service';
 import { MenuCarrinhoComponent } from './componente/menu-carrinho/menu-carrinho.component';
+import { TelaCompraComponent } from './tela/tela-compra/tela-compra.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { MenuCarrinhoComponent } from './componente/menu-carrinho/menu-carrinho.
     MenuPrincipalComponent,
     MenuUsuarioComponent,
     TelaCarrinhoComponent,
+    TelaCompraComponent,
     MenuCarrinhoComponent
   ],
   imports: [

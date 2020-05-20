@@ -33,4 +33,25 @@ public class CarrinhoControlador {
         CarrinhoDto carrinhoDto = carrinhoMapeador.carrinhoToCarrinhoDto(carrinhoServico.adicionaKitCarrinho(idKit, idCarrinho));
         return carrinhoDto;
     }
+
+    @GetMapping(path = "/decrementaQuantidadeItem")
+    public CarrinhoDto subtraiQuantidadeItem(Long idItemCarrinho){
+
+        CarrinhoDto carrinhoDto = carrinhoMapeador.carrinhoToCarrinhoDto(carrinhoServico.decrementaQuantidadeItem(idItemCarrinho));
+        return carrinhoDto;
+    }
+
+    @GetMapping(path = "/incrementaQuantidadeItem")
+    public CarrinhoDto incrementaQuantidadeItem(Long idItemCarrinho){
+
+        CarrinhoDto carrinhoDto = carrinhoMapeador.carrinhoToCarrinhoDto(carrinhoServico.incrementaQuantidadeItem(idItemCarrinho));
+        return carrinhoDto;
+    }
+
+    @GetMapping(path = "/retiraItemCarrinho")
+    public CarrinhoDto retiraItemCarrinho(Long idItemCarrinho){
+
+        CarrinhoDto carrinhoDto = carrinhoMapeador.carrinhoToCarrinhoDto(carrinhoServico.retiraItemCarrinho(idItemCarrinho));
+        return carrinhoDto;
+    }
 }

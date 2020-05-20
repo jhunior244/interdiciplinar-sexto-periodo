@@ -1,6 +1,11 @@
 .button-concluir-pedico {
-    width: 200px;
+    width: 150px;
     background: orange;
+    margin-right: 140px;
+}
+
+.botao-delete{
+    color: orange;
 }
 .botao-diminuir-quantidade {
     font-size: 32px;
@@ -17,7 +22,3 @@
     background: white;
     cursor: pointer;
 }
-
-table {
-    width: 100%;
-  }

@@ -8,6 +8,7 @@ import { TelaVisualizaProdutoComponent } from './tela/tela-visualiza-produto/tel
 import { TelaLoginComponent } from './tela/home/login/tela-login.component';
 import { TelaCadastroComponent } from './tela/home/cadastro/tela-cadastro.component';
 import { TelaCarrinhoComponent } from './tela/tela-carrinho/tela-carrinho.component';
+import { TelaCompraComponent } from './tela/tela-compra/tela-compra.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: configuracao.rotaVisualizaProduto + '/:' + configuracao.parametroId, component: TelaVisualizaProdutoComponent },
   { path: configuracao.rotaCarrinhoCompra, component: TelaCarrinhoComponent },
   { path: configuracao.rotaVisualizaProduto, component: TelaVisualizaProdutoComponent },
+  { path: configuracao.rotaComprar, component: TelaCompraComponent },
 
   { path: '**', component: TelaInicialComponent },
   { path: '', component: TelaInicialComponent },

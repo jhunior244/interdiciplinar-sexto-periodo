@@ -7,6 +7,9 @@ import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 import { Kit } from 'src/app/servico/kit/kit';
 import { KitService } from 'src/app/servico/kit/kit.service';
+import { ItemCarrinho } from 'src/app/servico/item-carrinho/item-carrinho';
+import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
+import { UsuarioService } from 'src/app/core/usuario/usuario.service';
 
 @Component({
     selector: 'app-tela-carrinho',
@@ -14,16 +17,18 @@ import { KitService } from 'src/app/servico/kit/kit.service';
     styleUrls: ['./tela-carrinho.component.css']
 })
 export class TelaCarrinhoComponent implements OnInit {
-    displayedColumns: string[] = ['kit', 'titulo'];
     public formGroup: FormGroup;
-    public rotasSistema = configuracao;
     id: number;
     public kit: Kit;
-    public caminhoImagemFull = '';
     public carrinho: Carrinho;
+    public totalCompra: number;
+
     constructor(
         private formBuilder: FormBuilder,
         private sessaoService: SessaoService,
+        private carrinhoService: CarrinhoService,
+        private usuarioService: UsuarioService,
+        private router: Router
     ) {
         this.formGroup = this.formBuilder.group({
             logradouro: [null, Validators.compose([Validators.required])],
@@ -36,18 +41,48 @@ export class TelaCarrinhoComponent implements OnInit {
 
         this.sessaoService.getCarrinho().subscribe(carrinho => {
             this.carrinho = carrinho;
-            console.log(carrinho);
+            this.calculaTotalCompra(carrinho);
         });
     }
 
-    get logradouro(): AbstractControl { return this.formGroup.controls.logradouro; }
-    get numero(): AbstractControl { return this.formGroup.controls.numero; }
-    get bairro(): AbstractControl { return this.formGroup.controls.bairro; }
-    get cep(): AbstractControl { return this.formGroup.controls.cep; }
-    get numeroCartao(): AbstractControl { return this.formGroup.controls.numeroCartao; }
-    get codigoSeguranca(): AbstractControl { return this.formGroup.controls.codigoSeguranca; }
-
     ngOnInit(): void {
+    }
+
+    incrementaQuantidadeItem(item: ItemCarrinho) {
+        if (item.quantidade < item.kit.quantidadeEstoque) {
+            this.carrinhoService.incrementaQuantidadeItem(item.id.toString()).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+            });
+        }
+    }
+
+    decrementaQuantidadeItem(item: ItemCarrinho) {
+        if (item.quantidade > 1) {
+            this.carrinhoService.decrementaQuantidadeItem(item.id.toString()).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+            });
+        }
+    }
+
+    calculaTotalCompra(carrinho: Carrinho) {
+        this.totalCompra = 0;
+        if (carrinho == null || carrinho.listaItemCarrinho == null) {
+            return;
+        }
+
+        carrinho.listaItemCarrinho.forEach((item: ItemCarrinho) => {
+            this.totalCompra += item.quantidade * item.kit.preco;
+        });
+    }
+
+    retiraItemCarrinho(item) {
+        this.carrinhoService.retiraItemCarrinho(item.id.toString()).subscribe(carrinho => {
+            this.usuarioService.setCarrinho(carrinho);
+        });
+    }
+
+    efetuarCompra() {
+        this.router.navigate([configuracao.rotaComprar]);
     }
 }
 

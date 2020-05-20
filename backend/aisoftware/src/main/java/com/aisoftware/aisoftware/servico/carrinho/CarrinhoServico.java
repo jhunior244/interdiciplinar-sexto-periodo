@@ -53,4 +53,35 @@ public class CarrinhoServico implements ICarrinhoServico {
         carrinho.getListaItemCarrinho().add(itemCarrinho);
         return carrinho;
     }
+
+    @Override
+    public Carrinho decrementaQuantidadeItem(Long idItemCarrinho){
+        ItemCarrinho itemCarrinho = itemCarrinhoJpaRepository.findById(idItemCarrinho).get();
+
+        itemCarrinho.setQuantidade(itemCarrinho.getQuantidade() - 1);
+
+        itemCarrinhoJpaRepository.save(itemCarrinho);
+
+        return carrinhoJpaRepository.findById(itemCarrinho.getCarrinho().getId()).get();
+    }
+
+    @Override
+    public Carrinho incrementaQuantidadeItem(Long idItemCarrinho){
+        ItemCarrinho itemCarrinho = itemCarrinhoJpaRepository.findById(idItemCarrinho).get();
+
+        itemCarrinho.setQuantidade(itemCarrinho.getQuantidade() + 1);
+
+        itemCarrinhoJpaRepository.save(itemCarrinho);
+
+        return carrinhoJpaRepository.findById(itemCarrinho.getCarrinho().getId()).get();
+    }
+
+    @Override
+    public Carrinho retiraItemCarrinho(Long idItemCarrinho){
+        ItemCarrinho itemCarrinho = itemCarrinhoJpaRepository.findById(idItemCarrinho).get();
+
+        itemCarrinhoJpaRepository.delete(itemCarrinho);
+
+        return carrinhoJpaRepository.findById(itemCarrinho.getCarrinho().getId()).get();
+    }
 }
