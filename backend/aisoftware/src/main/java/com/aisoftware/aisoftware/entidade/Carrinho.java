@@ -15,4 +15,7 @@ public class Carrinho {
     @OneToMany(mappedBy = "carrinho")
     private List<ItemCarrinho> listaItemCarrinho;
 
+    @OneToOne
+    private Usuario usuario;
+
 }

@@ -5,6 +5,7 @@ import com.aisoftware.aisoftware.entidade.Usuario;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Data
@@ -14,7 +15,9 @@ public class CompraDto implements Serializable {
 
     private ZonedDateTime data;
 
-    private UsuarioDto usuario;
+    private BigDecimal totalCompra;
+
+    private UsuarioSaidaDto usuario;
 
     private EntregaDto entrega;
 }

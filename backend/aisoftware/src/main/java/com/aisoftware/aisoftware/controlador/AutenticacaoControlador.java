@@ -3,6 +3,7 @@ package com.aisoftware.aisoftware.controlador;
 import com.aisoftware.aisoftware.dto.TokenDto;
 import com.aisoftware.aisoftware.dto.UsuarioDto;
 import com.aisoftware.aisoftware.config.security.TokenService;
+import com.aisoftware.aisoftware.dto.UsuarioSaidaDto;
 import com.aisoftware.aisoftware.entidade.Usuario;
 import com.aisoftware.aisoftware.repositorio.usuario.UsuarioJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,20 +32,20 @@ public class AutenticacaoControlador {
     private UsuarioJpaRepository usuarioJpaRepository;
 
     @PostMapping(path = "/login")
-    public ResponseEntity<UsuarioDto> logar(@RequestBody UsuarioDto usuario){
+    public ResponseEntity<UsuarioSaidaDto> logar(@RequestBody UsuarioDto usuario){
         UsernamePasswordAuthenticationToken dadosLogin = usuario.converter();
 
         try {
             Authentication authentication = authenticationManager.authenticate(dadosLogin);
             String token = tokenService.gerarToken(authentication);
             Usuario usuarioLogado = usuarioJpaRepository.findByEmail(usuario.getEmail());
-            UsuarioDto usuarioDto = new UsuarioDto();
-            usuarioDto.setNome(usuarioLogado.getNome());
+            UsuarioSaidaDto usuarioSaidaDto = new UsuarioSaidaDto();
+            usuarioSaidaDto.setNome(usuarioLogado.getNome());
             usuario.setEmail(usuarioLogado.getEmail());
-            usuarioDto.setToken("Bearer " + token);
+            usuarioSaidaDto.setToken("Bearer " + token);
             usuarioLogado.setToken("Bearer " + token);
             usuarioJpaRepository.save(usuarioLogado);
-            return ResponseEntity.ok(usuarioDto);
+            return ResponseEntity.ok(usuarioSaidaDto);
         } catch (AuthenticationException e){
             throw new UsernameNotFoundException("Dados inválidos");
         }

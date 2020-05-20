@@ -11,9 +11,7 @@ import org.mapstruct.ReportingPolicy;
 
 public interface UsuarioMapeador {
 
-    UsuarioDto usuarioToUsuarioDto(Usuario usuario);
+    UsuarioSaidaDto usuarioToUsuarioDto(Usuario usuario);
 
     Usuario usuarioDtoToUsuario(UsuarioDto usuario);
-
-    UsuarioSaidaDto usuarioToUsuarioSaidaDto(Usuario usuario);
 }

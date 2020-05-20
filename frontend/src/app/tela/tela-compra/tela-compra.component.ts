@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/core/usuario/usuario.service';
 import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
 import { ItemCarrinho } from 'src/app/servico/item-carrinho/item-carrinho';
+import { CompraService } from 'src/app/servico/compra/compra.service';
 
 @Component({
     selector: 'app-tela-compra',
@@ -20,7 +21,8 @@ export class TelaCompraComponent {
         private formBuilder: FormBuilder,
         private sessaoService: SessaoService,
         private carrinhoService: CarrinhoService,
-        private usuarioService: UsuarioService
+        private usuarioService: UsuarioService,
+        private compraService: CompraService
     ) {
         this.formGroup = this.formBuilder.group({
             logradouro: [null, Validators.compose([Validators.required])],
@@ -58,7 +60,13 @@ export class TelaCompraComponent {
     }
 
     comprar() {
-
+        this.compraService.efetuarCompra(
+            this.carrinho.id, this.logradouro.value, this.numero.value,
+            this.bairro.value, this.cep.value, this.cidade.value, this.numeroCartao.value,
+            this.codigoSeguranca.value
+        ).subscribe(compra => {
+            console.log(compra);
+        });
     }
 
 }

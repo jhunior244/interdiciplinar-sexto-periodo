@@ -11,4 +11,6 @@ public class CarrinhoDto implements Serializable {
     private Long id;
 
     private List<ItemCarrinhoDto> listaItemCarrinho;
+
+    private UsuarioSaidaDto usuario;
 }

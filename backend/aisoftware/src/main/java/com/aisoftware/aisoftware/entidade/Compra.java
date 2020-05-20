@@ -3,6 +3,7 @@ package com.aisoftware.aisoftware.entidade;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class Compra {
 
     @Column(nullable = false)
     private ZonedDateTime data;
+
+    @Column(nullable = false)
+    private BigDecimal totalCompra;
 
     @ManyToOne
     private Usuario usuario;

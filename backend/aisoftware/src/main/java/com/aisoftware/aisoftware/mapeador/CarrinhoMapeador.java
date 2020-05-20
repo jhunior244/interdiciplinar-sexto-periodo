@@ -9,6 +9,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring",uses = {
         ItemCarrinhoMapeador.class,
+        UsuarioMapeador.class
 }, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CarrinhoMapeador {
 

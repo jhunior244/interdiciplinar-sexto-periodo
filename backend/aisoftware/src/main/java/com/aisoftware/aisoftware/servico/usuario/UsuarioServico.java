@@ -38,7 +38,10 @@ public class UsuarioServico implements IUsuarioServico {
         Carrinho carrinho = new Carrinho();
         carrinho = carrinhoJpaRepository.save(carrinho);
         usuario.setCarrinho(carrinho);
-        return usuarioJpaRepository.save(usuario);
+        usuario = usuarioJpaRepository.save(usuario);
+        carrinho.setUsuario(usuario);
+        carrinhoJpaRepository.save(carrinho);
+        return usuario;
     }
 
 

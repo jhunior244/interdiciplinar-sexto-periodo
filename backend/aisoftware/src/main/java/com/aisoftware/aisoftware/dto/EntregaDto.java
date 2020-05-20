@@ -16,6 +16,10 @@ public class EntregaDto implements Serializable {
 
     private String rua;
 
+    private String bairro;
+
+    private String cidade;
+
     private Integer numero;
 
     private String cep;

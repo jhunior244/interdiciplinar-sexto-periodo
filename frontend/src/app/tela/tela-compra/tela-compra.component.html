@@ -78,7 +78,7 @@
                     </span>
                 </div>
                 <div fxLayoutAlign="end center" style="margin-top: 25px;">
-                    <button [disabled]="carrinho?.listaItemCarrinho?.length == 0" class="button-concluir-pedico"
+                    <button [disabled]="!formGroup?.valid" class="button-concluir-pedico"
                         mat-raised-button>
                         Efetuar Compra
                     </button>

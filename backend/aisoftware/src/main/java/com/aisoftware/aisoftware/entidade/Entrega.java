@@ -18,6 +18,12 @@ public class Entrega {
     private String rua;
 
     @Column(nullable = false)
+    private String bairro;
+
+    @Column(nullable = true)
+    private String cidade;
+
+    @Column(nullable = false)
     private Integer numero;
 
     @Column(nullable = false)

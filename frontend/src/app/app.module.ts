@@ -43,6 +43,7 @@ import {MatTableModule} from '@angular/material/table';
 import { CarrinhoService } from './servico/carrinho/carrinho.service';
 import { MenuCarrinhoComponent } from './componente/menu-carrinho/menu-carrinho.component';
 import { TelaCompraComponent } from './tela/tela-compra/tela-compra.component';
+import { CompraService } from './servico/compra/compra.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { TelaCompraComponent } from './tela/tela-compra/tela-compra.component';
     UsuarioService,
     ItemService,
     SessaoService,
-    CarrinhoService
+    CarrinhoService,
+    CompraService
   ],
   bootstrap: [AppComponent]
 })
