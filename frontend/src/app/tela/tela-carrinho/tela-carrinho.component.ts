@@ -22,6 +22,9 @@ export class TelaCarrinhoComponent implements OnInit {
     public kit: Kit;
     public carrinho: Carrinho;
     public totalCompra: number;
+    public algumItemCarrinhoDisponivel = false;
+    public interval;
+    time = 5000;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -42,10 +45,16 @@ export class TelaCarrinhoComponent implements OnInit {
         this.sessaoService.getCarrinho().subscribe(carrinho => {
             this.carrinho = carrinho;
             this.calculaTotalCompra(carrinho);
+            this.calculaProdutosDisponiveisEstoque();
         });
     }
 
     ngOnInit(): void {
+        this.interval = setInterval(() => {
+            this.carrinhoService.obtem(this.sessaoService.getToken()).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+            });
+        }, this.time);
     }
 
     incrementaQuantidadeItem(item: ItemCarrinho) {
@@ -71,7 +80,9 @@ export class TelaCarrinhoComponent implements OnInit {
         }
 
         carrinho.listaItemCarrinho.forEach((item: ItemCarrinho) => {
-            this.totalCompra += item.quantidade * item.kit.preco;
+            if (item != null && item.kit != null && item.kit.quantidadeEstoque > 0) {
+                this.totalCompra += item.quantidade * item.kit.preco;
+            }
         });
     }
 
@@ -83,6 +94,16 @@ export class TelaCarrinhoComponent implements OnInit {
 
     efetuarCompra() {
         this.router.navigate([configuracao.rotaComprar]);
+    }
+
+    calculaProdutosDisponiveisEstoque() {
+        if (this.carrinho != null && this.carrinho.listaItemCarrinho != null) {
+            this.carrinho.listaItemCarrinho.forEach((item: ItemCarrinho) => {
+                if (item.kit.quantidadeEstoque > 0) {
+                    this.algumItemCarrinhoDisponivel = true;
+                }
+            });
+        }
     }
 }
 

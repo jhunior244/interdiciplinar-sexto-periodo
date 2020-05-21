@@ -2,6 +2,7 @@ package com.aisoftware.aisoftware.servico.compra;
 
 import com.aisoftware.aisoftware.entidade.*;
 import com.aisoftware.aisoftware.repositorio.carrinho.CarrinhoJpaRepository;
+import com.aisoftware.aisoftware.repositorio.carrinho.ItemCarrinhoJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.CompraJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.EntregaJpaRepository;
 import com.aisoftware.aisoftware.repositorio.kit.KitJpaRepository;
@@ -15,6 +16,7 @@ import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -25,6 +27,9 @@ public class CompraServico implements ICompraServico{
 
     @Autowired
     private KitJpaRepository kitJpaRepository;
+
+    @Autowired
+    private ItemCarrinhoJpaRepository itemCarrinhoJpaRepository;
 
     @Autowired
     private CarrinhoJpaRepository carrinhoJpaRepository;
@@ -46,7 +51,10 @@ public class CompraServico implements ICompraServico{
 
         compra = compraJpaRepository.save(compra);
         compra.setListaKit(new ArrayList<>());
-        compra.getListaKit().add(carrinho.getListaItemCarrinho().get(0).getKit());
+        compra.getListaKit().addAll(
+                carrinho.getListaItemCarrinho().stream().map(ItemCarrinho::getKit).collect(Collectors.toList())
+        );
+        carrinhoJpaRepository.save(carrinho);
 
         compraJpaRepository.save(compra);
 
@@ -58,13 +66,17 @@ public class CompraServico implements ICompraServico{
         BigDecimal totalCompra = BigDecimal.ZERO;
         for(ItemCarrinho itemCarrinho : carrinho.getListaItemCarrinho()){
 
-            totalCompra.add(itemCarrinho.getKit().getPreco().multiply(new BigDecimal(itemCarrinho.getQuantidade())));
+            if(itemCarrinho.getQuantidade() <= itemCarrinho.getKit().getQuantidadeEstoque()){
 
-            itemCarrinho.getKit().setQuantidadeEstoque(
-                    itemCarrinho.getKit().getQuantidadeEstoque() - itemCarrinho.getQuantidade()
-            );
+                totalCompra.add(itemCarrinho.getKit().getPreco().multiply(new BigDecimal(itemCarrinho.getQuantidade())));
 
-            kitJpaRepository.save(itemCarrinho.getKit());
+                itemCarrinho.getKit().setQuantidadeEstoque(
+                        itemCarrinho.getKit().getQuantidadeEstoque() - itemCarrinho.getQuantidade()
+                );
+
+                kitJpaRepository.save(itemCarrinho.getKit());
+                itemCarrinhoJpaRepository.delete(itemCarrinho);
+            }
         }
         return totalCompra;
     }

@@ -6,6 +6,9 @@ import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
 import { ItemCarrinho } from 'src/app/servico/item-carrinho/item-carrinho';
 import { CompraService } from 'src/app/servico/compra/compra.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { Router } from '@angular/router';
+import { configuracao } from 'src/app/configuracao';
 
 @Component({
     selector: 'app-tela-compra',
@@ -16,13 +19,16 @@ export class TelaCompraComponent {
     public formGroup: FormGroup;
     public carrinho: Carrinho;
     public totalCompra: number;
+    public totalItensCompra = 0;
 
     constructor(
         private formBuilder: FormBuilder,
         private sessaoService: SessaoService,
         private carrinhoService: CarrinhoService,
         private usuarioService: UsuarioService,
-        private compraService: CompraService
+        private compraService: CompraService,
+        private snackBar: MatSnackBar,
+        private router: Router
     ) {
         this.formGroup = this.formBuilder.group({
             logradouro: [null, Validators.compose([Validators.required])],
@@ -55,7 +61,10 @@ export class TelaCompraComponent {
         }
 
         carrinho.listaItemCarrinho.forEach((item: ItemCarrinho) => {
-            this.totalCompra += item.quantidade * item.kit.preco;
+            if (item != null && item.kit != null && item.kit.quantidadeEstoque > 0) {
+                this.totalCompra += item.quantidade * item.kit.preco;
+                this.totalItensCompra += item.quantidade;
+            }
         });
     }
 
@@ -66,7 +75,16 @@ export class TelaCompraComponent {
             this.codigoSeguranca.value
         ).subscribe(compra => {
             console.log(compra);
+            this.carrinhoService.obtem(this.sessaoService.getToken()).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+                const config = new MatSnackBarConfig();
+                config.panelClass = 'mensagem-sucesso';
+                config.duration = 5000;
+                this.snackBar.open('Compra efetuada com sucesso!', 'Fechar', config);
+                this.router.navigate([configuracao.rotaInicio]);
+            });
         });
     }
 
 }
+

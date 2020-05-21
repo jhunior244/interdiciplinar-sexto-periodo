@@ -4,6 +4,7 @@ import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { Carrinho } from 'src/app/servico/carrinho/carrinho';
 import { Router } from '@angular/router';
 import { configuracao } from 'src/app/configuracao';
+import { ItemCarrinho } from 'src/app/servico/item-carrinho/item-carrinho';
 
 @Component({
     selector: 'app-menu-carrinho',
@@ -17,8 +18,13 @@ export class MenuCarrinhoComponent {
         private router: Router
     ) {
         this.sessaoService.getCarrinho().subscribe(carrinho => {
+            this.quantidadeItensCarrinho = 0;
             if (carrinho && carrinho.listaItemCarrinho) {
-                this.quantidadeItensCarrinho = carrinho.listaItemCarrinho.length;
+                carrinho.listaItemCarrinho.forEach((item: ItemCarrinho) => {
+                    if (item != null && item.kit != null && item.kit.quantidadeEstoque > 0) {
+                        this.quantidadeItensCarrinho += item.quantidade;
+                    }
+                });
                 console.log(carrinho);
             } else {
                 this.quantidadeItensCarrinho = 0;

@@ -17,11 +17,11 @@
             border-radius: 10%;
             box-shadow: rgb(136, 136, 136) 1px 1px 6px;
             height: 45px; border: 2px solid darkgrey;" fxLayoutAlign="center center">
-              <button (click)="decrementaQuantidadeItem(item)" class="botao-diminuir-quantidade">
-                -
+              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="decrementaQuantidadeItem(item)" class="botao-diminuir-quantidade"> -
               </button>
-              <span style="font-size: 18px;">{{item?.quantidade}}</span>
-              <button (click)="incrementaQuantidadeItem(item)" class="botao-aumentar-quantidade">
+              <span *ngIf="item?.kit?.quantidadeEstoque > 0" style="font-size: 20px;">{{item?.quantidade}}</span>
+              <span *ngIf="item?.kit?.quantidadeEstoque === 0" style="font-size: 18px;">-</span>
+              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="incrementaQuantidadeItem(item)" class="botao-aumentar-quantidade">
                 +
               </button>
             </div>
@@ -45,7 +45,7 @@
     </div>
     <div style="width: 80%; margin: 15px;" fxLayoutAlign="end center">
       <button (click)="efetuarCompra()"
-      [disabled]="carrinho?.listaItemCarrinho?.length == 0" 
+      [disabled]="carrinho?.listaItemCarrinho?.length === 0 || !algumItemCarrinhoDisponivel" 
       class="button-concluir-pedico" mat-raised-button>
         Concluir Pedido
       </button>
