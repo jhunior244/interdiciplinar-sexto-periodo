@@ -12,16 +12,18 @@
           <div style="width: 251px; height: 131px; padding: 10px;" fxLayoutAlign="center center">
             <span>{{item?.kit?.titulo}}</span>
           </div>
-          <div fxLayout="column"> 
+          <div fxLayout="column">
             <div fxLayoutAlign="center center" style="width: 100px; 
             border-radius: 10%;
             box-shadow: rgb(136, 136, 136) 1px 1px 6px;
             height: 45px; border: 2px solid darkgrey;" fxLayoutAlign="center center">
-              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="decrementaQuantidadeItem(item)" class="botao-diminuir-quantidade"> -
+              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="decrementaQuantidadeItem(item)"
+                class="botao-diminuir-quantidade"> -
               </button>
               <span *ngIf="item?.kit?.quantidadeEstoque > 0" style="font-size: 20px;">{{item?.quantidade}}</span>
               <span *ngIf="item?.kit?.quantidadeEstoque === 0" style="font-size: 18px;">-</span>
-              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="incrementaQuantidadeItem(item)" class="botao-aumentar-quantidade">
+              <button [disabled]="item?.kit?.quantidadeEstoque === 0" (click)="incrementaQuantidadeItem(item)"
+                class="botao-aumentar-quantidade">
                 +
               </button>
             </div>
@@ -31,24 +33,27 @@
             <span style="color: green;">R$ {{item?.kit?.preco}},00</span>
           </div>
           <div style="width: 130px; height: 131px;" fxLayoutAlign="center center">
-            <button class="botao-delete" (click)="retiraItemCarrinho(item)"  mat-icon-button>
+            <button class="botao-delete" (click)="retiraItemCarrinho(item)" mat-icon-button>
               <mat-icon>delete</mat-icon>
             </button>
           </div>
         </div>
         <mat-divider></mat-divider>
+        <div fxLayout="column" fxLayoutAlign="end end" style="width: 100%; margin-top: 25px;">
+          <div fxLayout="column" fxLayoutAlign="end end">
+            <span style="font-size: 18px; color: black;">Total {{carrinho?.listaItemCarrinho?.length}} produtos</span>
+            <span style="font-size: 22px; ">Total compra <span style="color: green;">R$ {{totalCompra}},00</span> </span>
+          </div>
+          <div style="margin-top: 25px;" fxLayoutAlign="end end">
+            <button (click)="efetuarCompra()"
+              [disabled]="carrinho?.listaItemCarrinho?.length === 0 || !algumItemCarrinhoDisponivel"
+              class="button-concluir-pedido" mat-raised-button>
+              Concluir Pedido
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div fxLayout="column" style="width: 80%; margin-right: 290px;" fxLayoutAlign="end end">
-      <span style="font-size: 18px; color: black;">Total {{carrinho?.listaItemCarrinho?.length}} produtos</span>
-      <span style="font-size: 22px; ">Total compra <span style="color: green;">R$ {{totalCompra}},00</span> </span>
-    </div>
-    <div style="width: 80%; margin: 15px;" fxLayoutAlign="end center">
-      <button (click)="efetuarCompra()"
-      [disabled]="carrinho?.listaItemCarrinho?.length === 0 || !algumItemCarrinhoDisponivel" 
-      class="button-concluir-pedico" mat-raised-button>
-        Concluir Pedido
-      </button>
-    </div>
+
   </div>
 </div>

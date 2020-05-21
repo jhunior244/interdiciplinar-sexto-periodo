@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { UsuarioService } from 'src/app/core/usuario/usuario.service';
     templateUrl: './tela-carrinho.component.html',
     styleUrls: ['./tela-carrinho.component.css']
 })
-export class TelaCarrinhoComponent implements OnInit {
+export class TelaCarrinhoComponent implements OnInit, OnDestroy {
     public formGroup: FormGroup;
     id: number;
     public kit: Kit;
@@ -47,6 +47,9 @@ export class TelaCarrinhoComponent implements OnInit {
             this.calculaTotalCompra(carrinho);
             this.calculaProdutosDisponiveisEstoque();
         });
+    }
+    ngOnDestroy(): void {
+        this.interval = null;
     }
 
     ngOnInit(): void {

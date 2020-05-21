@@ -56,6 +56,7 @@ export class TelaCompraComponent {
 
     calculaTotalCompra(carrinho: Carrinho) {
         this.totalCompra = 0;
+        this.totalItensCompra = 0;
         if (carrinho == null || carrinho.listaItemCarrinho == null) {
             return;
         }
