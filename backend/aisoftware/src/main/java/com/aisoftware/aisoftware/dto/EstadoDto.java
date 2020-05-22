@@ -12,5 +12,5 @@ public class EstadoDto implements Serializable {
 
     private String nome;
 
-    private List<CidadeDto> listaCidade;
+    private String sigla;
 }

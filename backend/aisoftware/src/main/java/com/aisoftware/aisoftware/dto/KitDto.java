@@ -1,5 +1,6 @@
 package com.aisoftware.aisoftware.dto;
 
+import com.aisoftware.aisoftware.entidade.CompraKit;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -31,6 +32,8 @@ public class KitDto implements Serializable {
     private ModeloKitDto modeloKit;
 
     private List<ItemDto> listaItem;
+
+    private List<CompraKitDto> listaCompraKit;
 
     private List<ImagemDto> listaImagem;
 }

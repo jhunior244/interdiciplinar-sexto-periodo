@@ -44,6 +44,9 @@ public class Kit {
     @ManyToMany
     private List<Item> listaItem;
 
+    @OneToMany(mappedBy = "kit")
+    private List<CompraKit> listaCompraKit;
+
     @ManyToMany
     private List<Imagem> listaImagem;
 }

@@ -30,6 +30,6 @@ public class Compra {
     @ManyToMany
     private List<Item> listaItem;
 
-    @ManyToMany
-    private List<Kit> listaKit;
+    @OneToMany(mappedBy = "compra")
+    private List<CompraKit> listaCompraKit;
 }

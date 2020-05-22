@@ -44,6 +44,8 @@ import { CarrinhoService } from './servico/carrinho/carrinho.service';
 import { MenuCarrinhoComponent } from './componente/menu-carrinho/menu-carrinho.component';
 import { TelaCompraComponent } from './tela/tela-compra/tela-compra.component';
 import { CompraService } from './servico/compra/compra.service';
+import { EstadoService } from './servico/estado/estado.service';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +92,8 @@ import { CompraService } from './servico/compra/compra.service';
     MatPaginatorModule,
     MatExpansionModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [
     {
@@ -105,7 +108,8 @@ import { CompraService } from './servico/compra/compra.service';
     ItemService,
     SessaoService,
     CarrinhoService,
-    CompraService
+    CompraService,
+    EstadoService
   ],
   bootstrap: [AppComponent]
 })

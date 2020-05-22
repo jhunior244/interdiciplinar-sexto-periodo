@@ -4,6 +4,7 @@ import com.aisoftware.aisoftware.entidade.*;
 import com.aisoftware.aisoftware.repositorio.carrinho.CarrinhoJpaRepository;
 import com.aisoftware.aisoftware.repositorio.carrinho.ItemCarrinhoJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.CompraJpaRepository;
+import com.aisoftware.aisoftware.repositorio.compra.CompraKitJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.EntregaJpaRepository;
 import com.aisoftware.aisoftware.repositorio.kit.KitJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class CompraServico implements ICompraServico{
     @Autowired
     private EntregaJpaRepository entregaJpaRepository;
 
+    @Autowired
+    private CompraKitJpaRepository compraKitJpaRepository;
     @Override
     public Compra efetuarCompra(Long idCarrinho, String logradouro, Long numero, String bairro, String cep, String cidade, String numeroCartao, String codigoSeguranca) {
 
@@ -50,13 +53,10 @@ public class CompraServico implements ICompraServico{
         ));
 
         compra = compraJpaRepository.save(compra);
-        compra.setListaKit(new ArrayList<>());
-        compra.getListaKit().addAll(
-                carrinho.getListaItemCarrinho().stream().map(ItemCarrinho::getKit).collect(Collectors.toList())
-        );
         carrinhoJpaRepository.save(carrinho);
 
         compraJpaRepository.save(compra);
+        criaCompraKit(compra, carrinho);
 
         return compra;
     }
@@ -68,7 +68,7 @@ public class CompraServico implements ICompraServico{
 
             if(itemCarrinho.getQuantidade() <= itemCarrinho.getKit().getQuantidadeEstoque()){
 
-                totalCompra.add(itemCarrinho.getKit().getPreco().multiply(new BigDecimal(itemCarrinho.getQuantidade())));
+                totalCompra = totalCompra.add(itemCarrinho.getKit().getPreco().multiply(new BigDecimal(itemCarrinho.getQuantidade())));
 
                 itemCarrinho.getKit().setQuantidadeEstoque(
                         itemCarrinho.getKit().getQuantidadeEstoque() - itemCarrinho.getQuantidade()
@@ -79,6 +79,21 @@ public class CompraServico implements ICompraServico{
             }
         }
         return totalCompra;
+    }
+
+    private void criaCompraKit(Compra compra, Carrinho carrinho){
+
+        for(ItemCarrinho itemCarrinho : carrinho.getListaItemCarrinho()){
+            if(itemCarrinho.getKit().getQuantidadeEstoque() == 0){
+                continue;
+            }
+            CompraKit compraKit = new CompraKit();
+            compraKit.setCompra(compra);
+            compraKit.setKit(itemCarrinho.getKit());
+            compraKit.setPreco(itemCarrinho.getKit().getPreco());
+            compraKit.setQuantidade(itemCarrinho.getQuantidade());
+            compraKitJpaRepository.save(compraKit);
+        }
     }
 
     private Entrega criaEntrega(String logradouro, Long numero, String bairro, String cep, String cidade){

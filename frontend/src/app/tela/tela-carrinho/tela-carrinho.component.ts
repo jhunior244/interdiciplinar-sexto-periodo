@@ -53,11 +53,14 @@ export class TelaCarrinhoComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.interval = setInterval(() => {
-            this.carrinhoService.obtem(this.sessaoService.getToken()).subscribe(carrinho => {
-                this.usuarioService.setCarrinho(carrinho);
-            });
-        }, this.time);
+        if (this.usuarioService.estaLogado()) {
+            this.interval = setInterval(() => {
+                this.carrinhoService.obtem(this.sessaoService.getToken()).subscribe(carrinho => {
+                    this.usuarioService.setCarrinho(carrinho);
+                    console.log(carrinho);
+                });
+            }, this.time);
+        }
     }
 
     incrementaQuantidadeItem(item: ItemCarrinho) {

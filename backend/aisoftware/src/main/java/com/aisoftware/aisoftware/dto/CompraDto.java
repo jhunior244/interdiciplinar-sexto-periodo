@@ -1,12 +1,11 @@
 package com.aisoftware.aisoftware.dto;
 
-import com.aisoftware.aisoftware.entidade.Entrega;
-import com.aisoftware.aisoftware.entidade.Usuario;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Data
 public class CompraDto implements Serializable {
@@ -20,4 +19,6 @@ public class CompraDto implements Serializable {
     private UsuarioSaidaDto usuario;
 
     private EntregaDto entrega;
+
+    private List<CompraKitDto> listaCompraKit;
 }

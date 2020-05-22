@@ -9,6 +9,8 @@ import { CompraService } from 'src/app/servico/compra/compra.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { Router } from '@angular/router';
 import { configuracao } from 'src/app/configuracao';
+import { Estado } from 'src/app/servico/estado/estado';
+import { EstadoService } from 'src/app/servico/estado/estado.service';
 
 @Component({
     selector: 'app-tela-compra',
@@ -20,6 +22,7 @@ export class TelaCompraComponent {
     public carrinho: Carrinho;
     public totalCompra: number;
     public totalItensCompra = 0;
+    public listaEstado: Estado[] = [];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -28,7 +31,8 @@ export class TelaCompraComponent {
         private usuarioService: UsuarioService,
         private compraService: CompraService,
         private snackBar: MatSnackBar,
-        private router: Router
+        private router: Router,
+        private estadoService: EstadoService
     ) {
         this.formGroup = this.formBuilder.group({
             logradouro: [null, Validators.compose([Validators.required])],
@@ -43,6 +47,11 @@ export class TelaCompraComponent {
         this.sessaoService.getCarrinho().subscribe(carrinho => {
             this.carrinho = carrinho;
             this.calculaTotalCompra(carrinho);
+        });
+
+        this.estadoService.lista().subscribe(lista => {
+            this.listaEstado = lista;
+            console.log(lista);
         });
     }
 

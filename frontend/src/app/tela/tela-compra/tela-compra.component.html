@@ -23,7 +23,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div fxLayout="row wrap">
+                <div fxLayout="row wrap" style="margin-top: 25px;">
                     <mat-form-field style="width: 500px;">
                         <mat-label>Bairro</mat-label>
                         <input matInput [formControl]="bairro">
@@ -41,7 +41,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div fxLayout="row wrap">
+                <div fxLayout="row wrap" style="margin-top: 25px;">
                     <mat-form-field style="width: 500px;">
                         <mat-label>Cidade</mat-label>
                         <input matInput [formControl]="cidade">
@@ -50,8 +50,16 @@
                             Campo obrigatório
                         </mat-error>
                     </mat-form-field>
+                    <mat-form-field style="width: 100px; margin-left: 10px;">
+                        <mat-label>Estado</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let estado of listaEstado" [value]="estado">
+                            {{estado.sigla}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
                 </div>
-                <div fxLayout="row wrap">
+                <div fxLayout="row wrap" style="margin-top: 25px;">
                     <mat-form-field style="width: 500px;">
                         <mat-label>Numero Cartão</mat-label>
                         <input matInput [formControl]="numeroCartao">

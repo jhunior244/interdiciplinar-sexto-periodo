@@ -39,18 +39,18 @@
           </div>
         </div>
         <mat-divider></mat-divider>
-        <div fxLayout="column" fxLayoutAlign="end end" style="width: 100%; margin-top: 25px;">
-          <div fxLayout="column" fxLayoutAlign="end end">
-            <span style="font-size: 18px; color: black;">Total {{carrinho?.listaItemCarrinho?.length}} produtos</span>
-            <span style="font-size: 22px; ">Total compra <span style="color: green;">R$ {{totalCompra}},00</span> </span>
-          </div>
-          <div style="margin-top: 25px;" fxLayoutAlign="end end">
-            <button (click)="efetuarCompra()"
-              [disabled]="carrinho?.listaItemCarrinho?.length === 0 || !algumItemCarrinhoDisponivel"
-              class="button-concluir-pedido" mat-raised-button>
-              Concluir Pedido
-            </button>
-          </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="end end" style="width: 100%; margin-top: 25px;">
+        <div fxLayout="column" fxLayoutAlign="end end">
+          <span style="font-size: 18px; color: black;">Total {{carrinho?.listaItemCarrinho?.length}} produtos</span>
+          <span style="font-size: 22px; ">Total compra <span style="color: green;">R$ {{totalCompra}},00</span> </span>
+        </div>
+        <div style="margin-top: 25px;" fxLayoutAlign="end end">
+          <button (click)="efetuarCompra()"
+            [disabled]="carrinho?.listaItemCarrinho?.length === 0 || !algumItemCarrinhoDisponivel"
+            class="button-concluir-pedido" mat-raised-button>
+            Concluir Pedido
+          </button>
         </div>
       </div>
     </div>
