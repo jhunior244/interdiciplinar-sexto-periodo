@@ -21,6 +21,12 @@ public class Compra {
     @Column(nullable = false)
     private BigDecimal totalCompra;
 
+    @Column
+    private String numeroCartao;
+
+    @Column
+    private String codigoSeguranca;
+
     @ManyToOne
     private Usuario usuario;
 

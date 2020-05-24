@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { configuracao } from 'src/app/configuracao';
 import { KitService } from 'src/app/servico/kit/kit.service';
@@ -16,11 +16,14 @@ import { CarrinhoService } from 'src/app/servico/carrinho/carrinho.service';
     templateUrl: './tela-visualiza-produto.component.html',
     styleUrls: ['./tela-visualiza-produto.component.css']
 })
-export class TelaVisualizaProdutoComponent {
+export class TelaVisualizaProdutoComponent implements OnInit {
     public carrinho: Carrinho;
     id: number;
     public kit: Kit;
     public caminhoImagemFull = '';
+    public interval;
+    time = 5000;
+
     constructor(
         private activatedRoute: ActivatedRoute,
         private kitService: KitService,
@@ -47,6 +50,13 @@ export class TelaVisualizaProdutoComponent {
             this.carrinho = carrinho;
         });
     }
+    ngOnInit(): void {
+        this.interval = setInterval(() => {
+            this.kitService.obtem(this.id).subscribe(kit => {
+                this.kit = kit;
+            });
+        }, this.time);
+    }
     alteraImagem(caminho: string) {
         this.caminhoImagemFull = caminho;
     }
@@ -54,7 +64,10 @@ export class TelaVisualizaProdutoComponent {
 
     comprar() {
         if (this.usuarioService.estaLogado()) {
-            this.router.navigate([configuracao.rotaComprar + '/' + this.id]);
+            this.carrinhoService.adicionaKitCarrinho(this.kit.id, this.carrinho.id).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+                this.router.navigate([configuracao.rotaCarrinhoCompra]);
+            });
         } else {
             this.sessaoService.setRotaRedirecionarAposLogin(configuracao.rotaVisualizaProduto + '/' + this.id);
             this.router.navigate([configuracao.rotaLogin]);
@@ -62,10 +75,14 @@ export class TelaVisualizaProdutoComponent {
     }
 
     colocarNoCarrinho() {
-        this.carrinhoService.adicionaKitCarrinho(this.kit.id, this.carrinho.id).subscribe(carrinho => {
-            this.usuarioService.setCarrinho(carrinho);
-        });
-        this.router.navigate([configuracao.rotaCarrinhoCompra]);
+        if (this.usuarioService.estaLogado()) {
+            this.carrinhoService.adicionaKitCarrinho(this.kit.id, this.carrinho.id).subscribe(carrinho => {
+                this.usuarioService.setCarrinho(carrinho);
+            });
+        } else {
+            this.sessaoService.setRotaRedirecionarAposLogin(configuracao.rotaVisualizaProduto + '/' + this.id);
+            this.router.navigate([configuracao.rotaLogin]);
+        }
     }
 
 }

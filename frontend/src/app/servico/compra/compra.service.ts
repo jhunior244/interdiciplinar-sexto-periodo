@@ -23,7 +23,8 @@ export class CompraService {
         cep: string,
         cidade: string,
         numeroCartao: string,
-        codigoSeguranca: string
+        codigoSeguranca: string,
+        idEstado: number
     ): Observable<Compra> {
 
         let httpParams = new HttpParams();
@@ -48,6 +49,9 @@ export class CompraService {
         }
         if (codigoSeguranca) {
             httpParams = httpParams.append('codigoSeguranca', codigoSeguranca);
+        }
+        if (idEstado) {
+            httpParams = httpParams.append('idEstado', idEstado.toString());
         }
 
         return this.httpCliente.get<Compra>(this.url + '/efetuarCompra', { params: httpParams });

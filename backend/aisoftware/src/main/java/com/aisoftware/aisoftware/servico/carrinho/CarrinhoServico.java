@@ -8,6 +8,7 @@ import com.aisoftware.aisoftware.repositorio.kit.KitJpaRepository;
 import com.aisoftware.aisoftware.repositorio.usuario.UsuarioJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.transaction.Transactional;
 import java.time.ZonedDateTime;
@@ -42,16 +43,21 @@ public class CarrinhoServico implements ICarrinhoServico {
     public Carrinho adicionaKitCarrinho(Long idKit, Long idCarrinho){
         Carrinho carrinho = carrinhoJpaRepository.findById(idCarrinho).get();
         Kit kit = kitJpaRepository.findById(idKit).get();
-
-        ItemCarrinho itemCarrinho = new ItemCarrinho();
-        itemCarrinho.setDataAdicao(ZonedDateTime.now());
-        itemCarrinho.setQuantidade(1);
-        itemCarrinho.setKit(kit);
-        itemCarrinho.setCarrinho(carrinho);
-        itemCarrinho = itemCarrinhoJpaRepository.save(itemCarrinho);
-
-        carrinho.getListaItemCarrinho().add(itemCarrinho);
-        return carrinho;
+        ItemCarrinho itemCarrinho = carrinho.getListaItemCarrinho().stream()
+                .filter(item -> item.getKit().getId().equals(idKit)).findFirst().orElse(null);
+        if(ObjectUtils.isEmpty(itemCarrinho)){
+            itemCarrinho = new ItemCarrinho();
+            itemCarrinho.setDataAdicao(ZonedDateTime.now());
+            itemCarrinho.setQuantidade(1);
+            itemCarrinho.setKit(kit);
+            itemCarrinho.setCarrinho(carrinho);
+            itemCarrinho = itemCarrinhoJpaRepository.save(itemCarrinho);
+            carrinho.getListaItemCarrinho().add(itemCarrinho);
+        } else if(kit.getQuantidadeEstoque() > itemCarrinho.getQuantidade()) {
+            itemCarrinho.setQuantidade(itemCarrinho.getQuantidade() + 1);
+            itemCarrinhoJpaRepository.save(itemCarrinho);
+        }
+        return carrinhoJpaRepository.findById(idCarrinho).get();
     }
 
     @Override

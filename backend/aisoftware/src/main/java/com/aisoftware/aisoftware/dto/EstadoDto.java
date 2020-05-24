@@ -13,4 +13,6 @@ public class EstadoDto implements Serializable {
     private String nome;
 
     private String sigla;
+
+    private EstadoDto estado;
 }

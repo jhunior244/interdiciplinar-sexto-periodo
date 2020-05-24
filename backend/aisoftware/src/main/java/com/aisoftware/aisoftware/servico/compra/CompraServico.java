@@ -6,18 +6,14 @@ import com.aisoftware.aisoftware.repositorio.carrinho.ItemCarrinhoJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.CompraJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.CompraKitJpaRepository;
 import com.aisoftware.aisoftware.repositorio.compra.EntregaJpaRepository;
+import com.aisoftware.aisoftware.repositorio.compra.EstadoJpaRepository;
 import com.aisoftware.aisoftware.repositorio.kit.KitJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.ObjectUtils;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -40,16 +36,22 @@ public class CompraServico implements ICompraServico{
 
     @Autowired
     private CompraKitJpaRepository compraKitJpaRepository;
+
+    @Autowired
+    private EstadoJpaRepository estadoJpaRepository;
+
     @Override
-    public Compra efetuarCompra(Long idCarrinho, String logradouro, Long numero, String bairro, String cep, String cidade, String numeroCartao, String codigoSeguranca) {
+    public Compra efetuarCompra(Long idCarrinho, String logradouro, Long numero, String bairro, String cep, String cidade, String numeroCartao, String codigoSeguranca, Long idEstado) {
 
         Carrinho carrinho = carrinhoJpaRepository.findById(idCarrinho).get();
         Compra compra = new Compra();
         compra.setTotalCompra(calculaTotalCompra(carrinho));
         compra.setUsuario(carrinho.getUsuario());
         compra.setData(ZonedDateTime.now());
+        compra.setNumeroCartao(numeroCartao);
+        compra.setCodigoSeguranca(codigoSeguranca);
         compra.setEntrega(criaEntrega(
-                logradouro, numero, bairro, cep, cidade
+                logradouro, numero, bairro, cep, cidade, idEstado
         ));
 
         compra = compraJpaRepository.save(compra);
@@ -96,7 +98,7 @@ public class CompraServico implements ICompraServico{
         }
     }
 
-    private Entrega criaEntrega(String logradouro, Long numero, String bairro, String cep, String cidade){
+    private Entrega criaEntrega(String logradouro, Long numero, String bairro, String cep, String cidade, Long idEstado){
 
         Entrega entrega = new Entrega();
 
@@ -105,7 +107,7 @@ public class CompraServico implements ICompraServico{
         entrega.setBairro(bairro);
         entrega.setCep(cep);
         entrega.setCidade(cidade);
-
+        entrega.setEstado(estadoJpaRepository.getOne(idEstado));
         return entregaJpaRepository.save(entrega);
     }
 

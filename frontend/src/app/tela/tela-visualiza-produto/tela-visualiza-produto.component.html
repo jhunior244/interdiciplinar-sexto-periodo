@@ -33,16 +33,19 @@
                 </div>
                 <div fxLayout="column" class="informacoes-produto">
                     <h1 style="font-size: 26px;">{{kit?.titulo}}</h1>
-                    <span fxLayoutAlign="center" style="font-size: 18px; margin-top: 30px; color: green;">R$ {{kit?.preco}}</span>
+                    <span fxLayoutAlign="center" style="font-size: 18px; margin-top: 30px; color: green;">R$ {{kit?.preco}},00</span>
                     <span *ngIf="kit?.quantidadeEstoque != null && kit?.quantidadeEstoque > 0" fxLayoutAlign="center" style="font-size: 21px; margin-top: 30px;">
                         {{kit.quantidadeEstoque}} Disponiveis em estoque
                     </span>
+                    <span *ngIf="kit?.quantidadeEstoque != null && kit?.quantidadeEstoque === 0" fxLayoutAlign="center" style="font-size: 21px; margin-top: 30px;">
+                        Produto indísponivel
+                    </span>
                     <div style="margin-top: 30px;" fxLayoutAlign="center">
-                        <button (click)="comprar()" mat-raised-button>
+                        <button [disabled]="kit?.quantidadeEstoque === 0" (click)="comprar()" mat-raised-button>
                             COMPRAR
                         </button>
-                        <button mat-raised-button (click)="colocarNoCarrinho()">
-                            COLOCAR NO CARRINHO
+                        <button [disabled]="kit?.quantidadeEstoque === 0" mat-raised-button (click)="colocarNoCarrinho()">
+                            <mat-icon>add_shopping_cart</mat-icon>
                         </button>
                     </div>
                 </div>

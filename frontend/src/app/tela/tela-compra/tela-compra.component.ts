@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SessaoService } from 'src/app/core/sessao/sessao.service';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
@@ -17,7 +17,7 @@ import { EstadoService } from 'src/app/servico/estado/estado.service';
     templateUrl: './tela-compra.component.html',
     styleUrls: ['./tela-compra.component.css']
 })
-export class TelaCompraComponent {
+export class TelaCompraComponent implements OnInit {
     public formGroup: FormGroup;
     public carrinho: Carrinho;
     public totalCompra: number;
@@ -42,6 +42,7 @@ export class TelaCompraComponent {
             cep: [null, Validators.required],
             numeroCartao: [null, Validators.required],
             codigoSeguranca: [null, Validators.required],
+            estado: [null, Validators.required]
         });
 
         this.sessaoService.getCarrinho().subscribe(carrinho => {
@@ -54,6 +55,9 @@ export class TelaCompraComponent {
             console.log(lista);
         });
     }
+    ngOnInit(): void {
+
+    }
 
     get logradouro(): AbstractControl { return this.formGroup.controls.logradouro; }
     get numero(): AbstractControl { return this.formGroup.controls.numero; }
@@ -62,6 +66,7 @@ export class TelaCompraComponent {
     get cep(): AbstractControl { return this.formGroup.controls.cep; }
     get numeroCartao(): AbstractControl { return this.formGroup.controls.numeroCartao; }
     get codigoSeguranca(): AbstractControl { return this.formGroup.controls.codigoSeguranca; }
+    get estado(): AbstractControl { return this.formGroup.controls.estado; }
 
     calculaTotalCompra(carrinho: Carrinho) {
         this.totalCompra = 0;
@@ -82,7 +87,7 @@ export class TelaCompraComponent {
         this.compraService.efetuarCompra(
             this.carrinho.id, this.logradouro.value, this.numero.value,
             this.bairro.value, this.cep.value, this.cidade.value, this.numeroCartao.value,
-            this.codigoSeguranca.value
+            this.codigoSeguranca.value, this.estado.value.id
         ).subscribe(compra => {
             console.log(compra);
             this.carrinhoService.obtem(this.sessaoService.getToken()).subscribe(carrinho => {

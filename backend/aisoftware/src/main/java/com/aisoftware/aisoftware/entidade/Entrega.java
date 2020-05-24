@@ -29,6 +29,9 @@ public class Entrega {
     @Column(nullable = false)
     private String cep;
 
+    @ManyToOne
+    private Estado estado;
+
     @Column
     private ZonedDateTime dataEntrega;
 

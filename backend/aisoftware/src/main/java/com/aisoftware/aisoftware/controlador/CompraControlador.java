@@ -32,10 +32,11 @@ public class CompraControlador {
                                    String cep,
                                    String cidade,
                                    String numeroCartao,
-                                   String codigoSeguranca){
+                                   String codigoSeguranca,
+                                   Long idEstado){
 
         return compraMapeador.compraToCompraDto(compraServico.efetuarCompra(
-                idCarrinho, logradouro, numero, bairro, cep, cidade, numeroCartao, codigoSeguranca
+                idCarrinho, logradouro, numero, bairro, cep, cidade, numeroCartao, codigoSeguranca, idEstado
         ));
     }
 

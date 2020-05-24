@@ -33,17 +33,19 @@ mat-divider.mat-divider-vertical {
     margin: 12px;
 }
 
-.informacoes-produto button {
+/* .informacoes-produto button {
     color:rgb(0, 0, 0);
     background-color: green;
     margin: 12px 0 12px 7px;
     box-shadow: 0.5px 0px 0.5em black;
-}
-
-.informacoes-produto button:hover {
-    transform: scale(1.1);
-}
+} */
 
 h4 {
     margin-left: 25px;
+}
+
+button {
+    background-color: orange;
+    margin: 15px;
+    cursor: pointer;
 }

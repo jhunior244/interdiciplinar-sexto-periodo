@@ -16,7 +16,7 @@
                     </mat-form-field>
                     <mat-form-field style="width: 100px; margin-left: 10px;">
                         <mat-label>Número</mat-label>
-                        <input type="text" matInput [formControl]="numero">
+                        <input type="number" matInput [formControl]="numero">
                         <mat-hint>Campo obrigatório</mat-hint>
                         <mat-error *ngIf="numero.hasError('required')">
                             Campo obrigatório
@@ -52,11 +52,15 @@
                     </mat-form-field>
                     <mat-form-field style="width: 100px; margin-left: 10px;">
                         <mat-label>Estado</mat-label>
-                        <mat-select>
+                        <mat-select [formControl]="estado">
                           <mat-option *ngFor="let estado of listaEstado" [value]="estado">
                             {{estado.sigla}}
                           </mat-option>
                         </mat-select>
+                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-error *ngIf="estado.hasError('required')">
+                            Campo obrigatório
+                        </mat-error>
                       </mat-form-field>
                 </div>
                 <div fxLayout="row wrap" style="margin-top: 25px;">
